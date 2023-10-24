@@ -1,14 +1,14 @@
 version: '3'
 networks:
-  pizza-shop.net:
+  nrv.net:
     driver: bridge
 services:
 
-  # service api.pizza-shop : api pour la prise de commandes
+  # service api.nrv : api pour la reservation et la recuperation des billets + gestion des spectacles, soirées, lieux et artistes
   #
   api.nrv:
     image: 'canals/php:latest'
-    env_file: ./shop.env
+    env_file: ./nrv.env
     ports:
       - '16584:80'
       - '23485:443'
@@ -21,14 +21,28 @@ services:
         aliases:
           - api.nrv.local
     depends_on:
-      - nrv.db
+      - nrv.ticket.db
+      - nrv.event.db
 
-  # service sql pour le stockage des commandes -
-  # utilisé par l'api order
-  nrv.db:
+  # service sql pour la reservation des billets
+  # utilisé par l'api de reservation et de recuperation des billets
+  nrv.ticket.db:
     image: 'mariadb:latest'
     command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
-    env_file: ./shop.env
+    env_file: ./nrv.env
+    ports:
+      - '46845:3306'
+    networks:
+      - nrv.net
+    volumes:
+      - ../shop.nrv/sql:/var/sql
+
+  # service sql pour le stockage des spectacles, soirées, lieux et artistes
+  # utilisé par l'api de reservation et de recup des billets
+  nrv.event.db:
+    image: 'mariadb:latest'
+    command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
+    env_file: ./nrv.env
     ports:
       - '46845:3306'
     networks:
@@ -41,6 +55,8 @@ services:
   #
   adminer:
     image: adminer
+    command: php -S 0.0.0.0:8080 -t /var/www/html
+    # a peut etre supprimer
     env_file:
       - ./shop.env
     ports:
