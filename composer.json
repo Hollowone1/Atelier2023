@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4" : {
-      "pizzashop\\auth\\api\\" : "./src/"
+      "NRV\\auth\\api\\" : "./src/"
     }
   }
 }
