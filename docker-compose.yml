@@ -1,6 +1,6 @@
 version: '3'
 networks:
-  pizza-shop.net:
+  nrv.net:
     driver: bridge
 services:
 
