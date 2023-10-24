@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>NRV.net - Panier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="...">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-1">NRV</div>
+            <div class="logo-2">.net</div>
+        </div>
+        <nav>
+            <div class="nav-item">Accueil</div>
+            <div class="nav-item">Programmation 2023</div>
+            <div class="nav-item">Je réserve</div>
+        </nav>
+    </header>
+    <main>
+        <h1>Passer votre commande :</h1>
+        <form>
+            <div class="panier">
+                <div class="panier-row">
+                    <label for="num-carte">Numéro de carte:</label>
+                    <input type="text" id="num-carte" name="num-carte">
+                    <label for="nom-carte">Nom sur la carte :</label>
+                    <input type="text" id="nom-carte" name="nom-carte">
+                </div>
+                <div class="panier-row">
+                    <label for="carte-mois">Mois de fin de validité :</label>
+                    <input type="text" id="carte-mois" name="carte-mois">
+                    <label for="carte-annee">Année de fin de validité :</label>
+                    <input type="text" id="carte-annee" name="carte-annee">
+                    <label for="carte-code">CVC :</label>
+                    <input type="text" id="carte-code" name="carte-code">
+                </div>
+                <div class="panier-row">
+                    <!-- répéter selon BDD -->
+                    <div class="panier-item">Blablabalablaba - 35€</div>
+                    <div class="panier-total">
+                        <p>Montant total :</p>
+                        <p class="montant-total">le montant total</p>
+                    </div>
+                </div>
+            </div>
+            <button class="confirmer">Confirmer ma commande</button>
+        </form>
+    </main>
+    <footer>
+        <div class="logo">
+            <div class="logo-1">NRV</div>
+            <div class="logo-2">.net</div>
+        </div>
+        <nav>
+            <div class="nav-item">À propos</div>
+        </nav>
+    </footer>
+</body>
+</html>
