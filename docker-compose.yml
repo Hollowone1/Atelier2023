@@ -1,0 +1,83 @@
+version: '3'
+networks:
+  pizza-shop.net:
+    driver: bridge
+services:
+
+  # service api.pizza-shop : api pour la prise de commandes
+  #
+  api.nrv:
+    image: 'canals/php:latest'
+    env_file: ./shop.env
+    ports:
+      - '16584:80'
+      - '23485:443'
+    volumes:
+      - ../shop.nrv/public:/var/www/html
+      - ../shop.nrv:/var/www
+    working_dir: /var/www/
+    networks:
+      nrv.net:
+        aliases:
+          - api.nrv.local
+    depends_on:
+      - nrv.db
+
+  # service sql pour le stockage des commandes -
+  # utilisé par l'api order
+  nrv.db:
+    image: 'mariadb:latest'
+    command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
+    env_file: ./shop.env
+    ports:
+      - '46845:3306'
+    networks:
+      - nrv.net
+    volumes:
+      - ../shop.nrv/sql:/var/sql
+
+  #
+  # service administration des bases sql
+  #
+  adminer:
+    image: adminer
+    env_file:
+      - ./shop.env
+    ports:
+      - '35948:8080'
+    networks:
+      - nrv.net
+
+
+  ######################################
+  ###  AUTH Service : service d'authentification JWT
+  ###  api api.auth : auth, check, refresh de token JWT
+  ###  utilise sa propre base de données
+  ######################################
+  api.nrv-auth:
+    image: 'canals/php:latest'
+    env_file: ./auth.env
+    ports:
+      - '23584:80'
+      - '26885:443'
+    volumes:
+      - ../auth.nrv/public:/var/www/html
+      - ../auth.nrv:/var/www
+    working_dir: /var/www
+    networks:
+      nrv.net:
+        aliases:
+          - auth.nrv.local
+    depends_on:
+      - nrv.auth.db
+
+  nrv.auth.db:
+    image: 'mariadb:latest'
+    command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
+    env_file: ./auth.env
+    ports:
+      - '36995:3306'
+    networks:
+      - nrv.net
+    volumes:
+      - ../auth.nrv/sql:/var/sql
