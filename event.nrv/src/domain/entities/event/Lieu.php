@@ -8,8 +8,8 @@ use nrv\event\api\domain\dto\event\LieuDTO;
 class Lieu extends Model
 {
 
-    protected $connection = 'event';
-    protected $table = 'lieu';
+    protected $connection = 'nrv_event';
+    protected $table = 'Lieu';
     protected $primaryKey = 'idLieu';
     protected $keyType = 'string';
     public $timestamps = false;

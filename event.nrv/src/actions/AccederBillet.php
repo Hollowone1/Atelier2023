@@ -2,6 +2,7 @@
 
 namespace nrv\event\api\app\actions;
 
+use Exception;
 use nrv\event\api\app\actions\AbstractAction;
 use nrv\event\api\domain\service\classes\BilletService;
 use Slim\Psr7\Request;

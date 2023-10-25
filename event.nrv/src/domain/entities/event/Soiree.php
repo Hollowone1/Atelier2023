@@ -9,8 +9,8 @@ use nrv\event\api\domain\dto\event\SoireeDTO;
 class Soiree extends Model
 {
 
-    protected $connection = 'event';
-    protected $table = 'soiree';
+    protected $connection = 'nrv_event';
+    protected $table = 'Soiree';
     protected $primaryKey = 'idSoiree';
     protected $keyType = 'string';
     public $timestamps = false;

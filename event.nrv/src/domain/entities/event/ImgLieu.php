@@ -8,8 +8,8 @@ use nrv\event\api\domain\dto\event\ImgLieuDTO;
 class ImgLieu extends Model
 {
 
-    protected $connection = 'event';
-    protected $table = 'imgLieu';
+    protected $connection = 'nrv_event';
+    protected $table = 'ImgLieu';
     protected $primaryKey = 'idImg';
     protected $keyType = 'string';
     public $timestamps = false;

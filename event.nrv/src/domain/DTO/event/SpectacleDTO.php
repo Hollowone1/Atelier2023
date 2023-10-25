@@ -18,4 +18,13 @@ class spectacleDTO extends DTO {
             $this->horaire = $horaire;
         }
 
+        public function toArray() {
+            return [
+                'titre' => $this->titre,
+                'description' => $this->description,
+                'urlVideo' => $this->urlVideo,
+                'horaire' => $this->horaire
+            ];
+        }
+
 }

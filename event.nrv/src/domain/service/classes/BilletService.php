@@ -30,7 +30,7 @@ class BilletService implements IBillet
             $billetEntity->idBillet = $billetId;
             $billetEntity->codeQR = $qrCode;
             $billetEntity->idUtilisateur = $_SESSION['idUtilisateur'];
-            $billetEntity->idSoiree = $ss->lireIdSoiree($billetDTO->idSoiree);
+            $billetEntity->idSoiree = $this->ss->lireIdSoiree($billetDTO->idSoiree);
 
             return $billetEntity->toDTO();
         }
@@ -42,11 +42,38 @@ class BilletService implements IBillet
 
     public function lireBillet(string $id): billetDTO
     {
-        // TODO: Implement lireBillet() method.
+        try {
+            $billetEntity = Billet::find($id);
+            if ($billetEntity == null) {
+                throw new \Exception("Billet introuvable");
+            }
+            return $billetEntity->toDTO();
+        }
+        catch (\Exception $e){
+            $this->logger->error($e->getMessage());
+            throw new \Exception("Erreur lors de la lecture du billet");
+        }
     }
 
+    // methode pour valider un billet (verifier le nombre de billet restant avant que l'utilisateur puisse en acheter)
     public function validerBillet(string $id): billetDTO
     {
-        // TODO: Implement validerBillet() method.
+        try {
+            $nbPlacesRestantes = $this->ss->lireNbPlacesRestantes($id);
+            if ($nbPlacesRestantes == 0) {
+                throw new \Exception("Plus de places disponibles");
+            }
+            $this->ss->decrementerNbPlacesRestantes($id);
+            $this->logger->info("Billet validé");
+            $billetEntity = Billet::find($id);
+            if ($billetEntity == null) {
+                throw new \Exception("Billet introuvable");
+            }
+            return $billetEntity->toDTO();
+        }
+        catch (\Exception $e){
+            $this->logger->error($e->getMessage());
+            throw new \Exception("Erreur lors de la validation du billet");
+        }
     }
 }

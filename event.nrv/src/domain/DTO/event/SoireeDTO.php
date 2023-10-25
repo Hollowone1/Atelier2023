@@ -21,4 +21,16 @@ class soireeDTO {
         $this->tarifReduit = $tarifReduit;
         $this->lieu = $lieu;
     }
+
+    public function toArray() {
+        return [
+            'nom' => $this->nom,
+            'theme' => $this->theme,
+            'date' => $this->date,
+            'horaire' => $this->horaire,
+            'tarifNormal' => $this->tarifNormal,
+            'tarifReduit' => $this->tarifReduit,
+            'lieu' => $this->lieu
+        ];
+    }
 }
