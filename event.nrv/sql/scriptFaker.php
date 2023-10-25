@@ -1,5 +1,6 @@
 <?php
-require 'vendor/autoload.php'; // Assurez-vous d'avoir installé la bibliothèque Faker.
+require '/var/www/vendor/autoload.php'; // Assurez-vous d'avoir installé la bibliothèque Faker.
+
 
 $faker = Faker\Factory::create();
 
