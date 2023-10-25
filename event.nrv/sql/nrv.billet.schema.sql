@@ -11,8 +11,6 @@ CREATE TABLE Billet
     idBillet      INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     codeQR        VARCHAR(255)       NOT NULL,
     idUtilisateur INT                NOT NULL,
-    idSoiree      INT                NOT NULL,
-    FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur),
-    FOREIGN KEY (idSoiree) REFERENCES Soiree (idSoiree)
+    idSoiree      INT                NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
