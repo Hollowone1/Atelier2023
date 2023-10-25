@@ -4,7 +4,7 @@ networks:
     driver: bridge
 services:
 
-  # service api.nrv : api pour la reservation et la recuperation des billets + gestion des spectacles, soirées, lieux et artistes
+  #    service api.nrv : api pour la reservation et la recuperation des billets + gestion des spectacles, soirées, lieux et artistes
   #
   api.nrv:
     image: 'canals/php:latest'

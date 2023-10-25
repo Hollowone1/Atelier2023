@@ -2,6 +2,7 @@
 
 namespace nrv\auth\api\domain\dto\user;
 
+
 class UserDTO {
     public string $prenom;
     public string $nom;
