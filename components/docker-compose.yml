@@ -13,8 +13,8 @@ services:
       - '16584:80'
       - '23485:443'
     volumes:
-      - ../shop.nrv/public:/var/www/html
-      - ../shop.nrv:/var/www
+      - ../event.nrv/public:/var/www/html
+      - ../event.nrv:/var/www
     working_dir: /var/www/
     networks:
       nrv.net:
@@ -29,26 +29,26 @@ services:
   nrv.ticket.db:
     image: 'mariadb:latest'
     command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
-    env_file: ./nrv.env
+    env_file: ./ticket.env
     ports:
       - '46845:3306'
     networks:
       - nrv.net
     volumes:
-      - ../shop.nrv/sql:/var/sql
+      - ../event.nrv/sql:/var/sql
 
   # service sql pour le stockage des spectacles, soirées, lieux et artistes
   # utilisé par l'api de reservation et de recup des billets
   nrv.event.db:
     image: 'mariadb:latest'
     command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
-    env_file: ./nrv.env
+    env_file: ./event.env
     ports:
       - '46845:3306'
     networks:
       - nrv.net
     volumes:
-      - ../shop.nrv/sql:/var/sql
+      - ../event.nrv/sql:/var/sql
 
   #
   # service administration des bases sql
@@ -56,9 +56,8 @@ services:
   adminer:
     image: adminer
     command: php -S 0.0.0.0:8080 -t /var/www/html
-    # a peut etre supprimer
-    env_file:
-      - ./shop.env
+#    env_file:
+#      - ./shop.env
     ports:
       - '35948:8080'
     networks:
