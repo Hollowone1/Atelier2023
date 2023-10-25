@@ -1,6 +1,6 @@
 <?php
 
-namespace nrv\event\api\domain\DTO\spectacle;
+namespace nrv\event\api\domain\DTO\event;
 use nrv\event\api\domain\DTO;
 
 class spectacleDTO extends DTO {

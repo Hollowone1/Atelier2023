@@ -3,7 +3,7 @@
 namespace nrv\event\api\domain\entities\event;
 
 use Illuminate\Database\Eloquent\Model;
-use nrv\event\api\domain\dto\spectacle\SpectacleDTO;
+use nrv\event\api\domain\DTO\event\SpectacleDTO;
 
 class Spectacle extends Model
 {

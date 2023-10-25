@@ -1,6 +1,6 @@
 <?php
 
-namespace nrv\event\api\domain\DTO\soiree;
+namespace nrv\event\api\domain\DTO\event;
 use nrv\event\api\domain\DTO;
 
 class soireeDTO {

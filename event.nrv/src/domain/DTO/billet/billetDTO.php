@@ -1,9 +1,9 @@
 <?php
 
-namespace nrv\event\api\domain\DTO\ticket;
+namespace nrv\event\api\domain\DTO\billet;
 use nrv\event\api\domain\DTO;
 
-class ticketDTO extends DTO {
+class billetDTO extends DTO {
     
     public string $qrCode;
 
