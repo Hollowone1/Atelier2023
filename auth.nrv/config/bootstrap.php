@@ -3,6 +3,8 @@
 use Illuminate\Database\Capsule\Manager as Eloquent;
 use Slim\Factory\AppFactory;
 
+session_start();
+
 $dep = require_once __DIR__ . '/container.php';
 
 $builder = new DI\ContainerBuilder();
