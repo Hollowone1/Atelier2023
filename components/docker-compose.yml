@@ -31,7 +31,7 @@ services:
     command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
     env_file: ./ticket.env
     ports:
-      - '46845:3306'
+      - '56856:3306'
     networks:
       - nrv.net
     volumes:
