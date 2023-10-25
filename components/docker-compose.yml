@@ -13,8 +13,8 @@ services:
       - '16584:80'
       - '23485:443'
     volumes:
-      - ../shop.nrv/public:/var/www/html
-      - ../shop.nrv:/var/www
+      - ../event.nrv/public:/var/www/html
+      - ../event.nrv:/var/www
     working_dir: /var/www/
     networks:
       nrv.net:
@@ -35,7 +35,7 @@ services:
     networks:
       - nrv.net
     volumes:
-      - ../shop.nrv/sql:/var/sql
+      - ../event.nrv/sql:/var/sql
 
   # service sql pour le stockage des spectacles, soirées, lieux et artistes
   # utilisé par l'api de reservation et de recup des billets
@@ -48,7 +48,7 @@ services:
     networks:
       - nrv.net
     volumes:
-      - ../shop.nrv/sql:/var/sql
+      - ../event.nrv/sql:/var/sql
 
   #
   # service administration des bases sql
