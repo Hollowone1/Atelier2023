@@ -35,18 +35,6 @@ CREATE TABLE Soiree
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-DROP TABLE IF EXISTS `billet`;
-CREATE TABLE Billet
-(
-    idBillet      INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    codeQR        VARCHAR(255)       NOT NULL,
-    idUtilisateur INT                NOT NULL,
-    idSoiree      INT                NOT NULL,
-    FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur),
-    FOREIGN KEY (idSoiree) REFERENCES Soiree (idSoiree)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
-
 DROP TABLE IF EXISTS `lieu`;
 CREATE TABLE Lieu
 (
