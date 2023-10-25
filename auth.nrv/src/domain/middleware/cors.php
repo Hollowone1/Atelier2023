@@ -7,7 +7,6 @@ class CorsMiddleware
     {
         $response = $next($request, $response);
 
-        // Ajoutez les en-têtes CORS ici
         $response = $response
             ->withHeader('Access-Control-Allow-Origin', 'https://nrv.net')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
