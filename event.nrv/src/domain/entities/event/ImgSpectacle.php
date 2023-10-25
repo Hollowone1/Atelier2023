@@ -19,6 +19,11 @@ class ImgSpectacle extends Model
         'idSpectacle'
     ];
 
+    public function spectacles()
+    {
+        return $this->belongsTo(Spectacle::class, 'idSpectacle');
+    }
+
     public function toDTO(): ImgSpectacleDTO
     {
         return new ImgSpectacleDTO(

@@ -22,6 +22,16 @@ class Lieu extends Model
         'idImg',
     ];
 
+    public function soirees()
+    {
+        return $this->belongsToMany(Soiree::class, 'soiree', 'idSoiree');
+    }
+
+    public function imgLieux()
+    {
+        return $this->hasMany(ImgLieu::class, 'idImg');
+    }
+
     public function toDTO(): LieuDTO
     {
         return new LieuDTO(

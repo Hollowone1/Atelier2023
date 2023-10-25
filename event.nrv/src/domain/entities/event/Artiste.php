@@ -4,6 +4,7 @@ namespace nrv\event\api\domain\DTO\event;
 
 use Illuminate\Database\Eloquent\Model;
 use nrv\event\api\domain\dto\event\ArtisteDTO;
+use nrv\event\api\domain\entities\event\Spectacle;
 
 class Artiste extends Model
 {
@@ -18,6 +19,11 @@ class Artiste extends Model
         'nom',
         'idImg'
     ];
+
+    public function spectacles()
+    {
+        return $this->belongsToMany(Spectacle::class, 'spectacle', 'idSpectacle');
+    }
 
     public function toDTO(): ArtisteDTO
     {

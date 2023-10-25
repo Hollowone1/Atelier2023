@@ -25,6 +25,16 @@ class Soiree extends Model
         'idLieu',
     ];
 
+    public function lieux()
+    {
+        return $this->belongsToMany(Lieu::class, 'lieu', 'idLieu');
+    }
+
+    public function spectacles()
+    {
+        return $this->belongsToMany(Spectacle::class, 'spectacle', 'idSpectacle');
+    }
+
     public function toDTO(): SoireeDTO
     {
         return new SoireeDTO(

@@ -3,6 +3,7 @@
 namespace nrv\event\api\domain\entities\event;
 
 use Illuminate\Database\Eloquent\Model;
+use nrv\event\api\domain\DTO\event\Artiste;
 use nrv\event\api\domain\DTO\event\SpectacleDTO;
 
 class Spectacle extends Model
@@ -22,6 +23,21 @@ class Spectacle extends Model
         'idSoiree',
         'idImg',
     ];
+
+    public function soirees()
+    {
+        return $this->belongsToMany(Soiree::class, 'soiree', 'idSoiree');
+    }
+
+    public function imgspectacles()
+    {
+        return $this->hasMany(ImgSpectacle::class, 'idImg');
+    }
+
+    public function artistes()
+    {
+        return $this->belongsToMany(Artiste::class, 'artiste', 'idArtiste');
+    }
 
     public function toDTO(): SpectacleDTO
     {

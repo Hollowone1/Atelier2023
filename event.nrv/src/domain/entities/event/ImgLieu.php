@@ -19,6 +19,11 @@ class ImgLieu extends Model
         'idLieu'
     ];
 
+    public function lieux()
+    {
+        return $this->belongsTo(Lieu::class, 'idLieu');
+    }
+
     public function toDTO(): ImgLieuDTO
     {
         return new ImgLieuDTO(
