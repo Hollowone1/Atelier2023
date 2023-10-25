@@ -1,6 +1,7 @@
 <?php
 
-namespace src\auth\api\domain\DTO;
+namespace nrv\event\api\domain\DTO\soiree;
+use nrv\event\api\domain\DTO;
 
 class soireeDTO {
     public string $nom;

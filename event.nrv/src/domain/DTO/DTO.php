@@ -1,6 +1,6 @@
 <?php
 
-namespace src\auth\api\domain\DTO;
+namespace nrv\event\api\domain;
 
 abstract class DTO
 {

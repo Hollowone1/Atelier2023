@@ -1,9 +1,9 @@
 <?php
 
-namespace nrv\event\api\domain\spectacle\DTO;
+namespace nrv\event\api\domain\DTO\spectacle;
 use nrv\event\api\domain\DTO;
 
-class spectacleDTO extends DTO{
+class spectacleDTO extends DTO {
 
         public string $titre;
         public string $description;

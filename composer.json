@@ -17,7 +17,8 @@
   },
   "autoload": {
     "psr-4" : {
-      "src\\auth\\api\\" : "./src/"
+      "nrv\\auth\\api\\" : "./auth.nrv/src",
+      "nrv\\event\\api" : "./event.nrv/src"
     }
   }
 }
