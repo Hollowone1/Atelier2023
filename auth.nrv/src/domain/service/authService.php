@@ -16,9 +16,40 @@ class ServiceAuth implements IServiceAuth{
         $this->managerJWT = $container->get('managerJWT');
     }
 
-    public function signin($credentials){
+    /**
+     * reçoit des credentials et retourne un couple (access_token, refresh_token)
+     * @param $credentials
+     * @return array
+     */
 
+    public function signin($credentials){
+        $username = $credentials['username'];
+        $password = $credentials['password'];
+        $refreshToken = $this->provider->verifAuthCredentials($username, $password);
+
+        if($refreshToken) {
+            $data = [
+                'username' => $refreshToken->username,
+                'email' => $refreshToken->email,
+                'id' => $refreshToken->id
+
+            ];
+            $access_token = $this->managerJWT->createToken($data);
+            return [
+                'access_token' => $access_token,
+                'refresh_token' => $refreshToken->refresh_token
+            ];
+        }else{
+            return null;
+        }
     }
+
+    /**
+     * reçoit un access_token et vérifie sa validité, puis retourne le profil de l'utilisateur
+     * authentifié
+     * @param $access_token
+     * @return UserDTO
+     */
 
     public function validate($access_token){
 
