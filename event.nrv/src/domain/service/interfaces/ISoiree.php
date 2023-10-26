@@ -8,7 +8,7 @@ interface ISoiree
 {
     public function creerSoiree(SoireeDTO $soireeDTO): SoireeDTO;
     public function recupSoiree(string $id): SoireeDTO;
-    public function supprSoiree(string $id): array;
+    public function supprSoiree(string $id);
     public function recupToutesLesSoirees(): array;
     public function recupSpectacles(string $idSoiree) : array;
     public function filtreTheme(string $theme): array;
