@@ -9,12 +9,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 abstract class AbstractAction
 {
-    protected ContainerInterface $container;
-
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-    }
+//    protected ContainerInterface $container;
+//
+//    public function __construct(ContainerInterface $container)
+//    {
+//        $this->container = $container;
+//    }
 
     public function exception(Exception $e): array
     {
