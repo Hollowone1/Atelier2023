@@ -1,7 +1,7 @@
-import 'Config.js';
+import {apiNRVEvent} from 'Config.js';
 //programmation.html, répétition des genres:
 
-fetch('https://votre-api.com/obtenir-genres-musicaux')
+fetch(`${apiNRVEvent}genres`)
   .then(response => response.json())
   .then(data => {
     
@@ -25,7 +25,7 @@ fetch('https://votre-api.com/obtenir-genres-musicaux')
 
   //programmation.html, répéter les soirées:
 
-  fetch('https://votre-api.com/obtenir-soirees')
+  fetch(`${apiNRVEvent}soirees`)
   .then(response => response.json())
   .then(data => {
     // Traitez les données de la base de données ici

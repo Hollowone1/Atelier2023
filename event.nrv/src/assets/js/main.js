@@ -62,7 +62,7 @@ let isLoggedIn = false;
 
     voirPlusButton.addEventListener("click"), () => {
       // Requête API pour récupérer les soirées supplémentaires
-      fetch(`https://exemple-api.com/soirees?offset=${offset}&limit=${limit}`)
+      fetch(`${apiNRVEvent}soirees?offset=${offset}&limit=${limit}`)
         .then(response => response.json())
         .then(data => {
           // Parcourir les données et ajouter chaque soirée à la liste

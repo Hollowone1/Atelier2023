@@ -1,7 +1,7 @@
-import 'Config.js';
+import {apiNRVAuth} from 'Config.js';
 //panier.html, répétition fetch des éléments du panier:
 
-fetch('https://votre-api.com/obtenir-elements-panier')
+fetch(`${apiNRVAuth}panier`)
   .then(response => response.json())
   .then(data => {
     // Traitez les données de l'API ici
