@@ -33,3 +33,4 @@ fetch(`${apiNRVAuth}panier`)
   .catch(error => {
     console.error('Erreur lors de la récupération des données du panier :', error);
   });
+
