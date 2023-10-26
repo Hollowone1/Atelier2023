@@ -1,3 +1,4 @@
+import 'Config.js';
 //panier.html, répétition fetch des éléments du panier:
 
 fetch('https://votre-api.com/obtenir-elements-panier')
@@ -19,23 +20,23 @@ fetch('https://votre-api.com/obtenir-elements-panier')
       // Créez les éléments de la ligne de panier
       const lieu = document.createElement('div');
       lieu.className = 'panier-lieu';
-      lieu.textContent = element.lieu; // Assurez-vous que la propriété 'lieu' existe dans les données
+      lieu.textContent = element.lieu; 
 
       const soiree = document.createElement('div');
       soiree.className = 'panier-soiree';
-      soiree.textContent = element.soiree; // Assurez-vous que la propriété 'soiree' existe dans les données
+      soiree.textContent = element.soiree;
 
       const type = document.createElement('div');
       type.className = 'panier-type';
-      type.textContent = element.type; // Assurez-vous que la propriété 'type' existe dans les données
+      type.textContent = element.type;
 
       const prix = document.createElement('div');
       prix.className = 'panier-prix';
-      prix.textContent = element.prix; // Assurez-vous que la propriété 'prix' existe dans les données
+      prix.textContent = element.prix; 
 
       const quantite = document.createElement('div');
       quantite.className = 'panier-quantite';
-      quantite.textContent = element.quantite; // Assurez-vous que la propriété 'quantite' existe dans les données
+      quantite.textContent = element.quantite;
 
       // Ajoutez la case à cocher et les éléments de la ligne au nouveau conteneur de ligne
       newRow.appendChild(checkbox);

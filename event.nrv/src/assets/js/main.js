@@ -1,3 +1,4 @@
+import 'Config.js';
 // logique bouton connexion-deconnexion
 
 let isLoggedIn = false;
@@ -83,19 +84,19 @@ let isLoggedIn = false;
             // Date de la soirée
             const dateP = document.createElement("p");
             dateP.className = "soiree-infos-date";
-            dateP.textContent = "Date de la soirée: " + soiree.date; // Assurez-vous que la propriété "date" existe dans vos données
+            dateP.textContent = "Date de la soirée: " + soiree.date; 
             infosDiv.appendChild(dateP);
         
             // Titre de la soirée
             const titreH2 = document.createElement("h2");
             titreH2.className = "soiree-infos-titre";
-            titreH2.textContent = soiree.titre; // Assurez-vous que la propriété "titre" existe dans vos données
+            titreH2.textContent = soiree.titre; 
             infosDiv.appendChild(titreH2);
         
             // Lieu de la soirée
             const lieuP = document.createElement("p");
             lieuP.className = "soiree-infos-lieu";
-            lieuP.textContent = "Lieu de la soirée: " + soiree.lieu; // Assurez-vous que la propriété "lieu" existe dans vos données
+            lieuP.textContent = "Lieu de la soirée: " + soiree.lieu;
             infosDiv.appendChild(lieuP);
         
             div.appendChild(infosDiv);

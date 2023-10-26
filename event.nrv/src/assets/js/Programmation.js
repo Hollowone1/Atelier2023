@@ -1,3 +1,4 @@
+import 'Config.js';
 //programmation.html, répétition des genres:
 
 fetch('https://votre-api.com/obtenir-genres-musicaux')
@@ -41,7 +42,7 @@ fetch('https://votre-api.com/obtenir-genres-musicaux')
 
       const imageSoiree = document.createElement('img');
       imageSoiree.className = 'soiree-image';
-      imageSoiree.src = soiree.image; // Assurez-vous que la propriété 'image' existe dans les données
+      imageSoiree.src = soiree.image;
       imageSoiree.alt = 'image de la soirée';
       soireeContainer.appendChild(imageSoiree);
 
@@ -50,17 +51,17 @@ fetch('https://votre-api.com/obtenir-genres-musicaux')
 
       const dateSoiree = document.createElement('p');
       dateSoiree.className = 'soiree-infos-date';
-      dateSoiree.textContent = `Date de la soirée: ${soiree.date}`; // Assurez-vous que la propriété 'date' existe dans les données
+      dateSoiree.textContent = `Date de la soirée: ${soiree.date}`;
       infosSoiree.appendChild(dateSoiree);
 
       const titreSoiree = document.createElement('h2');
       titreSoiree.className = 'soiree-infos-titre';
-      titreSoiree.textContent = soiree.titre; // Assurez-vous que la propriété 'titre' existe dans les données
+      titreSoiree.textContent = soiree.titre;
       infosSoiree.appendChild(titreSoiree);
 
       const lieuSoiree = document.createElement('p');
       lieuSoiree.className = 'soiree-infos-lieu';
-      lieuSoiree.textContent = `Lieu de la soirée: ${soiree.lieu}`; // Assurez-vous que la propriété 'lieu' existe dans les données
+      lieuSoiree.textContent = `Lieu de la soirée: ${soiree.lieu}`;
       infosSoiree.appendChild(lieuSoiree);
 
       soireeContainer.appendChild(infosSoiree);

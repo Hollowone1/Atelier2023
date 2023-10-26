@@ -1,6 +1,4 @@
-
 // logique div total panier row dans commande.html, répéter les éléments du panier:
-
 
 const nombreDeBilletsAchetes = 0;
 
