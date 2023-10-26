@@ -72,4 +72,35 @@ class SoireeService implements ISoiree
         }
         return $allSpectacles;
     }
+
+    public function filtreDate(string $date): array {
+        $allSoirees = array();
+        $soirees = Soiree::where('date', $date)->get()->toArray();
+        foreach ($soirees as $soiree) {
+            $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
+            $allSoirees[] = $soireeDTO;
+        }
+        return $allSoirees;
+    }
+    public function filtreTheme(string $theme): array {
+        $allSoirees = array();
+        $soirees = Soiree::where('theme', $theme)->get()->toArray();
+        foreach ($soirees as $soiree) {
+            $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
+            $allSoirees[] = $soireeDTO;
+        }
+        return $allSoirees;
+    }
+    public function filtreLieu(string $lieu): array {
+        $allSoirees = array();
+        $lieuNom = Lieu::where('nom', $lieu)->first();
+        $soirees = Soiree::where('lieu', $lieuNom)->get()->toArray();
+        foreach ($soirees as $soiree) {
+            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieuNom);
+            $allSoirees[] = $soireeDTO;
+        }
+        return $allSoirees;
+    }
 }
