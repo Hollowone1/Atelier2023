@@ -42,9 +42,9 @@ CREATE TABLE Lieu
     nom             VARCHAR(255)       NOT NULL,
     adresse         VARCHAR(255)       NOT NULL,
     nbPlacesAssises INT                NOT NULL,
-    nbPlacesDebout  INT                NOT NULL,
-    idImg           INT,
-    FOREIGN KEY (idImg) REFERENCES ImgLieu (idImg)
+    nbPlacesDebout  INT                NOT NULL
+--     idImg           INT,
+--     FOREIGN KEY (idImg) REFERENCES ImgLieu (idImg)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 

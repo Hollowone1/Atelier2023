@@ -12,11 +12,10 @@ $uuidsLieu = []; // Nous allons utiliser ce tableau pour stocker les UUIDs gén�
 for ($i = 1; $i <= 5; $i++) {
     $uuidLieu = Uuid::uuid4();
     $uuidsLieu[] = $uuidLieu; // Stockons les UUIDs pour une utilisation ultérieure
-    $idImgLieu = (($i - 1) * 3) + 1; // Cette opération générera les ID suivants pour la première image de chaque lieu: 1, 4, 7, 10, 13.
-    echo "INSERT INTO Lieu (idLieu, nom, adresse, nbPlacesAssises, nbPlacesDebout, idImg) VALUES ('$uuidLieu', '" . $faker->company . "', '" . $faker->address . "', " . $faker->numberBetween(100, 500) . ", " . $faker->numberBetween(100, 500) . ", $idImgLieu);\n";
+    echo "INSERT INTO Lieu (idLieu, nom, adresse, nbPlacesAssises, nbPlacesDebout) VALUES ('$uuidLieu', '" . $faker->company . "', '" . $faker->address . "', " . $faker->numberBetween(100, 500) . ", " . $faker->numberBetween(100, 500) . ");\n";
     for ($j = 1; $j <= 3; $j++) {
         $idImg = (($i - 1) * 3) + $j; // Cette opération générera les ID suivants pour les images de chaque lieu: [1,2,3], [4,5,6], ...
-        echo "INSERT INTO ImgLieu (idImg, img, idLieu) VALUES ($idImg, 'image_lieu_" . $i . "_" . $j . ".jpg', '$uuidLieu');\n";
+        echo "INSERT INTO ImgLieu (idI    mg, img, idLieu) VALUES ($idImg, 'image_lieu_" . $i . "_" . $j . ".jpg', '$uuidLieu');\n";
     }
 }
 
@@ -44,4 +43,3 @@ for ($i = 1; $i <= 126; $i++) {
         echo "INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES ($idImgSpectacle, 'image_spectacle_" . $i . "_" . $j . ".jpg', '$uuidSpectacle');\n";
     }
 }
-

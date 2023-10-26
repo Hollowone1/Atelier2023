@@ -1,5 +1,5 @@
 <?php
-use App\Middleware\CorsMiddleware;
+use nrv\event\api\middleware\CorsMiddleware;
 use \Slim\App ;
 
 $app = new \Slim\App;
