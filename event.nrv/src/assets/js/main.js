@@ -1,3 +1,5 @@
+import {apiNRVEvent} from 'Config.js';
+import {apiNRVAuth} from 'Config.js';
 // logique bouton connexion-deconnexion
 
 let isLoggedIn = false;
@@ -21,8 +23,8 @@ let isLoggedIn = false;
     function redirectToReservationPage() {
 
       const newPageURL = 'panier.html';
-      const username = fetch();
-      const email = fetch();
+      const username = fetch(`${apiNRVAuth}user`);
+      const email = fetch(`${apiNRVAuth}user`);
 
       const postData = {
         username: username,
@@ -61,7 +63,7 @@ let isLoggedIn = false;
 
     voirPlusButton.addEventListener("click"), () => {
       // Requête API pour récupérer les soirées supplémentaires
-      fetch(`https://exemple-api.com/soirees?offset=${offset}&limit=${limit}`)
+      fetch(`${apiNRVEvent}soirees?offset=${offset}&limit=${limit}`)
         .then(response => response.json())
         .then(data => {
           // Parcourir les données et ajouter chaque soirée à la liste
@@ -83,19 +85,19 @@ let isLoggedIn = false;
             // Date de la soirée
             const dateP = document.createElement("p");
             dateP.className = "soiree-infos-date";
-            dateP.textContent = "Date de la soirée: " + soiree.date; // Assurez-vous que la propriété "date" existe dans vos données
+            dateP.textContent = "Date de la soirée: " + soiree.date; 
             infosDiv.appendChild(dateP);
         
             // Titre de la soirée
             const titreH2 = document.createElement("h2");
             titreH2.className = "soiree-infos-titre";
-            titreH2.textContent = soiree.titre; // Assurez-vous que la propriété "titre" existe dans vos données
+            titreH2.textContent = soiree.titre; 
             infosDiv.appendChild(titreH2);
         
             // Lieu de la soirée
             const lieuP = document.createElement("p");
             lieuP.className = "soiree-infos-lieu";
-            lieuP.textContent = "Lieu de la soirée: " + soiree.lieu; // Assurez-vous que la propriété "lieu" existe dans vos données
+            lieuP.textContent = "Lieu de la soirée: " + soiree.lieu;
             infosDiv.appendChild(lieuP);
         
             div.appendChild(infosDiv);
@@ -139,23 +141,11 @@ let isLoggedIn = false;
     });
     }
 
-// logique div total panier row dans commande.html, répéter les éléments du panier:
 
 
-const panier = document.getElementById("panier");
-    for (let i = 0; i < nombreDeBilletsAchetes; i++) {
-        const panierItemDiv = document.createElement("div");
-        panierItemDiv.className = "total panier-row";
 
-        const panierItemP = document.createElement("p");
-        panierItemP.className = "panier-item";
-        panierItemP.textContent = "Blablabalablaba - 35€";
 
-        const montantTotalP = document.createElement("p");
-        montantTotalP.innerHTML = `<strong>Montant total :</strong> le montant total`;
 
-        panierItemDiv.appendChild(panierItemP);
-        panierItemDiv.appendChild(montantTotalP);
 
-        panier.appendChild(panierItemDiv);
-}
+
+

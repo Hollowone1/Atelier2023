@@ -18,7 +18,8 @@ class BilletDTO extends DTO {
         $this->idSoiree = $idSoiree;
     }
 
-    public function toArray() {
+    public function toArray(): array
+    {
         return [
             'idBillet' => $this->idBillet,
             'codeQR' => $this->codeQR,
