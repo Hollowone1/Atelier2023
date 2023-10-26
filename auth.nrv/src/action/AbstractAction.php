@@ -1,10 +1,11 @@
 <?php
 
-namespace nrv\auth\api\app\actions;
+namespace nrv\auth\api\action;
 
+use Exception;
 use Psr\Container\ContainerInterface;
-use Slim\Psr7\Request;
-use Slim\Psr7\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 abstract class AbstractAction
 {
@@ -15,7 +16,7 @@ abstract class AbstractAction
         $this->container = $container;
     }
 
-    public function exception(\Exception $e): array
+    public function exception(Exception $e): array
     {
         return [
             'message' => $e->getCode() . $e->getMessage(),

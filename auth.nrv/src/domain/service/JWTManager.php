@@ -9,6 +9,8 @@ class JWTManager
 {
     private $secretKey;
     private $tokenLifeTime;
+    protected $authProvider;
+    protected $jwtManager;
 
     public function __construct($secretKey, $tokenLifeTime)
     {
@@ -39,6 +41,25 @@ class JWTManager
         } catch (Exception $e) {
             return null;
         }
+    }
+
+    public function signIn(string $nom, string $prenom, string $password): ?array
+    {
+        $user = $this->authProvider->verifyCredentials($nom, $prenom, $password);
+        if ($user) {
+            $data = [
+                'nom' => $user->nom,
+                'prenom' => $user->prenom,
+                'email' => $user->email,
+                'idUtilisateur' => $user->idUtilisateur
+            ];
+            $accessToken = $this->jwtManager->createToken($data);
+            return [
+                'access_token' => $accessToken,
+                'refresh_token' => $user->refresh_token
+            ];
+        }
+        return null;
     }
 
 }

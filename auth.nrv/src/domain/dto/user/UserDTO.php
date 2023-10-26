@@ -37,68 +37,22 @@ class UserDTO
         $this->role = $role;
     }
 
-    public function getPrenom(): string
+    public function toArray(): array
     {
-        return $this->prenom;
-    }
-
-    public function getNom(): string
-    {
-        return $this->nom;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    public function getDateInscription(): string
-    {
-        return $this->dateInscription;
-    }
-
-    public function getActive(): int
-    {
-        return $this->active;
-    }
-
-    public function getActivationToken(): string
-    {
-        return $this->activation_token;
-    }
-
-    public function getActivationTokenExpirationDate(): string
-    {
-        return $this->activation_token_expiration_date;
-    }
-
-    public function getRefreshToken(): string
-    {
-        return $this->refresh_token;
-    }
-
-    public function getRefreshTokenExpirationDate(): string
-    {
-        return $this->refresh_token_expiration_date;
-    }
-
-    public function getResetPasswdToken(): string
-    {
-        return $this->reset_passwd_token;
-    }
-
-    public function getResetPasswdTokenExpirationDate(): string
-    {
-        return $this->reset_passwd_token_expiration_date;
-    }
-
-    public function getRole(): int
-    {
-        return $this->role;
+        return [
+            'prenom' => $this->prenom,
+            'nom' => $this->nom,
+            'email' => $this->email,
+            'password' => $this->password,
+            'dateInscription' => $this->dateInscription,
+            'active' => $this->active,
+            'activation_token' => $this->activation_token,
+            'activation_token_expiration_date' => $this->activation_token_expiration_date,
+            'refresh_token' => $this->refresh_token,
+            'refresh_token_expiration_date' => $this->refresh_token_expiration_date,
+            'reset_passwd_token' => $this->reset_passwd_token,
+            'reset_passwd_token_expiration_date' => $this->reset_passwd_token_expiration_date,
+            'role' => $this->role
+        ];
     }
 }
