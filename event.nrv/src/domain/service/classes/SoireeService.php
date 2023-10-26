@@ -8,6 +8,7 @@ use nrv\event\api\domain\entities\event\Soiree;
 use nrv\event\api\domain\entities\event\Lieu;
 use nrv\event\api\domain\DTO\event\soireeDTO;
 use nrv\event\api\domain\DTO\event\spectacleDTO;
+use Exception;
 
 
 class SoireeService implements ISoiree
@@ -44,63 +45,96 @@ class SoireeService implements ISoiree
     public function recupSoiree(string $id): soireeDTO
     {
         $soiree = Soiree::where('idSoiree', $id)->first();
-        $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-        return new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
+        if (isset($soiree)) {
+            $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+            return new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
+        } else {
+            throw new Exception("Soirée non trouvée");
+        }
+
     }
 
-    public function supprSoiree(string $id): array
+    public function supprSoiree(string $id)
     {
         $soiree = Soiree::where('idSoiree', $id)->first();
         $soiree->delete();
-        //return quoi ???????????????????
-        // TODO: Implement supprSoiree() method.
+        //????
+        throw new Exception("Soirée bien supprimée");
     }
 
     public function recupToutesLesSoirees(): array
     {
         $soirees = Soiree::all()->toArray();
-        return $soirees;
+        if (isset($soirees)) {
+            return $soirees;
+        } else {
+            throw new Exception("Soirées non trouvées");
+        }
     }
 
     public function recupSpectacles(string $idSoiree) : array
     {
         $allSpectacles = array();
         $spectacles = Spectacle::where('idSoiree', $idSoiree)->get()->toArray();
-        foreach ($spectacles as $spectacle) {
-            $spectacleDTO = new spectacleDTO($spectacle->titre, $spectacle->description, $spectacle->urlVideo, $spectacle->horairePrevionnel);
-            $allSpectacles[] = $spectacleDTO;
+        if (isset($spectacles)) {
+            foreach ($spectacles as $spectacle) {
+                $spectacleDTO = new spectacleDTO($spectacle->titre, $spectacle->description, $spectacle->urlVideo, $spectacle->horairePrevionnel);
+                $allSpectacles[] = $spectacleDTO;
+            }
+            return $allSpectacles;
+        } else {
+            throw new Exception("Spectacles non trouvés");
         }
-        return $allSpectacles;
+
     }
 
     public function filtreDate(string $date): array {
         $allSoirees = array();
         $soirees = Soiree::where('date', $date)->get()->toArray();
-        foreach ($soirees as $soiree) {
-            $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
-            $allSoirees[] = $soireeDTO;
+        if (isset($soirees)) {
+            foreach ($soirees as $soiree) {
+                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+                $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
+                $allSoirees[] = $soireeDTO;
+            }
+            return $allSoirees;
+        } else {
+            throw new Exception("Soirées non trouvées");
         }
-        return $allSoirees;
+
     }
     public function filtreTheme(string $theme): array {
         $allSoirees = array();
         $soirees = Soiree::where('theme', $theme)->get()->toArray();
-        foreach ($soirees as $soiree) {
-            $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
-            $allSoirees[] = $soireeDTO;
+        if (isset($soirees)) {
+            foreach ($soirees as $soiree) {
+                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+                $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
+                $allSoirees[] = $soireeDTO;
+            }
+            return $allSoirees;
+        } else {
+            throw new Exception("Soirées non trouvées");
         }
-        return $allSoirees;
+
     }
     public function filtreLieu(string $lieu): array {
         $allSoirees = array();
         $lieuNom = Lieu::where('nom', $lieu)->first();
-        $soirees = Soiree::where('lieu', $lieuNom)->get()->toArray();
-        foreach ($soirees as $soiree) {
-            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieuNom);
-            $allSoirees[] = $soireeDTO;
+        if (isset($lieuNom)) {
+            $soirees = Soiree::where('lieu', $lieuNom)->get()->toArray();
+            if (isset($soirees)) {
+                foreach ($soirees as $soiree) {
+                    $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieuNom);
+                    $allSoirees[] = $soireeDTO;
+                }
+                return $allSoirees;
+            } else {
+                throw new Exception("Soirées non trouvées");
+            }
+        } else {
+            throw new Exception("Lieu non trouvé");
         }
-        return $allSoirees;
+
     }
 }
