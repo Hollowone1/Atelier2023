@@ -51,21 +51,21 @@ img {
     }
 }
 
+.retour {
+  @include flex(column, nowrap, 2em, center, stretch);
+  @include width(70vw);
+}
+
+.retour-bouton {
+  width: 20vw;
+  
+}
+
+
+
 @media screen and (min-width: 640px) {
     form {
         @include width(40vw);
         padding: 4em;
     }
 }
-
-.retour {
-    @include flex(column, nowrap, 2em, center, stretch);
-    @include width(70vw);
-  }
-  
-  @media screen and (min-width: 640px) {
-      form {
-          @include width(40vw);
-          padding: 4em;
-      }
-  }
