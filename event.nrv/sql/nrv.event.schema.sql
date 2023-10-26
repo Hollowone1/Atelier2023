@@ -8,12 +8,12 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 DROP TABLE IF EXISTS `spectacle`;
 CREATE TABLE Spectacle
 (
-    idSpectacle       INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    idSpectacle       VARCHAR(255) NOT NULL PRIMARY KEY,
     titre             VARCHAR(255)       NOT NULL,
     description       VARCHAR(255)       NOT NULL,
     urlVideo          VARCHAR(255),
     horairePrevionnel DATETIME,
-    idSoiree          INT,
+    idSoiree          VARCHAR(255),
     idImg             INT,
     FOREIGN KEY (idSoiree) REFERENCES Soiree (idSoiree),
     FOREIGN KEY (idImg) REFERENCES ImgSpectacle (idImg)
@@ -23,14 +23,14 @@ CREATE TABLE Spectacle
 DROP TABLE IF EXISTS `soiree`;
 CREATE TABLE Soiree
 (
-    idSoiree     INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    idSoiree     VARCHAR(255) NOT NULL PRIMARY KEY,
     nom          VARCHAR(255)       NOT NULL,
     theme        VARCHAR(255),
     date         DATE               NOT NULL,
     horaireDebut TIME               NOT NULL,
     tarifNormal  DECIMAL(10, 2)     NOT NULL,
     tarifReduit  DECIMAL(10, 2)     NOT NULL,
-    idLieu       INT                NOT NULL,
+    idLieu       VARCHAR(255)       NOT NULL,
     FOREIGN KEY (idLieu) REFERENCES Lieu (idLieu)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -38,7 +38,7 @@ CREATE TABLE Soiree
 DROP TABLE IF EXISTS `lieu`;
 CREATE TABLE Lieu
 (
-    idLieu          INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    idLieu          VARCHAR(255) NOT NULL PRIMARY KEY,
     nom             VARCHAR(255)       NOT NULL,
     adresse         VARCHAR(255)       NOT NULL,
     nbPlacesAssises INT                NOT NULL,
@@ -51,9 +51,9 @@ CREATE TABLE Lieu
 DROP TABLE IF EXISTS `artiste`;
 CREATE TABLE Artiste
 (
-    idArtiste   INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    idArtiste   VARCHAR(255) NOT NULL PRIMARY KEY,
     nom         VARCHAR(255)       NOT NULL,
-    idSpectacle INT                NOT NULL,
+    idSpectacle VARCHAR(255)       NOT NULL,
     FOREIGN KEY (idSpectacle) REFERENCES Spectacle (idSpectacle)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -63,7 +63,7 @@ CREATE TABLE ImgSpectacle
 (
     idImg       INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     img         VARCHAR(255)       NOT NULL,
-    idSpectacle INT                NOT NULL,
+    idSpectacle VARCHAR(255)       NOT NULL,
     FOREIGN KEY (idSpectacle) REFERENCES Spectacle (idSpectacle)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -73,7 +73,7 @@ CREATE TABLE ImgLieu
 (
     idImg  INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     img    VARCHAR(255)       NOT NULL,
-    idLieu INT                NOT NULL,
+    idLieu VARCHAR(255)       NOT NULL,
     FOREIGN KEY (idLieu) REFERENCES Lieu (idLieu)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
