@@ -3,7 +3,7 @@
 namespace nrv\event\api\domain\DTO\event;
 use nrv\event\api\domain\DTO;
 
-class soireeDTO {
+class soireeDTO extends DTO {
     public string $nom;
     public string $theme;
     public string $date;
