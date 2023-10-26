@@ -141,6 +141,7 @@ let isLoggedIn = false;
 
 // logique div total panier row dans commande.html, répéter les éléments du panier:
 
+const nombreDeBilletsAchetes = 0;
 
 const panier = document.getElementById("panier");
     for (let i = 0; i < nombreDeBilletsAchetes; i++) {
@@ -159,3 +160,14 @@ const panier = document.getElementById("panier");
 
         panier.appendChild(panierItemDiv);
 }
+
+//panier.html, suppression des éléments du panier:
+
+function supprimerLigne(button) {
+    const row = button.parentElement; // L'élément parent du bouton (la ligne du panier)
+    const checkbox = row.querySelector('input[type="checkbox"]');
+    
+    if (checkbox.checked) {
+      row.remove(); // Supprime la ligne si la case à cocher est cochée
+    }
+  }
