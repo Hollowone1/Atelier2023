@@ -1,0 +1,93 @@
+@import "var";
+@import "fonts";
+@import "layout";
+@import "buttons";
+@import "header";
+@import "footer";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+$width: 90vw;
+$widthCalcSides : calc( (100vw - $width) / 2);
+$fontSizeFiltres : .8em;
+
+$widthOrdiTab: 90vw;
+$fontSizeFiltresOrdiTab : 1em;
+
+.entete {
+  @include flex(row, nowrap, 2em, space-between, center);
+  @include width($width);
+  h1 {
+    font-size: 1.3rem;
+  }
+  p {
+    @include buttonNoDecoration($purple, 1em);
+  }
+}
+
+.filtres {
+  background-color: $purple;
+  margin: 0 0 2em 0;
+  padding: 1.5em;
+  @include flex(row, wrap, .5em, start);
+  &>input {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    padding: .5em 1em .5em 1em;
+    font-size: $fontSizeFiltres;
+  }
+  &>button {
+    @include buttonStyle(white, $purple, black, auto, $fontSizeFiltres, 0, 5px);
+    flex-basis: auto;
+    flex-grow: 0;
+  }
+}
+
+.list {
+  @include flex(column, nowrap, 0, stretch);
+  @include width(100vw);
+}
+.soiree {
+  @include sectionProg(auto, row, $lightGrey, $darkGrey, 1rem);
+}
+
+@media screen and (min-width: 640px) {
+
+  .entete {
+    @include flex(row, nowrap, 2em, start, center);
+    @include width($widthOrdiTab);
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .filtres {
+    margin: 0 0 3em 0;
+    padding: 1.5em $widthCalcSides 1.5em $widthCalcSides;
+    &>input {
+      font-size: $fontSizeFiltresOrdiTab;
+    }
+    &>button {
+      font-size: $fontSizeFiltresOrdiTab;
+    }
+  }
+
+  .list {
+    @include flex(row, wrap, 1em, space-between);
+    @include width($widthOrdiTab);
+  }
+  .soiree {
+    @include sectionProg(20em, column, $lightGrey, $darkGrey, 1rem);
+  }
+}
+
+
+
+
+

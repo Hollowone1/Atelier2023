@@ -1,0 +1,23 @@
+footer {
+  @include flex(row, nowrap, 0, space-between, center);
+  @include text-style(1em, $black);
+  margin-top: 2em;
+  padding: 1em;
+  background-color:$lightGrey;
+  width: 100vw;
+  box-sizing: border-box;
+  .logo {
+    @include flex(row, nowrap, 0, start, center);
+    @include text-style(1.5em);
+    &-1 {
+      font-weight: bolder;
+    }
+    &-2 {
+      font-weight: 100;
+      color: $purple;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}

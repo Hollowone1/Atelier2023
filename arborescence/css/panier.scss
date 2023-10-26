@@ -1,0 +1,44 @@
+@import "var";
+@import "fonts";
+@import "layout";
+@import "buttons";
+@import "header";
+@import "footer";
+@import "form";
+@import "tab";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  @include text-style(1.3em, $black);
+}
+
+
+.confirmer {
+  @include buttonStyle($purple, $purple, $white, 60vw, 1em);
+  @include width(60vw);
+}
+
+.supprimer {
+  @include buttonStyle($white, $purple, $purple, 60vw, 1em);
+  @include width(60vw);
+}
+
+@media screen and (min-width: 640px) {
+
+  h1 {
+    @include text-style(2em, $black);
+  }
+  .confirmer {
+    @include width(40vw);
+  }
+
+  .supprimer {
+    @include width(40vw);
+  }
+}

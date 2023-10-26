@@ -1,0 +1,42 @@
+form {
+  @include flex(column, nowrap, 2em, center, stretch);
+  @include width(70vw);
+  border: 1px solid $lightGrey;
+  padding: 2em;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  h1 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .corps-formulaire {
+    @include flex(column, nowrap, 2em, center, stretch);
+    .boite {
+      @include flex(column, nowrap, 1em);
+      label {
+        @include text-style(1em, $darkGrey);
+      }
+      input[type="text"], input[type="password"] {
+        box-sizing: border-box;
+        width: 100%;
+        @include text-style(1em, $darkGrey);
+        padding: 1em;
+        display: inline-block;
+        border: inherit;
+        border-bottom: 2px solid $purple;
+        background: $lightLightGrey;
+      }
+    }
+  }
+  input[type="submit"] {
+    @include buttonStyle($purple, $purple, white, 100%);
+  }
+}
+
+@media screen and (min-width: 640px) {
+  form {
+    @include width(40vw);
+    padding: 4em;
+
+  }
+}

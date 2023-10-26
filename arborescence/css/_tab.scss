@@ -1,0 +1,29 @@
+.tab {
+  text-align: center;
+  @include width(100vw);
+  @include text-style(.9em);
+  @include flex(column, nowrap, 0, stretch, stretch);
+  margin: 2em 0 2em 0;
+  &>.entete {
+    background-color: $purple;
+    @include text-style(1em, $white);
+    font-weight: bold;
+  }
+  &>.row {
+    @include gridSpecial(0.5fr 2fr 3fr 2fr 2fr 1fr, 1fr, 0, center, center);
+    padding:  1em .2em 1em .2em;
+    &:nth-child(even) {
+      background-color: $lightLightGrey;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .tab {
+    @include width(70vw);
+    @include text-style(1.1em);
+    &>.row {
+      padding: 1.5em;
+    }
+  }
+}

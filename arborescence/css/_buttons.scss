@@ -1,0 +1,37 @@
+@mixin buttonStyle($backColor, $borderColor, $fontColor, $width : auto, $fontSize : 1em, $margin : .5em 0em .5em 0em, $radius : 0px) {
+  cursor: pointer;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  display: flex;
+  width: $width;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  border: 2px solid $borderColor;
+  background-color: $backColor;
+  color: $fontColor;
+  font-size: $fontSize;
+  padding: .5em 1em .5em 1em;
+  margin: $margin;
+  border-radius: $radius;
+  transition: border-radius 0.3s;
+    &:hover {
+      background-color: darken($backColor, 10%);
+      border: 2px solid darken($borderColor, 10%);
+      transition: border-radius 0.3s;
+      border-radius: calc($radius + 5px) ;
+    }
+
+}
+
+@mixin buttonNoDecoration($fontColor, $fontSize) {
+  background: none;
+  border: none;
+  color: $fontColor;
+  font-size: $fontSize;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    color: darken($fontColor, 10%);
+  }
+}

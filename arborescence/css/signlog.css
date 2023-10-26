@@ -1,0 +1,201 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
+}
+* {
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 0;
+  align-items: center;
+  font-size: 1em;
+  color: #000000;
+  padding: 1em;
+  background-color: #DDE1E6;
+  height: 7vh;
+  box-sizing: border-box;
+}
+header .logo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  gap: 0;
+  align-items: center;
+  font-size: 1.5em;
+  color: inherit;
+}
+header .logo-1 {
+  font-weight: bolder;
+}
+header .logo-2 {
+  font-weight: 100;
+  color: #998FC7;
+}
+header .nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  gap: 2em;
+  align-items: center;
+}
+header .nav-item {
+  font-size: inherit;
+  color: gray;
+}
+header .nav-item:hover {
+  cursor: pointer;
+  font-size: inherit;
+  color: #000000;
+}
+header .nav .deconnexion {
+  font-size: inherit;
+  color: #998FC7;
+}
+header .nav .deconnexion:hover {
+  cursor: pointer;
+  font-size: inherit;
+  color: #7a6db6;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 0;
+  align-items: center;
+  font-size: 1em;
+  color: #000000;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #DDE1E6;
+  width: 100vw;
+  box-sizing: border-box;
+}
+footer .logo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  gap: 0;
+  align-items: center;
+  font-size: 1.5em;
+  color: inherit;
+}
+footer .logo-1 {
+  font-weight: bolder;
+}
+footer .logo-2 {
+  font-weight: 100;
+  color: #998FC7;
+}
+footer p {
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 2em;
+  align-items: stretch;
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #DDE1E6;
+  padding: 2em;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+form h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+form .corps-formulaire {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 2em;
+  align-items: stretch;
+}
+form .corps-formulaire .boite {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  gap: 1em;
+  align-items: stretch;
+}
+form .corps-formulaire .boite label {
+  font-size: 1em;
+  color: #697077;
+}
+form .corps-formulaire .boite input[type=text], form .corps-formulaire .boite input[type=password] {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1em;
+  color: #697077;
+  padding: 1em;
+  display: inline-block;
+  border: inherit;
+  border-bottom: 2px solid #998FC7;
+  background: #F2F4F8;
+}
+form input[type=submit] {
+  cursor: pointer;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  border: 2px solid #998FC7;
+  background-color: #998FC7;
+  color: white;
+  font-size: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: 0.5em 0em 0.5em 0em;
+  border-radius: 0px;
+  transition: border-radius 0.3s;
+}
+form input[type=submit]:hover {
+  background-color: #7a6db6;
+  border: 2px solid #7a6db6;
+  transition: border-radius 0.3s;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 640px) {
+  form {
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4em;
+  }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/*# sourceMappingURL=signlog.css.map */

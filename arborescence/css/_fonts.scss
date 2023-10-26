@@ -1,0 +1,21 @@
+@font-face{
+  font-family: 'Inter';
+
+  src: url('../fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
+}
+
+@font-face{
+  font-family: 'Roboto';
+
+  src: url('../fonts/Roboto/Roboto-Medium.ttf');
+}
+
+* {
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+}
+
+@mixin text-style($size : inherit, $color : inherit, $weight : inherit) {
+  font-size: $size;
+  color: $color;
+}
+

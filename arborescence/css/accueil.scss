@@ -1,0 +1,90 @@
+@import "var";
+@import "fonts";
+@import "layout";
+@import "buttons";
+@import "header";
+@import "footer";
+@import "form";
+
+
+
+
+.content {
+  @extend %content-styles;
+}
+
+.site-container {
+  border-style: none;
+  @extend %site-container-styles;
+  h1 {
+    @include text-style(2.2em, $white);
+    font-weight: bold;
+    margin: 0;
+  }
+  &>h2 {
+    @include text-style(1.2em, $white);
+    font-weight: normal;
+    margin:0;
+  }
+  p {
+    font-size: 1em;
+    font-weight: 100;
+  }
+  .row {
+    @include flex(row, wrap, .5em, space-between, center);
+  }
+  .button1 {
+    @include buttonStyle($white, $purple, $purple);
+  }
+  .button2 {
+    @include buttonStyle($transparent, $white, $white);
+  }
+}
+
+.deux {
+  @include text-style(2rem);
+  text-align: center;
+}
+
+.button1 {
+  @include buttonStyle($white, $purple, $purple, 70vw, 1rem, 1.5em auto 2em auto)
+}
+
+.list {
+  @include flex(column, nowrap, 0, stretch);
+  @include width(100vw);
+}
+.soiree {
+  @include sectionProg(auto, row, $lightGrey, $darkGrey, 1rem);
+}
+
+@media screen and (min-width: 640px) {
+  //bannière
+  .site-container {
+    h1 {
+      @include text-style(2.5em, $white);
+    }
+    &>h2 {
+      @include text-style(1.5em, $white);
+    }
+    p {
+      font-size: 1.1em;
+    }
+  }
+
+  .deux {
+    @include text-style(2.5rem);
+  }
+
+  .button1 {
+    @include buttonStyle($white, $purple, $purple, 30vw, 1.3rem, 2em auto 3em auto)
+  }
+
+  .list {
+    @include flex(row, wrap, 1em, space-between);
+    @include width(95vw);
+  }
+  .soiree {
+    @include sectionProg(20em, column, $lightGrey, $darkGrey, 1.1rem);
+  }
+}

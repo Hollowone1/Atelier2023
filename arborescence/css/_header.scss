@@ -1,0 +1,37 @@
+header {
+  @include flex(row, nowrap, 0, space-between, center);
+  @include text-style(1em, $black);
+  padding: 1em;
+  background-color:$lightGrey;
+  height: $heightHeader;
+  box-sizing: border-box;
+  .logo {
+    @include flex(row, nowrap, 0, start, center);
+    @include text-style(1.5em);
+    &-1 {
+      font-weight: bolder;
+    }
+    &-2 {
+      font-weight: 100;
+      color: $purple;
+    }
+  }
+  .nav {
+    @include flex(row, nowrap, 2em, start, center);
+    &-item {
+      @include text-style(inherit, lighten($black, 50%));
+      &:hover {
+        cursor: pointer;
+        @include text-style(inherit, $black);
+      }
+    }
+    .deconnexion {
+      @include text-style(inherit, $purple);
+        &:hover {
+            cursor: pointer;
+            @include text-style(inherit, darken($purple, 10%));
+        }
+    }
+  }
+
+}
