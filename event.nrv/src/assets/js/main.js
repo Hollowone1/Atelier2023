@@ -1,4 +1,5 @@
 import {apiNRVEvent} from 'Config.js';
+import {apiNRVAuth} from 'Config.js';
 // logique bouton connexion-deconnexion
 
 let isLoggedIn = false;
@@ -22,8 +23,8 @@ let isLoggedIn = false;
     function redirectToReservationPage() {
 
       const newPageURL = 'panier.html';
-      const username = fetch();
-      const email = fetch();
+      const username = fetch(`${apiNRVAuth}user`);
+      const email = fetch(`${apiNRVAuth}user`);
 
       const postData = {
         username: username,
