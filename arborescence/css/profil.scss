@@ -1,0 +1,108 @@
+@import "var";
+@import "fonts";
+@import "layout";
+@import "buttons";
+@import "header";
+@import "footer";
+@import "form";
+@import "tab";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  @include text-style(1em, $black); 
+}
+
+
+
+
+@media screen and (min-width: 640px) {
+
+  h1 {
+    @include text-style(2em, $black);
+  }
+
+}
+
+main{
+    @include flex(column, nowrap, 2em, center, stretch);
+    @include width(70vw);
+    border: 1px solid $lightGrey;
+    padding: 2em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.infos{
+    @include width(50vw);
+    border: 1px solid $lightGrey;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+  
+    .img-item {
+      margin-right: 10px; 
+      background-color: beige;
+    }
+  
+    .infos-item {
+      flex: 1; 
+    }
+
+}
+
+section {
+    @include flex(column, nowrap, 2em, center, stretch);
+    @include width(50vw);
+    border: 1px solid $lightGrey;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    h3 {
+      text-align: center;
+      align-items: center;
+      margin-bottom: 1em;
+    }
+  }
+
+  .billets-entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  
+    .billets-lieu,
+    .billets-soiree,
+    .billets-type {
+      flex: 1;
+      text-align: center;
+      padding: 2px;
+      color: $white;
+      background-color: $purple;
+      padding: 10px;}
+  }
+
+  .billets-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px $lightGrey solid;
+    
+    
+  
+    .billets-lieu,
+    .billets-soiree,
+    .billets-type {
+      flex: 1;
+      text-align: center;
+      padding: 10px;}
+  }
+
+
+
+  
