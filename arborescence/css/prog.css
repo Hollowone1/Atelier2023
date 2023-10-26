@@ -1,18 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap");
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
+  src: url("/Inter/Inter-VariableFont_slnt,wght.ttf");
 }
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Medium.ttf");
+  src: url("/Roboto/Roboto-Medium.ttf");
 }
 * {
   font-family: "Inter", Helvetica, Arial, sans-serif;
-}
-
-body {
-  margin: 0;
-  padding: 0;
 }
 
 header {
@@ -26,8 +22,6 @@ header {
   color: #000000;
   padding: 1em;
   background-color: #DDE1E6;
-  height: 7vh;
-  box-sizing: border-box;
 }
 header .logo {
   display: flex;
@@ -51,7 +45,7 @@ header .nav {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: start;
-  gap: 2em;
+  gap: 1em;
   align-items: center;
 }
 header .nav-item {
@@ -203,7 +197,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: start;
-  gap: 0;
+  gap: auto;
   align-items: stretch;
   display: flex;
   flex-direction: column;
@@ -340,7 +334,7 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: start;
-    gap: 0;
+    gap: auto;
     align-items: stretch;
     display: flex;
     flex-direction: column;
@@ -435,6 +429,4 @@ body {
     transition: border-radius 0.3s;
     border-radius: 5px;
   }
-}
-
-/*# sourceMappingURL=prog.css.map */
+}/*# sourceMappingURL=prog.css.map */

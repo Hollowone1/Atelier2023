@@ -23,7 +23,8 @@ class CreerBilletAction extends AbstractAction
     {
         try {
             $body = $request->getParsedBody();
-            $billetDTO = new BilletDTO(uniqid(), $body['codeQR'], $body['idUtilisateur'], $body['idSoiree']);
+            $billetId = Uuid::uuid4()->toString();
+            $billetDTO = new BilletDTO($billetId, $body['codeQR'], $body['idUtilisateur'], $body['idSoiree']);
             $billet = $this->bs->creerBillet($billetDTO);
             $response->getBody()->write(json_encode($billet->toArray()));
             return $response->withHeader('Content-Type', 'application/json')->withStatus(201);
