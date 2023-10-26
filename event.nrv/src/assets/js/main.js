@@ -1,5 +1,5 @@
-import {apiNRVEvent} from 'Config.js';
-import {apiNRVAuth} from 'Config.js';
+import {apiNRVEvent} from './Config.js';
+import {apiNRVAuth} from './Config.js';
 // logique bouton connexion-deconnexion
 
 let isLoggedIn = false;

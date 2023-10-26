@@ -12,9 +12,8 @@ class AccederBilletAction extends AbstractAction
 {
     private BilletService $bs;
 
-    public function __construct(ContainerInterface $container, BilletService $bs)
+    public function __construct(BilletService $bs)
     {
-        parent::__construct($container);
         $this->bs = $bs;
     }
 

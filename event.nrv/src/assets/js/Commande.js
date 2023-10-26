@@ -1,4 +1,4 @@
-import {apiNRVAuth} from 'Config.js';
+import {apiNRVAuth} from './Config.js';
 
 // logique div total panier row dans commande.html, répéter les éléments du panier:
 
@@ -33,3 +33,4 @@ fetch(`${apiNRVAuth}panier`)
   .catch(error => {
     console.error('Erreur lors de la récupération des données du panier :', error);
   });
+

@@ -8,9 +8,9 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 DROP TABLE IF EXISTS `billet`;
 CREATE TABLE Billet
 (
-    idBillet      INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    codeQR        VARCHAR(255)       NOT NULL,
-    idUtilisateur INT                NOT NULL,
-    idSoiree      INT                NOT NULL
+    idBillet      VARCHAR(255) NOT NULL PRIMARY KEY,
+    codeQR        VARCHAR(255) NOT NULL,
+    idUtilisateur VARCHAR(255) NOT NULL,
+    idSoiree      VARCHAR(255) NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
