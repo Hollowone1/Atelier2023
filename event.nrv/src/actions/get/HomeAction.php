@@ -9,10 +9,10 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class HomeAction extends AbstractAction
 {
-    public function __construct(ContainerInterface $container)
-    {
-        parent::__construct($container);
-    }
+//    public function __construct(ContainerInterface $container)
+//    {
+//        parent::__construct($container);
+//    }
 
     public function __invoke(Request $request, Response $response, $args) : Response
     {
