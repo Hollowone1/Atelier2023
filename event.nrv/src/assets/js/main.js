@@ -1,3 +1,5 @@
+// logique bouton connexion-deconnexion
+
 let isLoggedIn = false;
 
     function toggleLogin() {
@@ -14,3 +16,38 @@ let isLoggedIn = false;
       }
     }
 
+//logique bouton réserver.
+
+    function redirectToReservationPage() {
+
+      const newPageURL = 'panier.html';
+      const username = fetch();
+      const email = fetch();
+
+      const postData = {
+        username: username,
+        email: email
+      };
+
+      // Options de la requête Fetch
+      const fetchOptions = {
+        method: 'GET', // Méthode de la requête (POST, GET, etc.)
+        body: JSON.stringify(postData), // Données à envoyer
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+      // Effectuer la redirection avec Fetch
+      fetch(newPageURL, fetchOptions)
+        .then(response => {
+          if (response.ok) {
+            window.location.href = newPageURL;
+          } else {
+            console.error('Échec de la requête Fetch');
+          }
+        })
+        .catch(error => {
+          console.error('Erreur de connexion réseau :', error);
+        });
+    }
