@@ -1,9 +1,8 @@
-import {apiNRVAuth} from 'Config.js';
+  import { apiNRVAuth } from 'Config.js';
 
-// logique div total panier row dans commande.html, répéter les éléments du panier:
-
+// Logique pour récupérer les données du panier
 const nombreDeBilletsAchetes = 2;
-const panier = document.getElementsByClassName("panier-row"); // Utilisez getElementById au lieu de getElementsByClassName
+const panier = document.querySelector(".tab"); // Sélectionnez le conteneur de panier
 
 // Assurez-vous d'ajuster l'URL de l'API en conséquence
 fetch(`${apiNRVAuth}panier`)
@@ -14,17 +13,39 @@ fetch(`${apiNRVAuth}panier`)
     for (let i = 0; i < nombreDeBilletsAchetes; i++) {
       // Créez une nouvelle ligne de panier pour chaque élément
       const panierItemDiv = document.createElement("div");
-      panierItemDiv.className = "total panier-row";
+      panierItemDiv.className = "row content";
 
-      const panierItemP = document.createElement("p");
-      panierItemP.className = "panier-item";
-      panierItemP.textContent = `${data[i].description} - ${data[i].prix}€`; // Assurez-vous que la structure des données de l'API correspond à cela
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = "item";
 
-      const montantTotalP = document.createElement("p");
-      montantTotalP.innerHTML = `<strong>Montant total :</strong> le montant total`;
+      const lieu = document.createElement("div");
+      lieu.className = "panier-lieu";
+      lieu.textContent = data[i].lieu; // Assurez-vous que la structure des données de l'API correspond à cela
 
-      panierItemDiv.appendChild(panierItemP);
-      panierItemDiv.appendChild(montantTotalP);
+      const soiree = document.createElement("div");
+      soiree.className = "panier-soiree";
+      soiree.textContent = data[i].soiree; // Assurez-vous que la structure des données de l'API correspond à cela
+
+      const type = document.createElement("div");
+      type.className = "panier-type";
+      type.textContent = data[i].type; // Assurez-vous que la structure des données de l'API correspond à cela
+
+      const prix = document.createElement("div");
+      prix.className = "panier-prix";
+      prix.textContent = data[i].prix; // Assurez-vous que la structure des données de l'API correspond à cela
+
+      const quantite = document.createElement("div");
+      quantite.className = "panier-quantite";
+      quantite.textContent = data[i].quantite; // Assurez-vous que la structure des données de l'API correspond à cela
+
+      // Ajoutez les éléments à la ligne de panier
+      panierItemDiv.appendChild(checkbox);
+      panierItemDiv.appendChild(lieu);
+      panierItemDiv.appendChild(soiree);
+      panierItemDiv.appendChild(type);
+      panierItemDiv.appendChild(prix);
+      panierItemDiv.appendChild(quantite);
 
       // Ajoutez la nouvelle ligne de panier au conteneur du panier
       panier.appendChild(panierItemDiv);
