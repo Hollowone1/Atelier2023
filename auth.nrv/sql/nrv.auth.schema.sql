@@ -8,7 +8,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE Utilisateur
 (
-    idUtilisateur                      INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    idUtilisateur                      VARCHAR(255) NOT NULL PRIMARY KEY,
     prenom                             VARCHAR(255)       NOT NULL,
     nom                                VARCHAR(255)       NOT NULL,
     email                              VARCHAR(255)       NOT NULL,
