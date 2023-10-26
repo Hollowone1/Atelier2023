@@ -3,14 +3,12 @@ import { apiNRVAuth } from './Config.js';
 
 //profil.html, récupérer les données utilisateurs
 
-const profilContainer = document.getElementsByClassName("infos"); // Obtenez le conteneur où vous ajouterez les informations du profil
+const profilContainer = document.getElementsByClassName("infos"); 
 
 fetch(`${apiNRVAuth}users`)
   .then(response => response.json())
   .then(data => {
-    // Traitez les données du profil utilisateur ici
-    // Assurez-vous que les données renvoyées correspondent à la structure attendue
-    // Créez des éléments HTML pour afficher les informations du profil
+    
 
     const infosItem = document.createElement("div");
     infosItem.className = "infos-item";
