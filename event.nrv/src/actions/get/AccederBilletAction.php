@@ -1,6 +1,6 @@
 <?php
 
-namespace nrv\event\api\actions;
+namespace nrv\event\api\actions\get;
 
 use Exception;
 use nrv\event\api\app\actions\AbstractAction;

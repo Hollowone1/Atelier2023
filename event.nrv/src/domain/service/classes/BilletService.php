@@ -2,6 +2,7 @@
 
 namespace nrv\event\api\domain\service\classes;
 
+use Exception;
 use nrv\event\api\domain\DTO\billet\billetDTO;
 use nrv\event\api\domain\entities\billet\Billet;
 use nrv\event\api\domain\service\interfaces\IBillet;
@@ -20,7 +21,9 @@ class BilletService implements IBillet
         $this->logger = $logger;
     }
 
-
+    /**
+     * @throws Exception
+     */
     public function creerBillet(billetDTO $billetDTO): billetDTO
     {
         try {
@@ -34,46 +37,53 @@ class BilletService implements IBillet
 
             return $billetEntity->toDTO();
         }
-        catch (\Exception $e){
+        catch (Exception $e){
             $this->logger->error($e->getMessage());
-            throw new \Exception("Erreur lors de la création du billet");
+            throw new Exception("Erreur lors de la création du billet");
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function lireBillet(string $id): billetDTO
     {
         try {
             $billetEntity = Billet::find($id);
             if ($billetEntity == null) {
-                throw new \Exception("Billet introuvable");
+                throw new Exception("Billet introuvable");
             }
             return $billetEntity->toDTO();
         }
         catch (\Exception $e){
             $this->logger->error($e->getMessage());
-            throw new \Exception("Erreur lors de la lecture du billet");
+            throw new Exception("Erreur lors de la lecture du billet");
         }
     }
 
     // methode pour valider un billet (verifier le nombre de billet restant avant que l'utilisateur puisse en acheter)
+
+    /**
+     * @throws Exception
+     */
     public function validerBillet(string $id): billetDTO
     {
         try {
             $nbPlacesRestantes = $this->ss->lireNbPlacesRestantes($id);
             if ($nbPlacesRestantes == 0) {
-                throw new \Exception("Plus de places disponibles");
+                throw new Exception("Plus de places disponibles");
             }
             $this->ss->decrementerNbPlacesRestantes($id);
             $this->logger->info("Billet validé");
             $billetEntity = Billet::find($id);
             if ($billetEntity == null) {
-                throw new \Exception("Billet introuvable");
+                throw new Exception("Billet introuvable");
             }
             return $billetEntity->toDTO();
         }
-        catch (\Exception $e){
+        catch (Exception $e){
             $this->logger->error($e->getMessage());
-            throw new \Exception("Erreur lors de la validation du billet");
+            throw new Exception("Erreur lors de la validation du billet");
         }
     }
 }
