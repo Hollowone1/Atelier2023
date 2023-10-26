@@ -1,5 +1,6 @@
 import {apiNRVEvent} from './Config.js';
 import { apiNRVAuth } from './Config.js';
+
 //profil.html, récupérer les données utilisateurs
 
 const profilContainer = document.getElementsByClassName("infos"); // Obtenez le conteneur où vous ajouterez les informations du profil
@@ -32,8 +33,6 @@ fetch(`${apiNRVAuth}users`)
 
 
 //profil.html, récupérer les données des billets et fetch la data du panier
-
-
 
 
 const billetsContainer = document.getElementsByClassName("billets-items"); // Obtenez le conteneur où vous ajouterez les éléments
