@@ -12,8 +12,9 @@ class AccederBilletAction extends AbstractAction
 {
     private BilletService $bs;
 
-    public function __construct(BilletService $bs)
+    public function __construct(ContainerInterface $container, BilletService $bs)
     {
+        parent::__construct($container);
         $this->bs = $bs;
     }
 
@@ -41,4 +42,5 @@ class AccederBilletAction extends AbstractAction
             return $response->withHeader('Content-Type', 'application/json')->withStatus(404);
         }
     }
+
 }
