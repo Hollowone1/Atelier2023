@@ -1,6 +1,39 @@
+import {apiNRVEvent} from './Config.js';
+import { apiNRVAuth } from './Config.js';
+//profil.html, récupérer les données utilisateurs
+
+const profilContainer = document.getElementsByClassName("infos"); // Obtenez le conteneur où vous ajouterez les informations du profil
+
+fetch(`${apiNRVAuth}users`)
+  .then(response => response.json())
+  .then(data => {
+    // Traitez les données du profil utilisateur ici
+    // Assurez-vous que les données renvoyées correspondent à la structure attendue
+    // Créez des éléments HTML pour afficher les informations du profil
+
+    const infosItem = document.createElement("div");
+    infosItem.className = "infos-item";
+
+    const nomP = document.createElement("p");
+    nomP.className = "infos-nom";
+    nomP.innerHTML = `<strong>Nom :</strong> ${data.nomComplet}`; // Assurez-vous que la propriété 'nomComplet' existe dans les données
+    infosItem.appendChild(nomP);
+
+    const emailP = document.createElement("p");
+    emailP.className = "infos-email";
+    emailP.innerHTML = `<strong>E-mail :</strong> ${data.email}`; // Assurez-vous que la propriété 'email' existe dans les données
+    infosItem.appendChild(emailP);
+
+    profilContainer.appendChild(infosItem);
+  })
+  .catch(error => {
+    console.error('Erreur lors de la récupération du profil utilisateur :', error);
+  });
+
+
 //profil.html, récupérer les données des billets et fetch la data du panier
 
-import {apiNRVEvent} from 'Config.js';
+
 
 
 const billetsContainer = document.getElementsByClassName("billets-items"); // Obtenez le conteneur où vous ajouterez les éléments
