@@ -14,7 +14,6 @@ class User extends Model
     protected $keyType = 'string';
     public $timestamps = false;
     protected $fillable = [
-        'idUtilisateur',
         'prenom',
         'nom',
         'email',
@@ -33,11 +32,9 @@ class User extends Model
     const USER = 1;
     const ADMIN = 2;
 
-
     public function toDTO(): UserDTO
     {
         return new UserDTO(
-            $this->idUtilisateur,
             $this->prenom,
             $this->nom,
             $this->email,

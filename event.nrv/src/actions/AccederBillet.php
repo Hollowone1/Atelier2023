@@ -8,7 +8,7 @@ use nrv\event\api\domain\service\classes\BilletService;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 
-class AccederBillet extends \nrv\event\api\app\actions\AbstractAction
+class AccederBillet extends AbstractAction
 {
     private BilletService $bs;
 
