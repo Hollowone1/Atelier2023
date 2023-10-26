@@ -54,10 +54,18 @@ let isLoggedIn = false;
         });
     }
 
-// logique bouton voir plus
+
+    // redirection vers la page soirée:
+
+    function redirectToSoiree(){
+        window.location.href = 'soiree.html';     
+    }
+
+
+    // logique bouton voir plus
 
     const soireesList = document.getElementsByClassName("soiree");
-    const voirPlusButton = document.getElementsByClassName("button1");
+    const voirPlusButton = document.getElementsByClassName("soiree-buttons-1");
     let offset = 6; // Compteur d'offset pour les requêtes API
     const limit = 6; // Nombre de soirées à charger à la fois
 
