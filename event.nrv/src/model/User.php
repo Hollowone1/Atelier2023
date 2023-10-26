@@ -1,6 +1,6 @@
 <?php
 
-namespace pizzashop\auth\api\models;
+namespace nrv\auth\api\app\models;
 
 use Illuminate\Database\Eloquent\Model;
 
