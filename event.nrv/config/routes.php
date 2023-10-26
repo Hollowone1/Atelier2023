@@ -1,23 +1,25 @@
 <?php
 declare(strict_types=1);
 
+use nrv\event\api\actions\get\AccederBilletAction;
+use nrv\event\api\actions\get\AccederSpectacleAction;
+use nrv\event\api\actions\get\AccederSpectaclesAction;
+use nrv\event\api\actions\get\HomeAction;
+use nrv\event\api\actions\post\CreerSpectacleAction;
 use Psr\Http\Message\ServeurRequestInterface as Request;
 use Psr\Http\Message\ResponseFactoryInterface as Response;
-use nrv\event\api\app\actions\get\AccederSpectacleAction;
 use Slim\App;
 
 return function (App $app):void {
-    $app->get('/', \nrv\event\api\app\actions\HomeAction::class)
+    $app->get('/', HomeAction::class)
         ->setName('home');
-    $app->get('/spectacles[/]', \nrv\event\api\app\actions\get\AccederSpectaclesAction::class)
+    $app->get('/spectacles[/]', AccederSpectaclesAction::class)
         ->setName('spectacles');
     $app->get('/spectacles/{idSpectacle}[/]', AccederSpectacleAction::class)
         ->setName('spectacle');
-    $app->post('/spectacles/{idSpectacle}[/]', \nrv\event\api\app\actions\post\CreerSpectacleAction::class)
+    $app->post('/spectacle[/]', CreerSpectacleAction::class)
         ->setName('creer_spectacle');
-    $app->get('/billets/{idBillet}[/]', \nrv\event\api\app\actions\get\AccederBilletAction::class)
+    $app->get('/billets/{idBillet}[/]', AccederBilletAction::class)
         ->setName('billet');
-    $app->post('/billets/{idBillet}[/]', \nrv\event\api\app\actions\post\ValiderBilletAction::class)
-        ->setName('valider_billet');
 
 };
