@@ -1,4 +1,4 @@
-import {apiNRVEvent} from 'Config.js';
+import {apiNRVEvent} from './Config.js';
 //programmation.html, répétition des genres:
 
 fetch(`${apiNRVEvent}genres`)
