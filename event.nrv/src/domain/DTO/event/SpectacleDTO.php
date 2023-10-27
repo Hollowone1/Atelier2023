@@ -1,9 +1,9 @@
 <?php
 
 namespace nrv\event\api\domain\DTO\event;
-use nrv\event\api\domain\DTO;
+use nrv\event\api\domain\DTO\DTO;
 
-class spectacleDTO extends DTO {
+class SpectacleDTO extends DTO {
 
         public string $titre;
         public string $description;
@@ -18,7 +18,8 @@ class spectacleDTO extends DTO {
             $this->horaire = $horaire;
         }
 
-        public function toArray() {
+        public function toArray(): array
+        {
             return [
                 'titre' => $this->titre,
                 'description' => $this->description,

@@ -2,7 +2,7 @@
 
 namespace nrv\event\api\domain\service\interfaces;
 
-use nrv\event\api\domain\DTO\event\spectacleDTO;
+use nrv\event\api\domain\DTO\event\SpectacleDTO;
 
 interface ISpectacle
 {
