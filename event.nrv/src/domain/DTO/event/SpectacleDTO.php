@@ -1,8 +1,6 @@
 <?php
 
 namespace nrv\event\api\domain\DTO\event;
-
-use Cassandra\Date;
 use nrv\event\api\domain\DTO\DTO;
 
 class SpectacleDTO extends DTO {

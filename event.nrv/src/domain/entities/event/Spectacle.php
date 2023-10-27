@@ -41,14 +41,13 @@ class Spectacle extends Model
 
     public function toDTO(): SpectacleDTO
     {
-        $spec = new SpectacleDTO(
+        return new SpectacleDTO(
             $this->idSpectacle,
             $this->titre,
             $this->description,
             $this->urlVideo,
             $this->horairePrevionnel,
             $this->idSoiree);
-
-        return $spec;
+            // $this->idImg);
     }
 }
