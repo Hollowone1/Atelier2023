@@ -2,7 +2,7 @@
 
 namespace nrv\event\api\actions\get;
 
-use nrv\event\api\app\actions\AbstractAction;
+use nrv\event\api\actions\AbstractAction;
 use Slim\Routing\RouteContext;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
