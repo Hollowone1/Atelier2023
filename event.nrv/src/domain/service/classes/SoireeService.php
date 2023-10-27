@@ -97,11 +97,10 @@ class SoireeService implements ISoiree
                 $image = ImgSpectacle::select('img')->where('idSpectacle', $spectacle->idSpectacle)->first();
                 if (isset($image)) {
                     $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $image);
-                    $listeSoirees[] = $soireeDTO;
                 } else {
                     $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
-                    $listeSoirees[] = $soireeDTO;
                 }
+                $listeSoirees[] = $soireeDTO;
             }
             return $listeSoirees;
         } else {
@@ -159,19 +158,6 @@ class SoireeService implements ISoiree
     /**
      * @throws Exception
      */
-    public function boutonsTheme(): array {
-        $themes = Soiree::select('theme')->get()->toArray();
-        if (isset($themes)) {
-            return $themes;
-        } else {
-            throw new Exception("Thèmes non trouvés");
-        }
-
-    }
-
-    /**
-     * @throws Exception
-     */
     public function filtreLieu(string $lieu): array {
         $allSoirees = array();
         $lieuNom = Lieu::where('nom', $lieu)->first();
@@ -189,7 +175,6 @@ class SoireeService implements ISoiree
         } else {
             throw new Exception("Lieu non trouvé");
         }
-
     }
 
     /**
@@ -209,6 +194,18 @@ class SoireeService implements ISoiree
             return $allSoirees;
         } else {
             throw new Exception("Soirées non trouvées");
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function boutonsTheme(): array {
+        $themes = Soiree::select('theme')->get()->toArray();
+        if (isset($themes)) {
+            return $themes;
+        } else {
+            throw new Exception("Thèmes non trouvés");
         }
     }
 
