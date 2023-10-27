@@ -45,6 +45,9 @@ class SoireeService implements ISoiree
     }
 
 
+    /**
+     * @throws Exception
+     */
     public function recupSoiree(string $id): soireeDTO
     {
         $soiree = Soiree::where('idSoiree', $id)->first();
@@ -115,7 +118,8 @@ class SoireeService implements ISoiree
         $spectacles = Spectacle::where('idSoiree', $idSoiree)->get()->toArray();
         if (isset($spectacles)) {
             foreach ($spectacles as $spectacle) {
-                $spectacleDTO = new spectacleDTO($spectacle->titre, $spectacle->description, $spectacle->urlVideo, $spectacle->horairePrevionnel);
+                $image = ImgSpectacle::select('img')->where('idSpectacle', $spectacle->idSpectacle)->first();
+                $spectacleDTO = new spectacleDTO($spectacle->titre, $spectacle->description, $spectacle->urlVideo, $spectacle->horairePrevionnel, $image);
                 $allSpectacles[] = $spectacleDTO;
             }
             return $allSpectacles;
@@ -132,7 +136,6 @@ class SoireeService implements ISoiree
         $allSoirees = array();
         $soirees = Soiree::where('date', $date)->get()->toArray();
         return $this->extracted($soirees, $allSoirees);
-
     }
 
     /**
