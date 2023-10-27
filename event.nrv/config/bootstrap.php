@@ -20,23 +20,22 @@ $builder = new ContainerBuilder();
 //$builder->addDefinitions($actions);
 
 $eloquent = new Eloquent();
-$eloquent->addConnection(parse_ini_file(__DIR__ . '/event.db.ini'), 'event');
-$eloquent->addConnection(parse_ini_file(__DIR__ . '/billet.db.ini'), 'billet');
+$eloquent->addConnection(parse_ini_file(__DIR__ . "/event.db.ini"), 'event');
+$eloquent->addConnection(parse_ini_file(__DIR__ . "/billet.db.ini"), 'billet');
 $eloquent->setAsGlobal();
 $eloquent->bootEloquent();
-
-
 
 try {
     $c = $builder->build();
     $app = AppFactory::createFromContainer($c);
     $app->addRoutingMiddleware();
+    $app->addBodyParsingMiddleware();
+    $errorMiddleware = $app->addErrorMiddleware(true, false, false);
+    $errorHandler = $errorMiddleware->getDefaultErrorHandler();
+    $errorHandler->forceContentType('application/json');
     $app->addErrorMiddleware(true, false, false);
     return $app;
 } catch (Exception $e) {
     echo $e->getMessage();
 }
 
-
-
-return $app;

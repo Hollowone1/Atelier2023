@@ -4,7 +4,7 @@ namespace nrv\event\api\actions\get;
 
 
 use Exception;
-use nrv\event\api\app\actions\AbstractAction;
+use nrv\event\api\actions\AbstractAction;
 use nrv\event\api\domain\service\classes\SpectacleService;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;

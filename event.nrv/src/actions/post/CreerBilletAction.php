@@ -3,7 +3,7 @@
 namespace nrv\event\api\actions\post;
 
 use Exception;
-use nrv\event\api\app\actions\AbstractAction;
+use nrv\event\api\actions\AbstractAction;
 use nrv\event\api\domain\DTO\billet\BilletDTO;
 use nrv\event\api\domain\service\classes\BilletService;
 use Psr\Http\Message\ResponseInterface as Response;
