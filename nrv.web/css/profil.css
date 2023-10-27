@@ -321,12 +321,26 @@ main {
   justify-content: space-between;
   display: flex;
 }
-.infos .img-item {
+.infos img {
   margin-right: 10px;
   background-color: beige;
+  height: 15rem;
+  width: auto;
 }
 .infos .infos-item {
   flex: 1;
+}
+@media screen and (max-width: 900px) {
+  .infos h1 {
+    font-size: 1em;
+    color: #000000;
+  }
+  .infos img {
+    margin-right: 10px;
+    background-color: beige;
+    height: 10rem;
+    width: auto;
+  }
 }
 
 section {
