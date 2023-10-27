@@ -12,7 +12,7 @@ CREATE TABLE Spectacle
     titre             VARCHAR(255)       NOT NULL,
     description       VARCHAR(255)       NOT NULL,
     urlVideo          VARCHAR(255),
-    horairePrevionnel DATETIME,
+    horairePrevisionnel DATETIME,
     idSoiree          VARCHAR(255),
     idImg             INT,
     FOREIGN KEY (idSoiree) REFERENCES Soiree (idSoiree),

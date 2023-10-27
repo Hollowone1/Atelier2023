@@ -18,8 +18,10 @@ class SpectacleService implements ISpectacle
         $spectacleEntity->titre = $spectacleDTO->titre;
         $spectacleEntity->description = $spectacleDTO->description;
         $spectacleEntity->urlVideo = $spectacleDTO->urlVideo;
-        $spectacleEntity->horaire = $spectacleDTO->horaire;
-        return new SpectacleDTO($spectacleEntity->titre, $spectacleEntity->description, $spectacleEntity->urlVideo, $spectacleEntity->horaire);
+        $spectacleEntity->horairePrevionnel = $spectacleDTO->horairePrevionnel;
+        $spectacleEntity->idSoiree = $spectacleDTO->idSoiree;
+        $spectacleEntity->idImg = $spectacleDTO->idImg;
+        return new SpectacleDTO($spectacleEntity->idSpectacle, $spectacleEntity->titre, $spectacleEntity->description, $spectacleEntity->urlVideo, $spectacleEntity->horairePrevionnel, $spectacleEntity->idSoiree, $spectacleEntity->idImg);
     }
 
     /**
@@ -46,12 +48,21 @@ class SpectacleService implements ISpectacle
 
     public function recupTousLesSpectacles(): array
     {
-        $spectacles = Spectacle::all();
-        $spectaclesDTO = [];
-        foreach ($spectacles as $spectacle) {
-            $spectaclesDTO[] = $spectacle->toDTO();
+        $spectacleEntities = Spectacle::all();
+        $spectacleDTOs = [];
+        foreach ($spectacleEntities as $spectacleEntity) {
+            $spectacle = new Spectacle();
+            $spectacle->idSpectacle = $spectacleEntity->idSpectacle;
+            $spectacle->titre = $spectacleEntity->titre;
+            $spectacle->description = $spectacleEntity->description;
+            $spectacle->urlVideo = $spectacleEntity->urlVideo;
+            $spectacle->horairePrevionnel = $spectacleEntity->horairePrevionnel;
+            $spectacle->idSoiree = $spectacleEntity->idSoiree;
+            //$spectacle->idImg = $spectacleEntity->idImg;
+            $spectacleDTOs[] = $spectacle->toDTO();
+
         }
-        return $spectaclesDTO;
+        return $spectacleDTOs;
     }
 
 }

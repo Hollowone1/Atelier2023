@@ -9,7 +9,7 @@ use nrv\event\api\domain\entities\event\Spectacle;
 class Artiste extends Model
 {
 
-    protected $connection = 'nrv_event';
+    protected $connection = 'event';
     protected $table = 'Artiste';
     protected $primaryKey = 'idArtiste';
     protected $keyType = 'string';
