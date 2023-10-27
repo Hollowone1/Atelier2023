@@ -42,17 +42,17 @@
         <section class="filtres">
             <input id="input-filtre-date" type="date" onclick="filtreDate(this.value)" name="filtre-date" value="2023-10-30" min="2023-10-23" max="2023-11-05">
                 <!-- à répéter partir de la bdd -->
-                <button class="filtres-genre-item">Punk Rock</button>
-                <button class="filtres-genre-item">Hard Rock</button>
-                <button class="filtres-genre-item">Metal</button>
-                <button class="filtres-genre-item">Grunge</button>
-                <button class="filtres-genre-item">Pop Rock</button>
+                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Punk Rock</button>
+                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Hard Rock</button>
+                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Metal</button>
+                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Grunge</button>
+                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Pop Rock</button>
                 <!-- à répéter partir de la bdd -->
-                <button class="filtres-lieu-item">L'Autre Canal</button>
-                <button class="filtres-lieu-item">Le Hublot</button>
-                <button class="filtres-lieu-item">Salle Poreil</button>
-                <button class="filtres-lieu-item">Parc La Pépinière</button>
-                <button class="filtres-lieu-item">Théâtre De La Manufacture</button>
+                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">L'Autre Canal</button>
+                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Le Hublot</button>
+                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Salle Poreil</button>
+                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Parc La Pépinière</button>
+                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Théâtre De La Manufacture</button>
         </section>
 
         <div class="list">
