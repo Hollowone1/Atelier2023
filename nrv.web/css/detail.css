@@ -1,27 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap");
 @font-face {
   font-family: "Inter";
-  src: url("/Inter/Inter-VariableFont_slnt,wght.ttf");
+  src: url("../fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
 }
 @font-face {
   font-family: "Roboto";
-  src: url("/Roboto/Roboto-Medium.ttf");
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
 }
 * {
   font-family: "Inter", Helvetica, Arial, sans-serif;
 }
 
-.content {
-  height: 100%;
-  width: auto;
-  background-image: linear-gradient(166deg, #f9f5ff, #d4c2fc, #998fc7, #14248a);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.content h1 {
-  color: #FFF;
+body {
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -79,6 +70,47 @@ header .nav .deconnexion:hover {
   font-size: inherit;
   color: #7a6db6;
 }
+@media screen and (max-width: 800px) {
+  header .nav {
+    display: none;
+  }
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #DDE1E6;
+  position: relative;
+  display: none;
+}
+
+.gg-menu {
+  float: right;
+}
+
+@media screen and (max-width: 800px) {
+  .topnav {
+    display: block;
+  }
+}
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: #998FC7;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav .nav-item {
+  color: #998FC7;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
 
 footer {
   display: flex;
@@ -130,6 +162,7 @@ body {
 
 .element {
   flex: 1;
+  border: 1px solid black;
 }
 
 img {
