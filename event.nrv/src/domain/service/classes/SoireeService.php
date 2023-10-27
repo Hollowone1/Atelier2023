@@ -44,13 +44,6 @@ class SoireeService implements ISoiree
         return $soireeDTO;
     }
 
-    public function supprSoiree(string $id)
-    {
-        $soiree = Soiree::where('idSoiree', $id)->first();
-        $soiree->delete();
-        //????
-        throw new Exception("Soirée bien supprimée");
-    }
 
     public function recupSoiree(string $id): soireeDTO
     {
@@ -160,6 +153,9 @@ class SoireeService implements ISoiree
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function boutonsTheme(): array {
         $themes = Soiree::select('theme')->get()->toArray();
         if (isset($themes)) {
@@ -170,6 +166,9 @@ class SoireeService implements ISoiree
 
     }
 
+    /**
+     * @throws Exception
+     */
     public function filtreLieu(string $lieu): array {
         $allSoirees = array();
         $lieuNom = Lieu::where('nom', $lieu)->first();
@@ -210,6 +209,9 @@ class SoireeService implements ISoiree
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function boutonsLieu(): array {
         $lieux = Lieu::select('nom')->get()->toArray();
         if (isset($themes)) {
