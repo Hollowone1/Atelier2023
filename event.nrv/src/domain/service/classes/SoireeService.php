@@ -34,7 +34,7 @@ class SoireeService implements ISoiree
     /**
      * @throws Exception
      */
-    public function recupSoiree(string $id): soireeDTO
+    public function recupSoiree(string $id): SoireeDTO
     {
         $soiree = Soiree::where('idSoiree', $id)->first();
         if (isset($soiree)) {
@@ -51,8 +51,6 @@ class SoireeService implements ISoiree
     {
         $soiree = Soiree::where('idSoiree', $id)->first();
         $soiree->delete();
-        //????
-        throw new Exception("Soirée bien supprimée");
     }
 
     public function recupToutesLesSoirees(): array
