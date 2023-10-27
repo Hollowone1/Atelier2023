@@ -3,7 +3,7 @@ import {apiNRVAuth} from './Config.js';
 // logique div total panier row dans commande.html, répéter les éléments du panier:
 
 const nombreDeBilletsAchetes = 2;
-const panier = document.getElementsByClassName("panier-row"); // Utilisez getElementById au lieu de getElementsByClassName
+const panier = document.getElementsByClassName("panier-row"); 
 
 // Assurez-vous d'ajuster l'URL de l'API en conséquence
 fetch(`${apiNRVAuth}panier`)

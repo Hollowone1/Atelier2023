@@ -7,8 +7,8 @@ use nrv\event\api\domain\entities\event\Spectacle;
 use nrv\event\api\domain\service\interfaces\ISoiree;
 use nrv\event\api\domain\entities\event\Soiree;
 use nrv\event\api\domain\entities\event\Lieu;
-use nrv\event\api\domain\DTO\event\soireeDTO;
-use nrv\event\api\domain\DTO\event\spectacleDTO;
+use nrv\event\api\domain\DTO\event\SoireeDTO;
+use nrv\event\api\domain\DTO\event\SpectacleDTO;
 use Exception;
 
 
@@ -27,7 +27,7 @@ class SoireeService implements ISoiree
         $this->logger = $logger;
     }
 
-    public function creerSoiree(SoireeDTO $soireeDTO): soireeDTO
+    public function creerSoiree(SoireeDTO $soireeDTO): SoireeDTO
     {
         $lieu = Lieu::where('nom', $soireeDTO->lieu)->first();
         //les id de soirées sont en autoincrement
@@ -76,6 +76,20 @@ class SoireeService implements ISoiree
 
     }
 
+    /**
+     * @throws Exception
+     */
+    public function supprSoiree(string $id)
+    {
+        $soiree = Soiree::where('idSoiree', $id)->first();
+        $soiree->delete();
+        //????
+        throw new Exception("Soirée bien supprimée");
+    }
+
+    /**
+     * @throws Exception
+     */
     public function recupToutesLesSoirees(): array
     {
         $listeSoirees = array();
@@ -99,6 +113,9 @@ class SoireeService implements ISoiree
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function recupSpectacles(string $idSoiree) : array
     {
         $allSpectacles = array();
@@ -115,21 +132,19 @@ class SoireeService implements ISoiree
 
     }
 
+    /**
+     * @throws Exception
+     */
     public function filtreDate(string $date): array {
         $allSoirees = array();
         $soirees = Soiree::where('date', $date)->get()->toArray();
-        if (isset($soirees)) {
-            foreach ($soirees as $soiree) {
-                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-                $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
-                $allSoirees[] = $soireeDTO;
-            }
-            return $allSoirees;
-        } else {
-            throw new Exception("Soirées non trouvées");
-        }
+        return $this->extracted($soirees, $allSoirees);
 
     }
+
+    /**
+     * @throws Exception
+     */
     public function filtreTheme(string $theme): array {
         $allSoirees = array();
         $soirees = Soiree::where('theme', $theme)->get()->toArray();
@@ -175,6 +190,26 @@ class SoireeService implements ISoiree
 
     }
 
+    /**
+     * @param $soirees
+     * @param array $allSoirees
+     * @return array
+     * @throws Exception
+     */
+    public function extracted($soirees, array $allSoirees): array
+    {
+        if (isset($soirees)) {
+            foreach ($soirees as $soiree) {
+                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+                $soireeDTO = new SoireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
+                $allSoirees[] = $soireeDTO;
+            }
+            return $allSoirees;
+        } else {
+            throw new Exception("Soirées non trouvées");
+        }
+    }
+
     public function boutonsLieu(): array {
         $lieux = Lieu::select('nom')->get()->toArray();
         if (isset($themes)) {
@@ -185,5 +220,3 @@ class SoireeService implements ISoiree
 
     }
 }
-
-

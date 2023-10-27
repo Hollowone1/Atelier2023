@@ -1,7 +1,7 @@
 <?php
 
 namespace nrv\event\api\domain\DTO\billet;
-use nrv\event\api\domain\DTO;
+use nrv\event\api\domain\DTO\DTO;
 
 class BilletDTO extends DTO {
     

@@ -1,7 +1,7 @@
 <?php
 
 namespace nrv\event\api\domain\service\interfaces;
-use nrv\event\api\domain\DTO\event\soireeDTO;
+use nrv\event\api\domain\DTO\event\SoireeDTO;
 
 
 interface ISoiree

@@ -3,31 +3,29 @@
 namespace nrv\event\api\actions\post;
 
 use Exception;
-use nrv\event\api\actions\get\ContainerInterface;
 use nrv\event\api\app\actions\AbstractAction;
-use nrv\event\api\domain\service\classes\SpectacleService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class CreerSpectacleAction extends AbstractAction
+class CreerSoireeAction extends AbstractAction
 {
 
-    private SpectacleService $spectacleService;
+    private SoireeService $soireeService;
 
-    public function __construct(ContainerInterface $container, SpectacleService $spectacleService)
+    public function __construct(ContainerInterface $container, SoireeService $soireeService)
     {
         parent::__construct($container);
-        $this->spectacleService = $spectacleService;
+        $this->soireeService = $soireeService;
     }
 
     public function __invoke(Request $request, Response $response, $args): Response
     {
         try {
-            $spectacle = $this->spectacleService->creerSpectacle($request->getParsedBody());
-            $response->getBody()->write(json_encode($spectacle));
+            $soiree = $this->soireeService->creerSoiree($request->getParsedBody());
+            $response->getBody()->write(json_encode($soiree));
 
             $routeContext = RouteContext::fromRequest($request);
-            $url = $routeContext->getRouteParser()->urlFor('accederSpectacle', ['idSpectacle' => $spectacle->getId()]);
+            $url = $routeContext->getRouteParser()->urlFor('accederSoiree', ['idSoiree' => $soiree->getId()]);
             return $response->withHeader('Location', $url)->withStatus(201);
         } catch (Exception $e) {
             $response->getBody()->write(json_encode(['error' => $e->getMessage()]));
