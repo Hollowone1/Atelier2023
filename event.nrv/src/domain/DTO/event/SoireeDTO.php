@@ -13,7 +13,6 @@ class SoireeDTO extends DTO {
     public float $tarifReduit;
     public string $idLieu;
 
-
     public function __construct(string $idSoiree, string $nom, string $theme, string $date, string $horaire, float $tarifNormal, float $tarifReduit, string $idLieu) {
         $this->idSoiree = $idSoiree;
         $this->nom = $nom;
