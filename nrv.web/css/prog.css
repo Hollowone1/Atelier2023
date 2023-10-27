@@ -15,6 +15,13 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -55,6 +62,10 @@ header .nav {
 header .nav-item {
   font-size: inherit;
   color: gray;
+}
+header .nav-item a, header .nav-item a:hover, header .nav-item a:active {
+  text-decoration: none;
+  color: inherit;
 }
 header .nav-item:hover {
   cursor: pointer;
@@ -474,4 +485,6 @@ body {
     transition: border-radius 0.3s;
     border-radius: 5px;
   }
-}/*# sourceMappingURL=prog.css.map */
+}
+
+/*# sourceMappingURL=prog.css.map */

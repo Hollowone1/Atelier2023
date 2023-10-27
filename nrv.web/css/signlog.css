@@ -15,6 +15,13 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -55,6 +62,10 @@ header .nav {
 header .nav-item {
   font-size: inherit;
   color: gray;
+}
+header .nav-item a, header .nav-item a:hover, header .nav-item a:active {
+  text-decoration: none;
+  color: inherit;
 }
 header .nav-item:hover {
   cursor: pointer;
@@ -235,4 +246,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-}/*# sourceMappingURL=signlog.css.map */
+}
+
+/*# sourceMappingURL=signlog.css.map */
