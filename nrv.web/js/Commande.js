@@ -9,6 +9,8 @@ const panier = document.getElementsByClassName("panier-row");
 fetch(`${apiNRVAuth}panier`)
   .then(response => response.json())
   .then(data => {
+
+
     // Traitez les données de l'API ici
     // Parcourez les données pour chaque élément du panier
     for (let i = 0; i < nombreDeBilletsAchetes; i++) {
@@ -28,6 +30,19 @@ fetch(`${apiNRVAuth}panier`)
 
       // Ajoutez la nouvelle ligne de panier au conteneur du panier
       panier.appendChild(panierItemDiv);
+
+
+      //data.forEach(item => {
+      //TODO
+      //})
+    //  panier.innerHTML = `
+  //      <div class="total panier-row">
+      //    <p class="panier-item">${panier.description} - ${panier.prix}€</p>
+        //  <p><strong>Montant total :</strong> ${panier.total}</p>
+        //</div>
+      //`;
+
+
     }
   })
   .catch(error => {

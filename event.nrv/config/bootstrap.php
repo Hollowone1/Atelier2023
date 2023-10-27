@@ -28,8 +28,19 @@ $eloquent->bootEloquent();
 try {
     $c = $builder->build();
     $app = AppFactory::createFromContainer($c);
-    $app->addRoutingMiddleware();
     $app->addBodyParsingMiddleware();
+
+    $app->add(function ($request, $handler) {
+        $response = $handler->handle($request);
+        return $response
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Credentials', 'true');
+    });
+
+    $app->addRoutingMiddleware();
+
     $errorMiddleware = $app->addErrorMiddleware(true, false, false);
     $errorHandler = $errorMiddleware->getDefaultErrorHandler();
     $errorHandler->forceContentType('application/json');
