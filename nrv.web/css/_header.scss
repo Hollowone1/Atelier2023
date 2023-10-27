@@ -1,3 +1,10 @@
+a {
+  text-decoration: none;
+  &:visited {
+    text-decoration: none;
+  }
+}
+
 header {
   @include flex(row, nowrap, 0, space-between, center);
   @include text-style(1em, $black);
@@ -18,6 +25,10 @@ header {
     @include flex(row, nowrap, 1em, start, center);
     &-item {
       @include text-style(inherit, lighten($black, 50%));
+      a, a:hover, a:active {
+        text-decoration: none;
+        color: inherit;
+      }
       &:hover {
         cursor: pointer;
         @include text-style(inherit, $black);
@@ -30,7 +41,7 @@ header {
             @include text-style(inherit, darken($purple, 10%));
         }
     }
-    
+
   }
   @media screen and (max-width:800px){
     .nav{
