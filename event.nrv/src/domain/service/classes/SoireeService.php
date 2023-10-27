@@ -20,7 +20,7 @@ class SoireeService implements ISoiree
         $lieu = Lieu::where('nom', $soireeDTO->lieu)->first();
         //les id de soirées sont en autoincrement
         Soiree::updateOrCreate([
-            'nom'=>$soireeDTO->nom,
+            'nom' => $soireeDTO->nom,
             'theme' => $soireeDTO->theme,
             'dtae' => $soireeDTO->date,
             'horaireDebut' => $soireeDTO->horaire,
@@ -70,28 +70,46 @@ class SoireeService implements ISoiree
         throw new Exception("Soirée bien supprimée");
     }
 
-    /**
-     * @throws Exception
-     */
+//    /**
+//     * @throws Exception
+//     */
+//    public function recupToutesLesSoirees(): array
+//    {
+////        $listeSoirees = array();
+////        $soirees = Soiree::all()->toArray();
+////        if (isset($soirees)) {
+////            foreach ($soirees as $soiree) {
+////                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+////                $listeSoirees = $this->getArr($soiree, $lieu, $listeSoirees);
+////            }
+////            return $listeSoirees;
+////        } else {
+////            throw new Exception("Soirées non trouvées");
+////        }
+//
     public function recupToutesLesSoirees(): array
     {
-        $listeSoirees = array();
-        $soirees = Soiree::all()->toArray();
-        if (isset($soirees)) {
-            foreach ($soirees as $soiree) {
-                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-                $listeSoirees = $this->getArr($soiree, $lieu, $listeSoirees);
-            }
-            return $listeSoirees;
-        } else {
-            throw new Exception("Soirées non trouvées");
+        $soireesEntities = Soiree::all();
+        $soireesDTO = [];
+        foreach ($soireesEntities as $soireeEntity) {
+            $soiree = new Soiree();
+            $soiree->idSoiree = $soireeEntity->idSoiree;
+            $soiree->nom = $soireeEntity->nom;
+            $soiree->theme = $soireeEntity->theme;
+            $soiree->date = $soireeEntity->date;
+            $soiree->horaireDebut = $soireeEntity->horaireDebut;
+            $soiree->tarifNormal = $soireeEntity->tarifNormal;
+            $soiree->tarifReduit = $soireeEntity->tarifReduit;
+            $soiree->idLieu = $soireeEntity->idLieu;
+            $soireesDTO[] = $soiree->toDTO();
         }
+        return $soireesDTO;
     }
 
     /**
      * @throws Exception
      */
-    public function recupSpectacles(string $idSoiree) : array
+    public function recupSpectacles(string $idSoiree): array
     {
         $allSpectacles = array();
         $spectacles = Spectacle::where('idSoiree', $idSoiree)->get()->toArray();
@@ -111,7 +129,8 @@ class SoireeService implements ISoiree
     /**
      * @throws Exception
      */
-    public function filtreDate(string $date): array {
+    public function filtreDate(string $date): array
+    {
         $listeSoireesDate = array();
         $soirees = Soiree::where('date', $date)->get()->toArray();
         if (isset($soirees)) {
@@ -128,7 +147,8 @@ class SoireeService implements ISoiree
     /**
      * @throws Exception
      */
-    public function filtreTheme(string $theme): array {
+    public function filtreTheme(string $theme): array
+    {
         $listeSoireesTheme = array();
         $soirees = Soiree::where('theme', $theme)->get()->toArray();
         if (isset($soirees)) {
@@ -145,7 +165,8 @@ class SoireeService implements ISoiree
     /**
      * @throws Exception
      */
-    public function filtreLieu(string $lieu): array {
+    public function filtreLieu(string $lieu): array
+    {
         $allSoirees = array();
         $lieuNom = Lieu::where('nom', $lieu)->first();
         if (isset($lieuNom)) {
@@ -185,7 +206,8 @@ class SoireeService implements ISoiree
     /**
      * @throws Exception
      */
-    public function boutonsTheme(): array {
+    public function boutonsTheme(): array
+    {
         $themes = Soiree::select('theme')->get()->toArray();
         if (isset($themes)) {
             return $themes;
@@ -197,7 +219,8 @@ class SoireeService implements ISoiree
     /**
      * @throws Exception
      */
-    public function boutonsLieu(): array {
+    public function boutonsLieu(): array
+    {
         $lieux = Lieu::select('nom')->get()->toArray();
         if (isset($themes)) {
             return $lieux;

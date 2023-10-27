@@ -4,7 +4,7 @@
 namespace nrv\event\api\domain\entities\event;
 
 use Illuminate\Database\Eloquent\Model;
-use nrv\event\api\domain\dto\event\SoireeDTO;
+use nrv\event\api\domain\DTO\event\SoireeDTO;
 
 class Soiree extends Model
 {
