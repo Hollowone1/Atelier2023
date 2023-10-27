@@ -9,7 +9,7 @@ import {apiNRVEvent} from './Config.js';
 //TODO : filtre date (avec valeur input)
 
 
-function filtreDate(date) {
+/*function filtreDate(date) {
   const inputDate = document.getElementById("input-filtre-date");
   const dateValeur = inputDate.value;
   console.log("Le lieu sélectionné est : ", dateValeur);
@@ -240,9 +240,9 @@ function filtreLieu(lieu) {
         console.error('Erreur lors de la récupération des lieux :', error);
       });
 
-}
+}*/
 
-fetch(`${apiNRVEvent}boutons_lieu`)
+/*fetch(`${apiNRVEvent}boutons_lieu`)
     .then(response => response.json())
     .then(data => {
 
@@ -259,18 +259,16 @@ fetch(`${apiNRVEvent}boutons_lieu`)
     })
     .catch(error => {
       console.error('Erreur lors de la récupération des genres musicaux :', error);
-    });
+    });*/
 
   //programmation.html, répéter les soirées:
   fetch(`${apiNRVEvent}soirees`)
   .then(response => response.json())
   .then(data => {
-    // Traitez les données de la base de données ici
-    // Parcourez les données pour chaque soirée
-    // Créez une nouvelle section pour chaque soirée et ajoutez-la au conteneur
+    //récup le conteneur avec la liste des soirées
     const container = document.getElementsByClassName('list');
 
-    //l'action renvoie un tableau avec un DTO pr chaque soirée
+    //on récup chaque soirée dans data
     data.forEach(soiree => {
       const sectionSoiree = document.createElement('section');
       sectionSoiree.className = 'soiree';
@@ -278,6 +276,7 @@ fetch(`${apiNRVEvent}boutons_lieu`)
       const soireeContainer = document.createElement('div');
       soireeContainer.className = 'soiree-container';
 
+      //on récup l'image de la soirée et on l'affiche
       const imageSoiree = document.createElement('img');
       imageSoiree.className = 'soiree-image';
       imageSoiree.src = soiree.image[0];
@@ -287,16 +286,19 @@ fetch(`${apiNRVEvent}boutons_lieu`)
       const infosSoiree = document.createElement('div');
       infosSoiree.className = 'soiree-infos';
 
+      //on récup la date de la soirée et on l'affiche
       const dateSoiree = document.createElement('p');
       dateSoiree.className = 'soiree-infos-date';
       dateSoiree.textContent = `Date de la soirée: ${soiree.date}`;
       infosSoiree.appendChild(dateSoiree);
 
+      //on récup le nom de la soirée et on l'affiche
       const titreSoiree = document.createElement('h2');
       titreSoiree.className = 'soiree-infos-titre';
       titreSoiree.textContent = soiree.nom;
       infosSoiree.appendChild(titreSoiree);
 
+      //on récup le lieu de la soirée et on l'affiche
       const lieuSoiree = document.createElement('p');
       lieuSoiree.className = 'soiree-infos-lieu';
       lieuSoiree.textContent = `Lieu de la soirée: ${soiree.lieu}`;
@@ -309,11 +311,14 @@ fetch(`${apiNRVEvent}boutons_lieu`)
       const buttonsSoiree = document.createElement('div');
       buttonsSoiree.className = 'soiree-buttons';
 
+      //TODO : voir si le onclick marche
       const enSavoirPlusButton = document.createElement('button');
       enSavoirPlusButton.className = 'soiree-buttons-1';
       enSavoirPlusButton.textContent = 'En savoir +';
+      enSavoirPlusButton.setAttribute('onclick', 'enSavoirPlus(soiree.id)');
       buttonsSoiree.appendChild(enSavoirPlusButton);
 
+      //TODO : voir comment réserver ?
       const reserverButton = document.createElement('button');
       reserverButton.className = 'soiree-buttons-2';
       reserverButton.textContent = 'Réserver';
