@@ -2,7 +2,6 @@
 
 namespace nrv\event\api\domain\service\classes;
 
-use nrv\event\api\domain\entities\event\ImgSpectacle;
 use nrv\event\api\domain\entities\event\Spectacle;
 use nrv\event\api\domain\service\interfaces\ISoiree;
 use nrv\event\api\domain\entities\event\Soiree;
