@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>NRV.net - Panier</title>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/commande.css">
 </head>
@@ -20,6 +21,18 @@
             <div class="nav-item deconnexion" onclick="toggleLogin()">Déconnexion</div>
         </nav>
     </header>
+    <div class="topnav">
+        <div id="myLinks">
+            <div class="nav-item">Accueil</div>
+            <div class="nav-item">Programmation 2023</div>
+            <div class="nav-item">Mon profil</div>
+            <div class="nav-item">Panier</div>
+            <div class="nav-item deconnexion">Déconnexion</div>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="gg-menu"></i>
+        </a>
+      </div>
     <main>
         <h1>Passer votre commande :</h1>
         <form>
@@ -64,5 +77,6 @@
         </div>
         <p>© Copyright IUT Nancy-Charlemagne, 2023</p>
     </footer>
+    <script src="../js/menu.js"></script>
 </body>
 </html>

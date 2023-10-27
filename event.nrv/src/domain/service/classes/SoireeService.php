@@ -50,14 +50,13 @@ class SoireeService implements ISoiree
                 }
             }
             if (isset($images)) {
-                return new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $images);
+                return new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $images, $spectacles);
             } else {
-                return new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
+                return new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, null, $spectacles);
             }
         } else {
             throw new Exception("Soirée non trouvée");
         }
-
     }
 
     /**
@@ -81,14 +80,7 @@ class SoireeService implements ISoiree
         if (isset($soirees)) {
             foreach ($soirees as $soiree) {
                 $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-                $spectacle = Spectacle::where('idSoiree', $soiree->idSoiree)->first();
-                $image = ImgSpectacle::select('img')->where('idSpectacle', $spectacle->idSpectacle)->first()->toArray();
-                if (isset($image)) {
-                    $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $image);
-                } else {
-                    $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
-                }
-                $listeSoirees[] = $soireeDTO;
+                $listeSoirees = $this->getArr($soiree, $lieu, $listeSoirees);
             }
             return $listeSoirees;
         } else {
@@ -125,14 +117,7 @@ class SoireeService implements ISoiree
         if (isset($soirees)) {
             foreach ($soirees as $soiree) {
                 $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-                $spectacle = Spectacle::where('idSoiree', $soiree->idSoiree)->first();
-                $image = ImgSpectacle::select('img')->where('idSpectacle', $spectacle->idSpectacle)->first()->toArray();
-                if (isset($image)) {
-                    $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $image);
-                } else {
-                    $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
-                }
-                $listeSoireesDate[] = $soireeDTO;
+                $listeSoireesDate = $this->getArr($soiree, $lieu, $listeSoireesDate);
             }
             return $listeSoireesDate;
         } else {
@@ -149,14 +134,7 @@ class SoireeService implements ISoiree
         if (isset($soirees)) {
             foreach ($soirees as $soiree) {
                 $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-                $spectacle = Spectacle::where('idSoiree', $soiree->idSoiree)->first();
-                $image = ImgSpectacle::select('img')->where('idSpectacle', $spectacle->idSpectacle)->first()->toArray();
-                if (isset($image)) {
-                    $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $image);
-                } else {
-                    $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
-                }
-                $listeSoireesTheme[] = $soireeDTO;
+                $listeSoireesTheme = $this->getArr($soiree, $lieu, $listeSoireesTheme);
             }
             return $listeSoireesTheme;
         } else {
@@ -174,14 +152,7 @@ class SoireeService implements ISoiree
             $soirees = Soiree::where('lieu', $lieuNom)->get()->toArray();
             if (isset($soirees)) {
                 foreach ($soirees as $soiree) {
-                    $spectacle = Spectacle::where('idSoiree', $soiree->idSoiree)->first();
-                    $image = ImgSpectacle::select('img')->where('idSpectacle', $spectacle->idSpectacle)->first()->toArray();
-                    if (isset($image)) {
-                        $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $image);
-                    } else {
-                        $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
-                    }
-                    $allSoirees[] = $soireeDTO;
+                    $allSoirees = $this->getArr($soiree, $lieu, $allSoirees);
                 }
                 return $allSoirees;
             } else {
@@ -193,23 +164,22 @@ class SoireeService implements ISoiree
     }
 
     /**
-     * @param $soirees
+     * @param $soiree
+     * @param string $lieu
      * @param array $allSoirees
      * @return array
-     * @throws Exception
      */
-    public function extracted($soirees, array $allSoirees): array
+    public function getArr($soiree, string $lieu, array $allSoirees): array
     {
-        if (isset($soirees)) {
-            foreach ($soirees as $soiree) {
-                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-                $soireeDTO = new SoireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu);
-                $allSoirees[] = $soireeDTO;
-            }
-            return $allSoirees;
+        $spectacle = Spectacle::where('idSoiree', $soiree->idSoiree)->first();
+        $image = ImgSpectacle::select('img')->where('idSpectacle', $spectacle->idSpectacle)->first()->toArray();
+        if (isset($image)) {
+            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom, $image);
         } else {
-            throw new Exception("Soirées non trouvées");
+            $soireeDTO = new soireeDTO($soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $lieu->nom);
         }
+        $allSoirees[] = $soireeDTO;
+        return $allSoirees;
     }
 
     /**
@@ -236,4 +206,5 @@ class SoireeService implements ISoiree
         }
 
     }
+
 }

@@ -29,6 +29,8 @@ h1 {
 
 }
 
+
+
 main{
     @include flex(column, nowrap, 2em, center, stretch);
     @include width(70vw);
@@ -46,13 +48,30 @@ main{
     justify-content: space-between;
     display: flex;
   
-    .img-item {
+    img{
       margin-right: 10px; 
       background-color: beige;
+      height: 15rem;
+      width: auto;
     }
   
     .infos-item {
       flex: 1; 
+    }
+
+    @media screen and (max-width: 900px) {
+
+      h1 {
+        @include text-style(1em, $black);
+      }
+    
+      img {
+      margin-right: 10px; 
+      background-color: beige;
+      height: 10rem;
+      width: auto;
+      }
+    
     }
 
 }

@@ -1,14 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700&display=swap");
 @font-face {
   font-family: "Inter";
-  src: url("/Inter/Inter-VariableFont_slnt,wght.ttf");
+  src: url("../fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
 }
 @font-face {
   font-family: "Roboto";
-  src: url("/Roboto/Roboto-Medium.ttf");
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
 }
 * {
   font-family: "Inter", Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -65,6 +69,47 @@ header .nav .deconnexion:hover {
   cursor: pointer;
   font-size: inherit;
   color: #7a6db6;
+}
+@media screen and (max-width: 800px) {
+  header .nav {
+    display: none;
+  }
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #DDE1E6;
+  position: relative;
+  display: none;
+}
+
+.gg-menu {
+  float: right;
+}
+
+@media screen and (max-width: 800px) {
+  .topnav {
+    display: block;
+  }
+}
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: #998FC7;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav .nav-item {
+  color: #998FC7;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
 }
 
 footer {
@@ -208,6 +253,12 @@ form input[type=submit]:hover {
   font-weight: bold;
 }
 .tab > .row {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 3fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0;
+  justify-items: center;
+  align-items: center;
   padding: 1em 0.2em 1em 0.2em;
 }
 .tab > .row:nth-child(even) {
@@ -264,17 +315,32 @@ main {
   width: 50vw;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid #DDE1E6;
   margin-top: 3em;
   display: flex;
   justify-content: space-between;
   display: flex;
 }
-.infos .img-item {
+.infos img {
   margin-right: 10px;
   background-color: beige;
+  height: 15rem;
+  width: auto;
 }
 .infos .infos-item {
   flex: 1;
+}
+@media screen and (max-width: 900px) {
+  .infos h1 {
+    font-size: 1em;
+    color: #000000;
+  }
+  .infos img {
+    margin-right: 10px;
+    background-color: beige;
+    height: 10rem;
+    width: auto;
+  }
 }
 
 section {
