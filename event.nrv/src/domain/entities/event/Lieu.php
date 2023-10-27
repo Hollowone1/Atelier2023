@@ -8,7 +8,7 @@ use nrv\event\api\domain\dto\event\LieuDTO;
 class Lieu extends Model
 {
 
-    protected $connection = 'nrv_event';
+    protected $connection = 'event';
     protected $table = 'Lieu';
     protected $primaryKey = 'idLieu';
     protected $keyType = 'string';
@@ -18,8 +18,7 @@ class Lieu extends Model
         'nom',
         'adresse',
         'nbPlacesAssises',
-        'nbPlacesDebout',
-        'idImg',
+        'nbPlacesDebout'
     ];
 
     public function soirees()
@@ -27,10 +26,10 @@ class Lieu extends Model
         return $this->belongsToMany(Soiree::class, 'soiree', 'idSoiree');
     }
 
-    public function imgLieux()
-    {
-        return $this->hasMany(ImgLieu::class, 'idImg');
-    }
+//    public function imgLieux()
+//    {
+//        return $this->hasMany(ImgLieu::class, 'idImg');
+//    }
 
     public function toDTO(): LieuDTO
     {
@@ -39,8 +38,7 @@ class Lieu extends Model
             $this->nom,
             $this->adresse,
             $this->nbPlacesAssises,
-            $this->nbPlacesDebout,
-            $this->idImg
+            $this->nbPlacesDebout
         );
     }
 }

@@ -8,7 +8,7 @@ use nrv\event\api\domain\dto\event\ImgLieuDTO;
 class ImgLieu extends Model
 {
 
-    protected $connection = 'nrv_event';
+    protected $connection = 'event';
     protected $table = 'ImgLieu';
     protected $primaryKey = 'idImg';
     protected $keyType = 'string';

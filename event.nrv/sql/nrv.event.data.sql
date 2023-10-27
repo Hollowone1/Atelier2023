@@ -620,7 +620,7 @@ INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('bbc886d5-e647-4f52-bf
 INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES (328, 'image_spectacle_110_1.jpg', '9766273f-61c2-4150-b5c9-32c47eef5f52');
 INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES (329, 'image_spectacle_110_2.jpg', '9766273f-61c2-4150-b5c9-32c47eef5f52');
 INSERT INTO Spectacle (idSpectacle, titre, description, urlVideo, horairePrevionnel, idSoiree, idImg) VALUES ('e7ca2112-093e-45bd-b193-262854b426cf', 'Spectacle 111', 'Eaque consequatur amet natus impedit et itaque quas.', 'video_spectacle_111.mp4', '2023-08-25 20:23:28', '75c41783-b4ed-4d66-a885-cea29c3bcad5', 370);
-INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('0d2016ec-fa25-4f12-8de5-eb704c85d63d', 'Royce O'Hara MD', 'e7ca2112-093e-45bd-b193-262854b426cf');
+INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('0d2016ec-fa25-4f12-8de5-eb704c85d63d', 'Royce O\''Hara MD', 'e7ca2112-093e-45bd-b193-262854b426cf');
 INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES (331, 'image_spectacle_111_1.jpg', 'e7ca2112-093e-45bd-b193-262854b426cf');
 INSERT INTO Spectacle (idSpectacle, titre, description, urlVideo, horairePrevionnel, idSoiree, idImg) VALUES ('b9215751-a7bd-42ef-8363-f3de4d9e86b0', 'Spectacle 112', 'Porro neque sunt non voluptas ad.', 'video_spectacle_112.mp4', '2023-09-27 11:48:26', '75c41783-b4ed-4d66-a885-cea29c3bcad5', 258);
 INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('168f851d-ff15-4b39-b052-a773399db8cc', 'Dr. Isidro VonRueden', 'b9215751-a7bd-42ef-8363-f3de4d9e86b0');
@@ -674,7 +674,7 @@ INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES (359, 'image_spectacle
 INSERT INTO Spectacle (idSpectacle, titre, description, urlVideo, horairePrevionnel, idSoiree, idImg) VALUES ('fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41', 'Spectacle 121', 'Asperiores nisi facilis itaque accusamus unde maiores quae autem.', 'video_spectacle_121.mp4', '2023-02-25 23:15:02', '75c41783-b4ed-4d66-a885-cea29c3bcad5', 355);
 INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('b946babc-b5bb-4456-a2ae-7776e8cf18c1', 'Mr. Wilbert Turcotte II', 'fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41');
 INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('72118c4d-eb5f-4651-a4f2-568b1a9efe5a', 'Prof. Giuseppe Schimmel', 'fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41');
-INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('e031dfc3-9cbc-4388-aa1e-4d3234ee6444', 'Dr. Rene O'Reilly MD', 'fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41');
+INSERT INTO Artiste (idArtiste, nom, idSpectacle) VALUES ('e031dfc3-9cbc-4388-aa1e-4d3234ee6444', 'Dr. Rene O\''Reilly MD', 'fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41');
 INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES (361, 'image_spectacle_121_1.jpg', 'fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41');
 INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES (362, 'image_spectacle_121_2.jpg', 'fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41');
 INSERT INTO ImgSpectacle (idImg, img, idSpectacle) VALUES (363, 'image_spectacle_121_3.jpg', 'fd0c150d-25b2-4d08-8bfe-ba6b5e96fd41');

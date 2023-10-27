@@ -7,7 +7,7 @@ use nrv\event\api\domain\DTO\billet\billetDTO;
 
 class Billet extends Model
 {
-    protected $connection = 'nrv.ticket';
+    protected $connection = 'ticket';
     protected $table = 'billet';
     protected $primaryKey = 'idBillet';
     protected $keyType = 'string';

@@ -9,7 +9,7 @@ use nrv\event\api\domain\DTO\event\SpectacleDTO;
 class Spectacle extends Model
 {
 
-    protected $connection = 'nrv_event';
+    protected $connection = 'event';
     protected $table = 'Spectacle';
     protected $primaryKey = 'idSpectacle';
     protected $keyType = 'string';
@@ -19,9 +19,9 @@ class Spectacle extends Model
         'titre',
         'description',
         'urlVideo',
-        'horairePrevisionnel',
-        'idSoiree',
-        'idImg',
+        'horairePrevionnel',
+        'idSoiree'
+        //'idImg',
     ];
 
     public function soirees()
@@ -41,14 +41,14 @@ class Spectacle extends Model
 
     public function toDTO(): SpectacleDTO
     {
-        return new SpectacleDTO(
+        $spec = new SpectacleDTO(
             $this->idSpectacle,
             $this->titre,
             $this->description,
             $this->urlVideo,
-            $this->horairePrevisionnel,
-            $this->idSoiree,
-            $this->idImg
-        );
+            $this->horairePrevionnel,
+            $this->idSoiree);
+
+        return $spec;
     }
 }

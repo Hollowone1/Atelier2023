@@ -21,7 +21,7 @@ $builder = new ContainerBuilder();
 
 $eloquent = new Eloquent();
 $eloquent->addConnection(parse_ini_file(__DIR__ . "/event.db.ini"), 'event');
-$eloquent->addConnection(parse_ini_file(__DIR__ . "/billet.db.ini"), 'billet');
+$eloquent->addConnection(parse_ini_file(__DIR__ . "/billet.db.ini"), 'ticket');
 $eloquent->setAsGlobal();
 $eloquent->bootEloquent();
 
