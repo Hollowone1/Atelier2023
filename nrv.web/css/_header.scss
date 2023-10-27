@@ -25,7 +25,7 @@ header {
     @include flex(row, nowrap, 1em, start, center);
     &-item {
       @include text-style(inherit, lighten($black, 50%));
-      a, a:hover, a:active {
+      &>a, a:hover, a:active {
         text-decoration: none;
         color: inherit;
       }

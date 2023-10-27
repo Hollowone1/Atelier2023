@@ -1,5 +1,5 @@
-import {apiNRVEvent} from './Config.js';
-import { apiNRVAuth } from './Config.js';
+import {apiNRVEvent} from './modules/Config.js';
+import { apiNRVAuth } from './modules/Config.js';
 
 //profil.html, récupérer les données utilisateurs
 

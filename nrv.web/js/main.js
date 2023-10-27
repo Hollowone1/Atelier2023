@@ -1,5 +1,12 @@
-import {apiNRVEvent} from './Config.js';
-import {apiNRVAuth} from './Config.js';
+console.log("bla");
+
+import {apiNRVEvent} from './modules/Config.js';
+import {apiNRVAuth} from './modules/Config.js';
+import commande from './modules/Commande.js';
+
+document.addEventListener("DOMContentLoaded", () => {
+    commande.recup();
+});
 // logique bouton connexion-deconnexion
 
 let isLoggedIn = false;

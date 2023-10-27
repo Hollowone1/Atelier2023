@@ -63,7 +63,7 @@ header .nav-item {
   font-size: inherit;
   color: gray;
 }
-header .nav-item a, header .nav-item a:hover, header .nav-item a:active {
+header .nav-item > a, header .nav-item a:hover, header .nav-item a:active {
   text-decoration: none;
   color: inherit;
 }

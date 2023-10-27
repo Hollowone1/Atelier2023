@@ -1,4 +1,4 @@
-import {apiNRVEvent} from './Config.js';
+import {apiNRVEvent} from './modules/Config.js';
 //programmation.html, répétition des genres:
 
 console.log("kjqsvhluefahilufaehiuf");
