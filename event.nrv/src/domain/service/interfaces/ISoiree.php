@@ -14,4 +14,7 @@ interface ISoiree
     public function filtreTheme(string $theme): array;
     public function filtreDate(string $date): array;
     public function filtreLieu(string $lieu): array;
-}
+    public function boutonsLieu(): array;
+    public function boutonsTheme(): array;
+
+    }
