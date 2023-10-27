@@ -10,10 +10,7 @@ class CorsMiddleware
 {
     public function __invoke(Request $request, Response $response)
     {
-<<<<<<< HEAD
         $app = AppFactory::create();
-=======
->>>>>>> 84b37706e29805b875080417f0ad65ea91a89925
 
         $app->options('/{routes:.+}', function ($request, $response, $args) {
             return $response;
