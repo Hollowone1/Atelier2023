@@ -3,6 +3,7 @@
 namespace nrv\event\api\actions\get;
 
 
+use Exception;
 use nrv\event\api\app\actions\AbstractAction;
 use nrv\event\api\domain\service\classes\SpectacleService;
 use Psr\Container\ContainerInterface;
@@ -17,7 +18,7 @@ class AccederSpectacleAction extends AbstractAction
 //    }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __invoke(Request $request, Response $response, $args) : Response
     {
