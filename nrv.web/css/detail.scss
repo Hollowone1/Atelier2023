@@ -13,12 +13,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.content {
-    @extend %content-styles;
-    h1 {
-        @extend %text-styles;
-    }
-}
+
 
 .container {
     display: flex;
