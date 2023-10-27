@@ -1,5 +1,5 @@
 <?php
-namespace App\Middleware;
+namespace nrv\auth\api\Middleware;
 
 class CorsMiddleware
 {

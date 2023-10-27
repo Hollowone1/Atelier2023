@@ -11,7 +11,10 @@ class AccederLieuAction extends AbstractAction
 {
     public function __invoke(Request $request, Response $response, $args): Response
     {
-
+        $lieuService = new LieuService();
+        $lieu = $lieuService->recupLieu($args['idLieu']);
+        $response->getBody()->write(json_encode($lieu));
+        return $response;
     }
 }
 
