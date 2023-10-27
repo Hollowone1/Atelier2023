@@ -3,8 +3,6 @@ header {
   @include text-style(1em, $black);
   padding: 1em;
   background-color:$lightGrey;
-  height: $heightHeader;
-  box-sizing: border-box;
   .logo {
     @include flex(row, nowrap, 0, start, center);
     @include text-style(1.5em);
@@ -17,7 +15,7 @@ header {
     }
   }
   .nav {
-    @include flex(row, nowrap, 2em, start, center);
+    @include flex(row, nowrap, 1em, start, center);
     &-item {
       @include text-style(inherit, lighten($black, 50%));
       &:hover {
@@ -32,6 +30,47 @@ header {
             @include text-style(inherit, darken($purple, 10%));
         }
     }
+    
   }
+  @media screen and (max-width:800px){
+    .nav{
+      display: none;
+    }
+  }
+}
 
+.topnav {
+  overflow: hidden;
+  background-color: $lightGrey;
+  position: relative;
+  display: none;
+}
+
+.gg-menu{
+  float: right;
+}
+@media screen and (max-width:800px){
+  .topnav{
+    display: block;
+  }
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: $purple;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav .nav-item {
+  color: $purple;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
 }

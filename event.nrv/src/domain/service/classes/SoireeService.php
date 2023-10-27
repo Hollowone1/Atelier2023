@@ -14,18 +14,6 @@ use Exception;
 
 class SoireeService implements ISoiree
 {
-    private BilletService $bs;
-    private LieuService $ls;
-    private SpectacleService $ss;
-    private LoggerInterface $logger;
-
-    public function __construct(BilletService $bs, Spectacle $ss, LieuService $ls, LoggerInterface $logger)
-    {
-        $this->bs = $bs;
-        $this->ss = $ss;
-        $this->ls = $ls;
-        $this->logger = $logger;
-    }
 
     public function creerSoiree(SoireeDTO $soireeDTO): SoireeDTO
     {
