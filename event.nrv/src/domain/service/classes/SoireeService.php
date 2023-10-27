@@ -38,7 +38,7 @@ class SoireeService implements ISoiree
     {
         $soiree = Soiree::where('idSoiree', $id)->first();
         if (isset($soiree)) {
-            return new soireeDTO($soiree->idSoiree, $soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $soiree->idLieu);
+            return new SoireeDTO($soiree->idSoiree, $soiree->nom, $soiree->theme, $soiree->date, $soiree->horaireDebut, $soiree->tarifNormal, $soiree->tarifReduit, $soiree->idLieu);
         } else {
             throw new Exception("Soirée non trouvée");
         }
@@ -57,12 +57,7 @@ class SoireeService implements ISoiree
 
     public function recupToutesLesSoirees(): array
     {
-        $soireesEntities = Soiree::all();
-        $soireesDTO = [];
-        foreach ($soireesEntities as $soireeEntity) {
-            $soireesDTO[] = new soireeDTO($soireeEntity->idSoiree, $soireeEntity->nom, $soireeEntity->theme, $soireeEntity->date, $soireeEntity->horaireDebut, $soireeEntity->tarifNormal, $soireeEntity->tarifReduit, $soireeEntity->idLieu);
-        }
-        return $soireesDTO;
+        return Soiree::all()->toArray();
     }
 
     /**
