@@ -70,23 +70,6 @@ class SoireeService implements ISoiree
         throw new Exception("Soirée bien supprimée");
     }
 
-//    /**
-//     * @throws Exception
-//     */
-//    public function recupToutesLesSoirees(): array
-//    {
-////        $listeSoirees = array();
-////        $soirees = Soiree::all()->toArray();
-////        if (isset($soirees)) {
-////            foreach ($soirees as $soiree) {
-////                $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
-////                $listeSoirees = $this->getArr($soiree, $lieu, $listeSoirees);
-////            }
-////            return $listeSoirees;
-////        } else {
-////            throw new Exception("Soirées non trouvées");
-////        }
-//
     public function recupToutesLesSoirees(): array
     {
         $soireesEntities = Soiree::all();

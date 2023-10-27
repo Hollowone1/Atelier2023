@@ -1,6 +1,6 @@
 <?php
 
-namespace nrv\event\api\app\actions;
+namespace nrv\event\api\actions\get;
 
 use nrv\event\api\actions\AbstractAction;
 

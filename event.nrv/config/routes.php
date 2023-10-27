@@ -2,12 +2,13 @@
 declare(strict_types=1);
 
 use nrv\event\api\actions\get\AccederBilletAction;
+use nrv\event\api\actions\get\AccederSoireeAction;
 use nrv\event\api\actions\get\AccederSoireesAction;
 use nrv\event\api\actions\get\AccederSpectacleAction;
 use nrv\event\api\actions\get\AccederSpectaclesAction;
 use nrv\event\api\actions\get\HomeAction;
 use nrv\event\api\actions\post\CreerSpectacleAction;
-use nrv\event\api\app\actions\AccederSoireeAction;
+
 use Slim\App;
 
 return function (App $app):void {
