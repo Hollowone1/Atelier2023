@@ -67,8 +67,6 @@ header {
   color: #000000;
   padding: 1em;
   background-color: #DDE1E6;
-  height: 7vh;
-  box-sizing: border-box;
 }
 header .logo {
   display: flex;
@@ -92,7 +90,7 @@ header .nav {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: start;
-  gap: 2em;
+  gap: 1em;
   align-items: center;
 }
 header .nav-item {
@@ -112,6 +110,47 @@ header .nav .deconnexion:hover {
   cursor: pointer;
   font-size: inherit;
   color: #7a6db6;
+}
+@media screen and (max-width: 800px) {
+  header .nav {
+    display: none;
+  }
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #DDE1E6;
+  position: relative;
+  display: none;
+}
+
+.gg-menu {
+  float: right;
+}
+
+@media screen and (max-width: 800px) {
+  .topnav {
+    display: block;
+  }
+}
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: #998FC7;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav .nav-item {
+  color: #998FC7;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
 }
 
 footer {
@@ -604,6 +643,4 @@ form input[type=submit]:hover {
     transition: border-radius 0.3s;
     border-radius: 5px;
   }
-}
-
-/*# sourceMappingURL=accueil.css.map */
+}/*# sourceMappingURL=accueil.css.map */
