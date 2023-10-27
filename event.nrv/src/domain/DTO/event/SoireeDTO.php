@@ -11,8 +11,9 @@ class soireeDTO extends DTO {
     public int $tarifNormal;
     public int $tarifReduit;
     public string $lieu;
+    public array $images;
 
-    public function __construct(string $nom, string $theme, string $date, string $horaire, int $tarifNormal, int $tarifReduit, string $lieu) {
+    public function __construct(string $nom, string $theme, string $date, string $horaire, int $tarifNormal, int $tarifReduit, string $lieu, ?array $images = null) {
         $this->nom = $nom;
         $this->theme = $theme;
         $this->date = $date;
@@ -20,6 +21,7 @@ class soireeDTO extends DTO {
         $this->tarifNormal = $tarifNormal;
         $this->tarifReduit = $tarifReduit;
         $this->lieu = $lieu;
+        $this->images = $images;
     }
 
     public function toArray() {

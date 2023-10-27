@@ -1,27 +1,70 @@
 import {apiNRVEvent} from './Config.js';
 //programmation.html, répétition des genres:
 
-fetch(`${apiNRVEvent}genres`)
-  .then(response => response.json())
-  .then(data => {
-    
-    const genresContainer = document.getElementsByClassName('filtres');
-    data.genres.forEach(genre => {
-      const boutonGenre = document.createElement('button');
-      boutonGenre.className = 'filtres-genre-item';
-      boutonGenre.textContent = genre.nom; 
-      boutonGenre.addEventListener('click', () => {
-       
-        console.log(`Genre musical sélectionné : ${genre.nom}`);
+//TODO : récupérer les genres pr boutons et générer boutons avec classes, id et onclick
+//TODO : récup les lieux pr boutons et générer boutons avec classes, id et onclick
+//TODO : function pr récup l'id du bouton cliqué
+//TODO : filtre genre (avec id)
+//TODO : filtre lieu (avec id)
+//TODO : filtre date (avec valeur input)
+
+fetch(`${apiNRVEvent}boutons_theme`)
+    .then(response => response.json())
+    .then(data => {
+
+      const container = document.getElementsByClassName('filtres');
+      const nbGenres = data.length;
+      for (let i = 0; i < nbGenres; i++) {
+        const boutonGenre = document.createElement('button');
+        boutonGenre.className = 'filtres-genre-item';
+        boutonGenre.id = data[i];
+        boutonGenre.innerHTML = data[i];
+        boutonGenre.setAttribute('onclick', 'filtreGenre(this.id)');
+        container.appendChild(boutonGenre);
+
+      }
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des genres musicaux :', error);
+    });
+
+function filtreGenre(genre) {
+  const boutonGenre = document.getElementById(genre);
+  const genreValeur = boutonGenre.value;
+  console.log("Le genre sélectionné est : ", genreValeur);
+
+  fetch(`${apiNRVEvent}theme`)
+      .then(response => response.json())
+      .then(data => {
+
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des genres musicaux :', error);
       });
 
-    
-      genresContainer.appendChild(boutonGenre);
+}
+
+fetch(`${apiNRVEvent}boutons_lieu`)
+    .then(response => response.json())
+    .then(data => {
+
+      const container = document.getElementsByClassName('filtres');
+      const nbLieux = data.length;
+      for (let i = 0; i < nbLieux; i++) {
+        const boutonLieu = document.createElement('button');
+        boutonLieu.className = 'filtres-lieu-item';
+        boutonLieu.id = data[i];
+        boutonLieu.innerHTML = data[i];
+        boutonLieu.setAttribute('onclick', 'filtreLieu(this.id)');
+        container.appendChild(boutonLieu);
+      }
+    })
+    .catch(error => {
+      console.error('Erreur lors de la récupération des genres musicaux :', error);
     });
-  })
-  .catch(error => {
-    console.error('Erreur lors de la récupération des genres musicaux :', error);
-  });
+
+
+
 
   //programmation.html, répéter les soirées:
 
@@ -31,14 +74,16 @@ fetch(`${apiNRVEvent}genres`)
     // Traitez les données de la base de données ici
     // Parcourez les données pour chaque soirée
     // Créez une nouvelle section pour chaque soirée et ajoutez-la au conteneur
-    const soireesContainer = document.getElementsByClassName('list');
-    data.soirees.forEach(soiree => {
+    const container = document.getElementsByClassName('list');
+
+    //l'action renvoie un tableau avec un DTO pr chaque soirée
+    data.forEach(soiree => {
       const sectionSoiree = document.createElement('section');
       sectionSoiree.className = 'soiree';
 
-      // Créez le contenu de la section pour la soirée
       const soireeContainer = document.createElement('div');
       soireeContainer.className = 'soiree-container';
+      sectionSoiree.appendChild(soireeContainer);
 
       const imageSoiree = document.createElement('img');
       imageSoiree.className = 'soiree-image';
@@ -85,7 +130,7 @@ fetch(`${apiNRVEvent}genres`)
       sectionSoiree.appendChild(buttonsSoiree);
 
       // Ajoutez la nouvelle section de soirée au conteneur des soirées
-      soireesContainer.appendChild(sectionSoiree);
+      container.appendChild(sectionSoiree);
     });
   })
   .catch(error => {
