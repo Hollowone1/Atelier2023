@@ -14,31 +14,15 @@ fetch(`${apiNRVAuth}panier`)
       // Créez une nouvelle ligne de panier pour chaque élément
       const panierItemDiv = document.createElement("div");
       panierItemDiv.className = "row content";
-
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.name = "item";
-
-      const lieu = document.createElement("div");
-      lieu.className = "panier-lieu";
-      lieu.textContent = data[i].lieu; // Assurez-vous que la structure des données de l'API correspond à cela
-
-      const soiree = document.createElement("div");
-      soiree.className = "panier-soiree";
-      soiree.textContent = data[i].soiree; // Assurez-vous que la structure des données de l'API correspond à cela
-
-      const type = document.createElement("div");
-      type.className = "panier-type";
-      type.textContent = data[i].type; // Assurez-vous que la structure des données de l'API correspond à cela
-
-      const prix = document.createElement("div");
-      prix.className = "panier-prix";
-      prix.textContent = data[i].prix; // Assurez-vous que la structure des données de l'API correspond à cela
-
-      const quantite = document.createElement("div");
-      quantite.className = "panier-quantite";
-      quantite.textContent = data[i].quantite; // Assurez-vous que la structure des données de l'API correspond à cela
-
+      panierItemDiv.innerHTML = 
+      `
+                <input type="checkbox" id="panier-0" name="tout">
+                <div class="panier-lieu">${data[i].lieu}</div>
+                <div class="panier-soiree">${data[i].soiree}</div>
+                <div class="panier-type">${data[i].type}</div>
+                <div class="panier-prix">${data[i].prix}</div>
+                <div class="panier-quantite">${data[i].quantite}</div>
+      `
       // Ajoutez les éléments à la ligne de panier
       panierItemDiv.appendChild(checkbox);
       panierItemDiv.appendChild(lieu);
