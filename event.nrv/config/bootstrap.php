@@ -40,11 +40,9 @@ try {
     });
 
     $app->addRoutingMiddleware();
-
     $errorMiddleware = $app->addErrorMiddleware(true, false, false);
     $errorHandler = $errorMiddleware->getDefaultErrorHandler();
     $errorHandler->forceContentType('application/json');
-    $app->addErrorMiddleware(true, false, false);
     return $app;
 } catch (Exception $e) {
     echo $e->getMessage();
