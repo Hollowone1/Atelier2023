@@ -274,61 +274,21 @@ function filtreLieu(lieu) {
     data.forEach(soiree => {
       const sectionSoiree = document.createElement('section');
       sectionSoiree.className = 'soiree';
+      sectionSoiree.innerHTML = `
+          <div class="soiree-container">
+              <img class="soiree-image" src="${soiree.image[0]}" alt="image de la soirée">
+                  <div class="soiree-infos">
+                    <p class="soiree-infos-date">${soiree.date}</p>
+                    <h2 class="soiree-infos-titre">${soiree.nom}</h2>
+                    <p class="soiree-infos-lieu">${soiree.lieu}</p>
+                  </div>
+          </div>
+          <div class="soiree-buttons">
+            <button class="soiree-buttons-1" onclick='${soiree.id}'>En savoir +</button>
+            <button class="soiree-buttons-2">Réserver</button>
+          </div>
 
-      const soireeContainer = document.createElement('div');
-      soireeContainer.className = 'soiree-container';
-
-      //on récup l'image de la soirée et on l'affiche
-      const imageSoiree = document.createElement('img');
-      imageSoiree.className = 'soiree-image';
-      imageSoiree.src = soiree.image[0];
-      imageSoiree.alt = 'image de la soirée';
-      soireeContainer.appendChild(imageSoiree);
-
-      const infosSoiree = document.createElement('div');
-      infosSoiree.className = 'soiree-infos';
-
-      //on récup la date de la soirée et on l'affiche
-      const dateSoiree = document.createElement('p');
-      dateSoiree.className = 'soiree-infos-date';
-      dateSoiree.textContent = `Date de la soirée: ${soiree.date}`;
-      infosSoiree.appendChild(dateSoiree);
-
-      //on récup le nom de la soirée et on l'affiche
-      const titreSoiree = document.createElement('h2');
-      titreSoiree.className = 'soiree-infos-titre';
-      titreSoiree.textContent = soiree.nom;
-      infosSoiree.appendChild(titreSoiree);
-
-      //on récup le lieu de la soirée et on l'affiche
-      const lieuSoiree = document.createElement('p');
-      lieuSoiree.className = 'soiree-infos-lieu';
-      lieuSoiree.textContent = `Lieu de la soirée: ${soiree.lieu}`;
-      infosSoiree.appendChild(lieuSoiree);
-
-      soireeContainer.appendChild(infosSoiree);
-      sectionSoiree.appendChild(soireeContainer);
-
-      // Créez les boutons pour la soirée
-      const buttonsSoiree = document.createElement('div');
-      buttonsSoiree.className = 'soiree-buttons';
-
-      //TODO : voir si le onclick marche
-      const enSavoirPlusButton = document.createElement('button');
-      enSavoirPlusButton.className = 'soiree-buttons-1';
-      enSavoirPlusButton.textContent = 'En savoir +';
-      enSavoirPlusButton.setAttribute('onclick', 'enSavoirPlus(soiree.id)');
-      buttonsSoiree.appendChild(enSavoirPlusButton);
-
-      //TODO : voir comment réserver ?
-      const reserverButton = document.createElement('button');
-      reserverButton.className = 'soiree-buttons-2';
-      reserverButton.textContent = 'Réserver';
-      buttonsSoiree.appendChild(reserverButton);
-
-      sectionSoiree.appendChild(buttonsSoiree);
-
-      // Ajoutez la nouvelle section de soirée au conteneur des soirées
+      `
       container.appendChild(sectionSoiree);
     });
   })
