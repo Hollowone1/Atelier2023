@@ -8,21 +8,14 @@ const profilContainer = document.getElementsByClassName("infos");
 fetch(`${apiNRVAuth}users`)
   .then(response => response.json())
   .then(data => {
-    
 
     const infosItem = document.createElement("div");
     infosItem.className = "infos-item";
-
-    const nomP = document.createElement("p");
-    nomP.className = "infos-nom";
-    nomP.innerHTML = `<strong>Nom :</strong> ${data.nomComplet}`; // Assurez-vous que la propriété 'nomComplet' existe dans les données
-    infosItem.appendChild(nomP);
-
-    const emailP = document.createElement("p");
-    emailP.className = "infos-email";
-    emailP.innerHTML = `<strong>E-mail :</strong> ${data.email}`; // Assurez-vous que la propriété 'email' existe dans les données
-    infosItem.appendChild(emailP);
-
+    infosItem.innerHTML = 
+    `
+            <p class="infos-nom"><strong>Nom :</strong>${data.nomComplet}</p>
+            <p class="infos-email"><strong>E-mail :</strong>${data.email}</p>
+    `
     profilContainer.appendChild(infosItem);
   })
   .catch(error => {
@@ -33,7 +26,7 @@ fetch(`${apiNRVAuth}users`)
 //profil.html, récupérer les données des billets et fetch la data du panier
 
 
-const billetsContainer = document.getElementsByClassName("billets-items"); // Obtenez le conteneur où vous ajouterez les éléments
+const billetsContainer = document.getElementsByClassName("billets"); 
 
 fetch(`${apiNRVEvent}billets`)
   .then(response => response.json())
@@ -43,24 +36,12 @@ fetch(`${apiNRVEvent}billets`)
       // Créez une nouvelle div pour chaque élément de billet
       const billetsItemDiv = document.createElement("div");
       billetsItemDiv.className = "billets-item";
-
-      // Créez les éléments de la ligne de billet
-      const lieuDiv = document.createElement("div");
-      lieuDiv.className = "billets-lieu";
-      lieuDiv.textContent = billet.lieu; // Assurez-vous que la propriété 'lieu' existe dans les données
-
-      const soireeDiv = document.createElement("div");
-      soireeDiv.className = "billets-soiree";
-      soireeDiv.textContent = billet.soiree; // Assurez-vous que la propriété 'soiree' existe dans les données
-
-      const typeDiv = document.createElement("div");
-      typeDiv.className = "billets-type";
-      typeDiv.textContent = billet.type; // Assurez-vous que la propriété 'type' existe dans les données
-
-      // Ajoutez les éléments à la div de l'élément de billet
-      billetsItemDiv.appendChild(lieuDiv);
-      billetsItemDiv.appendChild(soireeDiv);
-      billetsItemDiv.appendChild(typeDiv);
+      billetsItemDiv.innerHTML = 
+      `
+      <div class="billets-lieu">${billet.lieu}</div>
+      <div class="billets-soiree">${billet.soiree}</div>
+      <div class="billets-type">${billet.type}</div>
+      `
 
       // Ajoutez la nouvelle div de l'élément de billet au conteneur
       billetsContainer.appendChild(billetsItemDiv);
