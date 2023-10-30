@@ -1,8 +1,6 @@
 import {apiNRVEvent} from './modules/Config.js';
 //programmation.html, répétition des genres:
 
-console.log("kjqsvhluefahilufaehiuf");
-
 //TODO : récupérer les genres pr boutons et générer boutons avec classes, id et onclick
 //TODO : récup les lieux pr boutons et générer boutons avec classes, id et onclick
 //TODO : function pr récup l'id du bouton cliqué
