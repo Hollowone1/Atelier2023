@@ -4,7 +4,7 @@ footer {
   margin-top: 2em;
   padding: 1em;
   background-color:$lightGrey;
-  width: 100vw;
+  // width: 100vw;
   box-sizing: border-box;
   .logo {
     @include flex(row, nowrap, 0, start, center);
