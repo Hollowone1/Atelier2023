@@ -62,4 +62,21 @@ class JWTManager
         return null;
     }
 
+    public function logIn(string $email, string $password): ?array
+    {
+        $user = $this->authProvider->verifyCredentials($email, $password);
+        if ($user) {
+            $data = [
+                'email' => $user->email,
+                'idUtilisateur' => $user->idUtilisateur
+            ];
+            $accessToken = $this->jwtManager->createToken($data);
+            return [
+                'access_token' => $accessToken,
+                'refresh_token' => $user->refresh_token
+            ];
+        }
+        return null;
+    }
+
 }

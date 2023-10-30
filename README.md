@@ -38,3 +38,6 @@
 | 5. Backoffice : vente de billets à l’entrée des soirées                |   -    |   -    |
 | 6. Panier persistant                                                   |   -    |   -    |
 | 7. Vérification des places disponibles dans un panier avant paiement   |   -    |   -    |
+
+Liens Docketu : docketu.iutnc.univ-lorraine.fr:16584
+Liens Webetu : webetu.iutnc.univ-lorraine.fr: ???

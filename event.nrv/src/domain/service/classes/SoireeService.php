@@ -30,7 +30,6 @@ class SoireeService implements ISoiree
         return $soireeDTO;
     }
 
-
     /**
      * @throws Exception
      */
