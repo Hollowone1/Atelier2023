@@ -9,6 +9,7 @@ use nrv\event\api\actions\get\AccederSpectaclesAction;
 use nrv\event\api\actions\get\HomeAction;
 use nrv\event\api\actions\post\CreerSpectacleAction;
 
+use nrv\event\api\actions\post\DetailsSpectacle;
 use Slim\App;
 
 return function (App $app):void {
@@ -23,6 +24,9 @@ return function (App $app):void {
 
     $app->post('/spectacle[/]', CreerSpectacleAction::class)
         ->setName('creer_spectacle');
+
+    $app->post('/spectacle/{idSpectacle}[/]', DetailsSpectacle::class)
+        ->setName('details_spectacle');
 
     $app->get('/billets/{idBillet}[/]', AccederBilletAction::class)
         ->setName('billet');

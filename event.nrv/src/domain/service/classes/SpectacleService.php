@@ -31,7 +31,7 @@ class SpectacleService implements ISpectacle
     {
         $billetEntity = Spectacle::find($id);
         if ($billetEntity == null) {
-            throw new Exception("Billet introuvable");
+            throw new Exception("Spectacle introuvable");
         }
         return $billetEntity->toDTO();
     }
