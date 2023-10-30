@@ -43,22 +43,22 @@
         <section class="filtres">
             <input id="input-filtre-date" type="date" onclick="filtreDate(this.value)" name="filtre-date" value="2023-10-30" min="2023-10-23" max="2023-11-05">
                 <!-- à répéter partir de la bdd -->
-                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Punk Rock</button>
-                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Hard Rock</button>
-                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Metal</button>
-                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Grunge</button>
-                <button onclick="filtreGenre(this.id)" class="filtres-genre-item">Pop Rock</button>
+                <button class="filtres-genre-item">Punk Rock</button>
+                <button class="filtres-genre-item">Hard Rock</button>
+                <button class="filtres-genre-item">Metal</button>
+                <button class="filtres-genre-item">Grunge</button>
+                <button class="filtres-genre-item">Pop Rock</button>
                 <!-- à répéter partir de la bdd -->
-                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">L'Autre Canal</button>
-                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Le Hublot</button>
-                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Salle Poirel</button>
-                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Parc La Pépinière</button>
-                <button onclick="filtreLieu(this.id)" class="filtres-lieu-item">Théâtre De La Manufacture</button>
+                <button class="filtres-lieu-item">L'Autre Canal</button>
+                <button class="filtres-lieu-item">Le Hublot</button>
+                <button class="filtres-lieu-item">Salle Poirel</button>
+                <button class="filtres-lieu-item">Parc La Pépinière</button>
+                <button class="filtres-lieu-item">Théâtre De La Manufacture</button>
         </section>
 
         <div class="list">
             <!-- à répéter partir de la bdd -->
-            <section class="soiree">
+            <section class="punk-rock soiree">
                 <div class="soiree-container">
                     <img class="soiree-image" src="./soiree.jpg" alt="image de la soirée">
                     <div class="soiree-infos">
@@ -72,7 +72,7 @@
                     <button class="soiree-buttons-2">Réserver</button>
                 </div>
             </section>
-            <section class="soiree">
+            <section class="hard-rock soiree">
                 <div class="soiree-container">
                     <img class="soiree-image" src="./soiree.jpg" alt="image de la soirée">
                     <div class="soiree-infos">
@@ -86,7 +86,7 @@
                     <button class="soiree-buttons-2">Réserver</button>
                 </div>
             </section>
-            <section class="soiree">
+            <section class="grunge soiree">
                 <div class="soiree-container">
                     <img class="soiree-image" src="./soiree.jpg" alt="image de la soirée">
                     <div class="soiree-infos">
@@ -153,6 +153,6 @@
         <p>© Copyright IUT Nancy-Charlemagne, 2023</p>
     </footer>
     <script src="../js/menu.js"></script>
-    <script src="../js/programmation.js"></script>
+    <script type="module" src="../js/programmation.js"></script>
 </body>
 </html>
