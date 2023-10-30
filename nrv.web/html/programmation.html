@@ -37,11 +37,11 @@
     <main>
         <div class="entete">
             <h1>Programmation</h1>
-            <p class="bouton all">Voir tout</p>
+            <p id="all" class="bouton all">Voir tout</p>
         </div>
 
-        <section class="filtres">
-            <input id="input-filtre-date" type="date" onclick="filtreDate(this.value)" name="filtre-date" value="2023-10-30" min="2023-10-23" max="2023-11-05">
+        <section id="filtres" class="filtres">
+            <input id="input-filtre-date" type="date" name="filtre-date" value="2023-10-30">
                 <!-- à répéter partir de la bdd -->
                 <button class="filtres-genre-item">Punk Rock</button>
                 <button class="filtres-genre-item">Hard Rock</button>
@@ -56,7 +56,7 @@
                 <button class="filtres-lieu-item">Théâtre De La Manufacture</button>
         </section>
 
-        <div class="list">
+        <div id="list" class="list">
             <!-- à répéter partir de la bdd -->
             <section class="punk-rock soiree">
                 <div class="soiree-container">

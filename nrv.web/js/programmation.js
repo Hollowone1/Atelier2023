@@ -10,7 +10,7 @@ fetch(`${apiNRVEvent}soirees`)
     .then(response => response.json())
     .then(data => {
       //récup le conteneur avec la liste des soirées
-      const container = document.getElementsByClassName('list');
+      const container = document.getElementById('list');
       const genres = [];
       const lieux = [];
       //on récup chaque soirée dans data
@@ -43,7 +43,7 @@ fetch(`${apiNRVEvent}soirees`)
       //récup les genres et lieux uniques
       genres.filter(isUnique);
       lieux.filter(isUnique);
-      const filtres = document.getElementsByClassName('filtres');
+      const filtres = document.getElementById('filtres');
       genres.forEach(genre => {
         const button = document.createElement('button');
         button.className = 'filtres-genre-item';
@@ -74,6 +74,24 @@ fetch(`${apiNRVEvent}soirees`)
             }
         })
       })
+
+      const tout = document.getElementById('all');
+        tout.addEventListener('click', () => {
+            const soirees = document.getElementsByClassName('soiree');
+            for (let i = 0; i < soirees.length; i++) {
+                    soirees[i].style.display = 'flex';
+            }
+        })
+
+        const date = document.getElementById('input-filtre-date');
+        date.addEventListener("change", (event) => {
+            const soirees = document.getElementsByClassName('soiree');
+            for (let i = 0; i < soirees.length; i++) {
+                if (soirees[i].className !== event.target.value) {
+                    soirees[i].style.display = 'none';
+                }
+            }
+        });
 
 
     })
