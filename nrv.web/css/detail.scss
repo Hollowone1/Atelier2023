@@ -56,7 +56,9 @@ img {
   
 }
 
-
+.soiree-buttons-2{
+    @include buttonStyle(white, $purple, black, auto, $fontSizeFiltres, 0, 5px);
+}
 
 @media screen and (min-width: 640px) {
     form {
