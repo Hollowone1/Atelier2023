@@ -7,12 +7,10 @@ fetch(`${apiNRVEvent}spectacle`)
         const date = document.getElementsByClassName('spec-date');
         date[0].innerHTML = data.date;
         const titre = document.getElementsByClassName('spec-titre');
-        titre[0].innerHTML = data.nom;
+        titre[0].innerHTML = data.titre;
         const lieu = document.getElementsByClassName('spec-lieu');
         lieu[0].innerHTML = data.lieu;
 
-        const style = document.getElementsByClassName('spec-style');
-        style[0].innerHTML = data.theme;
         const duree = document.getElementsByClassName('spec-duree');
         duree[0].innerHTML = data.horairePrevionnel;
         const description = document.getElementsByClassName('description');
