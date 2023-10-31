@@ -51,7 +51,7 @@
 
     <h2 class="deux">Échantillon de la programmation</h2>
 
-    <div class="list">
+    <div id="list">
         <section class="soiree">
             <div class="soiree-container">
                 <img class="soiree-image" src="./soiree.jpg" alt="image de la soirée">
@@ -93,13 +93,13 @@
                 </div>
             </div>
             <div class="soiree-buttons">
-                <button class="soiree-buttons-1">En savoir +</button>
+                <button class="soiree-buttons-1" >En savoir +</button>
                 <button class="soiree-buttons-2" onclick="redirectToReservationPage()">Réserver</button>
             </div>
         </section>
     </div>
 
-    <button class="button1" onclick="redirectToReservationPage()"> Voir plus</button>
+    <button class="button1" onclick="window.location.href = './programmation.html';"> Voir plus</button>
 </main>
 
 
@@ -112,5 +112,6 @@
 </footer>
 <script src="../js/menu.js"></script>
 <script type="module" src="../js/main.js"></script>
+<script type="module" src="../js/accueil.js"></script>
 </body>
 </html>

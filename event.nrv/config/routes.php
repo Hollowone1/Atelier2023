@@ -37,10 +37,4 @@ return function (App $app):void {
     $app->get('/soirees/{idSoiree}[/]', AccederSoireeAction::class)
         ->setName('soiree');
 
-    //TODO : rajouter route et action pour récupérer les boutons de thème/genre : /boutons_theme
-    //TODO : rajouter route et action pour récupérer les boutons de lieu : /boutons_lieu
-    //TODO : rajouter route et action pour récupérer les soirées par thème : /theme
-    //TODO : rajouter route et action pour récupérer les soirées par lieu : /lieu
-    //TODO : rajouter route et action pour récupérer les soirées par date : /date
-
 };
