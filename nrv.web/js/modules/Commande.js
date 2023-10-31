@@ -1,4 +1,4 @@
-import {apiNRVAuth} from './Config.js';
+import {apiNRVAuth} from './config.js';
 
 class Commande {
   recup() {

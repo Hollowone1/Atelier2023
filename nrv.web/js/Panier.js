@@ -1,4 +1,4 @@
-  import { apiNRVAuth } from './modules/Config.js';
+  import { apiNRVAuth } from './modules/config.js';
 
 // Logique pour récupérer les données du panier
 const nombreDeBilletsAchetes = 2;
