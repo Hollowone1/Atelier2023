@@ -1,8 +1,8 @@
 console.log("bla");
 
-import {apiNRVEvent} from './modules/Config.js';
-import {apiNRVAuth} from './modules/Config.js';
-import commande from './modules/Commande.js';
+import {apiNRVEvent} from './modules/config.js';
+import {apiNRVAuth} from './modules/config.js';
+import commande from './modules/commande.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     commande.recup();

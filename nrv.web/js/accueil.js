@@ -1,4 +1,4 @@
-import {apiNRVEvent} from './modules/Config.js';
+import {apiNRVEvent} from './modules/config.js';
 fetch(`${apiNRVEvent}soirees`)
     .then(response => response.json())
     .then(data => {
