@@ -5,6 +5,10 @@ function isUnique(item, position, array) {
   return array.indexOf(item) === position;
 }
 
+function allerSoiree(idSoiree) {
+    window.location.href = "soiree.html" + "?id=" + idSoiree;
+}
+
 //programmation.html, répéter les soirées:
 // 'https://cors-anywhere.herokuapp.com/
 fetch('http://docketu.iutnc.univ-lorraine.fr:16584/soirees')
@@ -31,10 +35,9 @@ fetch('http://docketu.iutnc.univ-lorraine.fr:16584/soirees')
                   </div>
           </div>
           <div class="soiree-buttons">
-            <button class="soiree-buttons-1" onclick='${soiree.id}'>En savoir +</button>
+            <button class="soiree-buttons-1" onclick='allerSoiree(${data.idSoiree})'>En savoir +</button>
             <button class="soiree-buttons-2">Réserver</button>
           </div>
-
       `
         container.appendChild(sectionSoiree);
         genres.push(soiree.theme);

@@ -1,7 +1,23 @@
 import {apiNRVEvent} from './modules/config.js';
-fetch(`${apiNRVEvent}spectacle`)
+
+const str = window.location;
+const url = new URL(str);
+const id= url.searchParams.get("id");
+
+function retourSoiree(idSoiree) {
+        window.location.href = "soiree.html" + "?id=" + idSoiree;
+}
+
+fetch(`${apiNRVEvent}spectacles/${id}`)
     .then(response => response.json())
     .then(data => {
+        const main = document.getElementById("detail");
+        const boutonRetour = document.createElement("button");
+        boutonRetour.className = "retour-bouton";
+        boutonRetour.innerHTML = "Retourner à la soirée correspondante";
+        boutonRetour.addEventListener("click", () => {
+                retourSoiree(data.idSoiree);
+        });
         const img = document.getElementsByClassName('spec-img');
         img[0].src = data.image;
         const date = document.getElementsByClassName('spec-date');
@@ -15,9 +31,6 @@ fetch(`${apiNRVEvent}spectacle`)
         duree[0].innerHTML = data.horairePrevionnel;
         const description = document.getElementsByClassName('description');
         description[0].innerHTML = data.description;
-
-        //TODO : faire pr les artistes et pr les images et pr la soirée parente
-
 
     })
     .catch(error => {
