@@ -30,6 +30,16 @@ class SoireeService implements ISoiree
         return $soireeDTO;
     }
 
+    public function recupImageLieu(string $id): string
+    {
+        $lieu = Lieu::where('idLieu', $id)->first();
+        if (isset($lieu)) {
+            return $lieu->image;
+        } else {
+            throw new Exception("Lieu non trouvé");
+        }
+    }
+
     /**
      * @throws Exception
      */

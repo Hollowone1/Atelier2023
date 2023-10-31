@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use nrv\event\api\actions\get\AccederBilletAction;
+use nrv\event\api\actions\get\AccederImageSoireeAction;
 use nrv\event\api\actions\get\AccederSoireeAction;
 use nrv\event\api\actions\get\AccederSoireesAction;
 use nrv\event\api\actions\get\AccederSpectacleAction;
@@ -36,5 +37,8 @@ return function (App $app):void {
 
     $app->get('/soirees/{idSoiree}[/]', AccederSoireeAction::class)
         ->setName('soiree');
+
+    $app->get('/soirees/{idSoiree}/image[/]', AccederImageSoireeAction::class)
+        ->setName('soiree_image');
 
 };
