@@ -55,6 +55,26 @@ class SoireeService implements ISoiree
         }
     }
 
+    // faire une fonction pour récupérer le lieu d'une soirée
+
+    /**
+     * @throws Exception
+     */
+    public function recupNomLieuSoiree(string $idSoiree): string
+    {
+        $soiree = Soiree::where('idSoiree', $idSoiree)->first();
+        if (isset($soiree)) {
+            $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+            if (isset($lieu)) {
+                return $lieu->nom;
+            } else {
+                throw new Exception("Lieu non trouvé");
+            }
+        } else {
+            throw new Exception("Soirée non trouvée");
+        }
+    }
+
     /**
      * @throws Exception
      */
