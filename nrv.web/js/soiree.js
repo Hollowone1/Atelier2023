@@ -1,5 +1,14 @@
 import {apiNRVEvent} from './modules/config.js';
-fetch(`${apiNRVEvent}soiree`)
+
+const str = window.location;
+const url = new URL(str);
+const id= url.searchParams.get("id");
+
+function allerSpectacle(idSpectacle) {
+        window.location.href = "soiree.html" + "?id=" + idSpectacle;
+}
+
+fetch(`${apiNRVEvent}soiree/${id}`)
     .then(response => response.json())
     .then(data => {
         const infos = document.getElementsByClassName('element')[0];
@@ -22,6 +31,17 @@ fetch(`${apiNRVEvent}soiree`)
         description.innerHTML = data.description;
         const video = document.getElementsByTagName('iframe')[0];
         video.src = data.urlVideo;
+
+        // en partant du principe que y a les spectacles, ou au moins leur id
+        const spectacles = document.getElementsByClassName('soiree-buttons')[0];
+        data.spectacles.forEach (spectacle => {
+                const boutonSpec = document.createElement('button');
+                boutonSpec.className = 'soiree-buttons-2';
+                boutonSpec.innerHTML = spectacle.titre;
+                boutonSpec.addEventListener('click', () => {
+                        allerSpectacle(spectacle.idSpectacle);
+                })
+        })
 
 
     })
