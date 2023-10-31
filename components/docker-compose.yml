@@ -10,7 +10,7 @@ services:
     image: 'canals/php:latest'
     environment:
       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
-      - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
+#      - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
     env_file: ./nrv.env
     ports:
       - '16584:80'
@@ -76,7 +76,7 @@ services:
     image: 'canals/php:latest'
     environment:
       - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
-      - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
+#      - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
     env_file: ./auth.env
     ports:
       - '23584:80'
