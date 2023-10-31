@@ -4,7 +4,7 @@ fetch(`${apiNRVEvent}soiree`)
     .then(data => {
         const infos = document.getElementsByClassName('element')[0];
         infos.innerHTML = `
-                    <h4>${data.date}</h4>
+                    <h4>${data.date} - ${data.horaire}</h4>
                     <h1>${data.nom}</h1>
                     <h4>${data.lieu}</h4>
                 `;
