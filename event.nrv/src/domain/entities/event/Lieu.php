@@ -25,7 +25,7 @@ class Lieu extends Model
     {
         return $this->belongsToMany(Soiree::class, 'soiree', 'idSoiree');
     }
-
+//
 //    public function imgLieux()
 //    {
 //        return $this->hasMany(ImgLieu::class, 'idImg');

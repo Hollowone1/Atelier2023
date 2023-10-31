@@ -2,6 +2,7 @@
 
 namespace nrv\event\api\domain\service\classes;
 
+use nrv\event\api\domain\entities\event\ImgLieu;
 use nrv\event\api\domain\entities\event\Spectacle;
 use nrv\event\api\domain\service\interfaces\ISoiree;
 use nrv\event\api\domain\entities\event\Soiree;
@@ -30,13 +31,27 @@ class SoireeService implements ISoiree
         return $soireeDTO;
     }
 
-    public function recupImageLieu(string $id): string
+    /**
+     * @throws Exception
+     */
+    public function recupImageLieu(string $idSoiree): string
     {
-        $lieu = Lieu::where('idLieu', $id)->first();
-        if (isset($lieu)) {
-            return $lieu->image;
+        $soiree = Soiree::where('idSoiree', $idSoiree)->first();
+        if (isset($soiree)) {
+            $lieu = Lieu::where('idLieu', $soiree->idLieu)->first();
+            if (isset($lieu)) {
+                $idLieu = $lieu->idLieu;
+                $image = ImgLieu::where('idLieu', $idLieu)->first();
+                if (isset($image)) {
+                    return $image->img;
+                } else {
+                    throw new Exception("Image non trouvée");
+                }
+            } else {
+                throw new Exception("Lieu non trouvé");
+            }
         } else {
-            throw new Exception("Lieu non trouvé");
+            throw new Exception("Soirée non trouvée");
         }
     }
 

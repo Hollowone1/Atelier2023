@@ -16,7 +16,8 @@ class AccederImageSoireeAction extends AbstractAction
     public function __invoke(Request $request, Response $response, $args): Response
     {
         $soireeService = new SoireeService();
-        $soiree = $soireeService->recupImageLieu($args['idSoiree']);
+        $id = $args['idSoiree'];
+        $soiree = $soireeService->recupImageLieu($id);
         $response->getBody()->write(json_encode($soiree));
         return $response;
     }
