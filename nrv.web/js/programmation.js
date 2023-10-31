@@ -6,12 +6,8 @@ function isUnique(item, position, array) {
 }
 
 //programmation.html, répéter les soirées:
-fetch('https://cors-anywhere.herokuapp.com/http://docketu.iutnc.univ-lorraine.fr:16584/soirees', {
-    headers: {
-        'Origin': '*',// Remplacez ceci par l'URL de votre site web
-        'Access-Control-Allow-Origin': '*'
-    }
-})
+// 'https://cors-anywhere.herokuapp.com/
+fetch('http://docketu.iutnc.univ-lorraine.fr:16584/soirees')
     .then(response => response.json())
     .then(data => {
       //récup le conteneur avec la liste des soirées
