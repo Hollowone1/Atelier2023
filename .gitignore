@@ -21,9 +21,9 @@ vendor
 composer.lock
 
 # ignorer les fichiers de configuration et d'authentification de base de données
-event.nrv/config/*.ini
-auth.nrv/config/*.ini
-components/*.env
+/event.nrv/config/*.ini
+/auth.nrv/config/*.ini
+/components/*.env
 
 # Miscellaneous
 *.class
