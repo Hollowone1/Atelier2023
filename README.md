@@ -13,8 +13,8 @@
 ### *Fonctionnalités développées :*
 | Fonctionnalités                                                                                                       | Auteur |     Status      |
 |-----------------------------------------------------------------------------------------------------------------------|:------:|:---------------:|
-| 1. Affichage de la liste des spectacles                                                                               | Agathe |     Terminé     |
-| 2. Affichage du détail d’une soirée                                                                                   |   -    |     Terminé     |
+| 1. Affichage de la liste des spectacles                                                                               | Agathe, Antoine |     Terminé     |
+| 2. Affichage du détail d’une soirée                                                                                   |   -Antoine   |     Terminé     |
 | 3. En cliquant sur un spectacle dans la liste, le détail de la soirée correspondante est affiché                      | Agathe |     Terminé     |
 | 4. Filtrage de la liste des spectacles par date                                                                       | Agathe | Non fonctionnel |
 | 5. Filtrage de la liste des spectacles par style de musique                                                           | Agathe | Non fonctionnel |
