@@ -2,8 +2,9 @@
 
 namespace nrv\auth\api\domain\dto\panier;
 
+use nrv\auth\api\domain\DTO\DTO;
 
-class PanierDTO
+class PanierDTO extends DTO
 {
 
     private string $lieu;

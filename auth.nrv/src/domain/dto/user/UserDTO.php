@@ -2,8 +2,9 @@
 
 namespace nrv\auth\api\domain\dto\user;
 
+use nrv\auth\api\domain\DTO\DTO;
 
-class UserDTO
+class UserDTO extends DTO
 {
 
     private string $prenom;
