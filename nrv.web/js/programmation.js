@@ -40,15 +40,24 @@ fetch('http://docketu.iutnc.univ-lorraine.fr:16584/soirees')
                 </div>
             </div>
             <div class="soiree-buttons">
-                <button class="soiree-buttons-1" onclick='allerSoiree(${soiree.idSoiree})'>En savoir +</button>
+                <button class="soiree-buttons-1">En savoir +</button>
+  
                 <button class="soiree-buttons-2">Réserver</button>
             </div>
         `;
+
+                    let button1 = sectionSoiree.getElementsByClassName('soiree-buttons-1')[0];
+                    button1.addEventListener('click', () => {
+                        allerSoiree(soiree.idSoiree);
+                        console.log(soiree.idSoiree);
+                    });
+
                     container.appendChild(sectionSoiree);
                 })
                 .catch(error => {
                     console.error("Erreur lors de la récupération des données de la soirée:", error);
                 });
+            container.appendChild(sectionSoiree);
             genres.push(soiree.theme);
             lieux.push(soiree.lieu);
         });
