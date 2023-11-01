@@ -4,6 +4,7 @@ declare(strict_types=1);
 use nrv\event\api\actions\get\AccederArtistesSpectacleAction;
 use nrv\event\api\actions\get\AccederBilletAction;
 use nrv\event\api\actions\get\AccederImageSoireeAction;
+use nrv\event\api\actions\get\AccederImagesSpectacleAction;
 use nrv\event\api\actions\get\AccederLieuSoireeAction;
 use nrv\event\api\actions\get\AccederSoireeAction;
 use nrv\event\api\actions\get\AccederSoireesAction;
@@ -55,7 +56,8 @@ return function (App $app):void {
 
     $app->get('/spectacles/{idSpectacle}/artistes', AccederArtistesSpectacleAction::class)
         ->setName('spectacle_artistes');
-//    $app->get('/spectacles/{idSpectacle}/images', AccederImagesSpectacleAction::class)
-//        ->setName('spectacle_images');
+
+    $app->get('/spectacles/{idSpectacle}/images', AccederImagesSpectacleAction::class)
+        ->setName('spectacle_images');
 
 };

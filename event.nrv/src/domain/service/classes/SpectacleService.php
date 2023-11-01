@@ -5,6 +5,7 @@ namespace nrv\event\api\domain\service\classes;
 use Exception;
 use http\Params;
 use nrv\event\api\domain\DTO\event\SpectacleDTO;
+use nrv\event\api\domain\entities\event\ImgSpectacle;
 use nrv\event\api\domain\entities\event\Spectacle;
 use nrv\event\api\domain\service\interfaces\ISpectacle;
 
@@ -85,4 +86,23 @@ class SpectacleService implements ISpectacle
         return $spectacleDTOs;
     }
 
+    /**
+     * @throws Exception
+     */
+    public function recupImagesBySpectacle(string $idSpectacle): array
+    {
+        $spectacle = Spectacle::where('idSpectacle', $idSpectacle)->first();
+        $images = [];
+        if (isset($spectacle)) {
+            $imgs = ImgSpectacle::where('idSpectacle', $spectacle->idSpectacle)->get();
+            // faire un foreach pour récupérer les images
+            foreach ($imgs as $img) {
+                $images[] = $img->img;
+            }
+        }
+        else {
+          throw new Exception('Spectacle introuvable');
+        }
+        return $images;
+    }
 }

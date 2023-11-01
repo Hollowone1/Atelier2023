@@ -2,25 +2,25 @@ import {apiNRVEvent} from './modules/config.js';
 
 const str = window.location.href;
 const url = new URL(str);
-const idSpectacle= url.searchParams.get("idSpectacle");
+const idSpectacle = url.searchParams.get("idSpectacle");
 const idSoiree = url.searchParams.get("idSoiree");
 
 function retourSoiree(idSoiree) {
-        window.location.href = "soiree.html" + "?id=" + idSoiree;
+    window.location.href = "soiree.html" + "?id=" + idSoiree;
 }
 
 fetch(`${apiNRVEvent}soirees/${idSoiree}/spectacles/${idSpectacle}`)
     .then(response => response.json())
     .then(data => {
-            let artistesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/artistes`).then(response => response.json());
-            // let imagesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/images`).then(response => response.json());
+        let artistesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/artistes`).then(response => response.json());
+        let imagesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/images`).then(response => response.json());
 
-            const main = document.getElementById("detail");
+        const main = document.getElementById("detail");
         const boutonRetour = document.createElement("button");
         boutonRetour.className = "retour-bouton";
         boutonRetour.innerHTML = "Retourner à la soirée correspondante";
         boutonRetour.addEventListener("click", () => {
-                retourSoiree(data.idSoiree);
+            retourSoiree(data.idSoiree);
         });
         main.appendChild(boutonRetour);
 
@@ -46,8 +46,10 @@ fetch(`${apiNRVEvent}soirees/${idSoiree}/spectacles/${idSpectacle}`)
         const section = document.createElement("section");
         section.className = "spec-details ";
 
-        Promise.all([artistesFetch])
-            .then(([artistes]) => {
+        let date = data.horairePrevionnel.split(' ');
+        let date2 = date[1];
+        Promise.all([artistesFetch, imagesFetch])
+            .then(([artistes, images]) => {
                 artistes.forEach(artiste => {
                     const artisteItem = document.createElement("div");
                     artisteItem.className = "artistes-item";
@@ -55,27 +57,26 @@ fetch(`${apiNRVEvent}soirees/${idSoiree}/spectacles/${idSpectacle}`)
                     <p class="artiste-nom">${artiste.nom}</p>
                     `;
                     section.querySelector(".artistes").appendChild(artisteItem);
-                })});
+                })
+                images.forEach(image => {
+                    const imageItem = document.createElement("img");
+                    imageItem.className = "imageSpectacle";
+                    imageItem.src = image;
+                    section.querySelector(".images").appendChild(imageItem);
+                })
+            });
 
-        let date = data.horairePrevionnel.split(' ');
-        let date2 = date[1];
+
         section.innerHTML = `
             <h3 class="spec-duree"><strong>Horaire :</strong> ${date2}</h3>
             <p class="description">Description : ${data.description}</p>
             <h3>Artistes : </h3>
             <div class="artistes">
-<!--                &lt;!&ndash; À répéter selon BDD &ndash;&gt;-->
-<!--                <div class="artistes-item">-->
-<!--                    <img src="..." alt="Image de ...">-->
-<!--                    <p class="artiste-nom"> Nom de l'artiste</p>-->
-<!--                </div>-->
             </div>
             <div class="images">
-<!--                &lt;!&ndash; À répéter selon BDD &ndash;&gt;-->
-<!--                <img src="..." alt="...">-->
             </div>
         `;
-            main.appendChild(section);
+        main.appendChild(section);
 
     })
     .catch(error => {

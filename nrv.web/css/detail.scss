@@ -15,7 +15,13 @@ body {
     background-repeat: no-repeat;
 }
 
-
+.imageSpectacle {
+    width: 50%;
+    height: 50%;
+    //justify-content: center;
+    display: flex;
+    margin-top: 2em;
+}
 
 .container {
     display: flex;
