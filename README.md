@@ -13,8 +13,8 @@
 ### *Fonctionnalités développées :*
 | Fonctionnalités                                                                                                       | Auteur |     Status      |
 |-----------------------------------------------------------------------------------------------------------------------|:------:|:---------------:|
-| 1. Affichage de la liste des spectacles                                                                               | Agathe Antoine |     Terminé     |
-| 2. Affichage du détail d’une soirée                                                                                   |   Antoine   |     Terminé     |
+| 1. Affichage de la liste des spectacles                                                                               | Agathe |     Terminé     |
+| 2. Affichage du détail d’une soirée                                                                                   |   -    |     Terminé     |
 | 3. En cliquant sur un spectacle dans la liste, le détail de la soirée correspondante est affiché                      | Agathe |     Terminé     |
 | 4. Filtrage de la liste des spectacles par date                                                                       | Agathe | Non fonctionnel |
 | 5. Filtrage de la liste des spectacles par style de musique                                                           | Agathe | Non fonctionnel |
@@ -29,15 +29,15 @@
 | 14. Affichage de la jauge des spectacles : nombre de places vendues pour chaque soirée                                |   -    |    Non fait     |
 
 ### *Fonctionnalités étendues :*
-| Fonctionnalités                                                        | Auteur | Status |
-|------------------------------------------------------------------------|:------:|:------:|
-| 1. Pagination de la liste de spectacles                                |   -    |   -    |
-| 2. Modification du panier : nombre de billets                          |   -    |   -    |
-| 3. Backoffice : ajouter des spectacles et des soirées                  |   -    |   -    |
-| 4. Backoffice : gérer les lieux et le nombre de places sur chaque lieu |   -    |   -    |
-| 5. Backoffice : vente de billets à l’entrée des soirées                |   -    |   -    |
-| 6. Panier persistant                                                   |   -    |   -    |
-| 7. Vérification des places disponibles dans un panier avant paiement   |   -    |   -    |
+| Fonctionnalités                                                        | Auteur |     Status      |
+|------------------------------------------------------------------------|:------:|:---------------:|
+| 1. Pagination de la liste de spectacles                                |   -    |    Non fait     |
+| 2. Modification du panier : nombre de billets                          |   -    |    Non fait     |
+| 3. Backoffice : ajouter des spectacles et des soirées                  | Jules  | Non fonctionnel |
+| 4. Backoffice : gérer les lieux et le nombre de places sur chaque lieu |   -    |    Non fait     |
+| 5. Backoffice : vente de billets à l’entrée des soirées                |   -    |    Non fait     |
+| 6. Panier persistant                                                   |   -    |    Non fait     |
+| 7. Vérification des places disponibles dans un panier avant paiement   |   -    |    Non fait     |
 
 Liens Docketu : https://docketu.iutnc.univ-lorraine.fr:16584
 Liens Webetu : https://webetu.iutnc.univ-lorraine.fr/www/rionde8u/nrv.web/html/accueil.html
