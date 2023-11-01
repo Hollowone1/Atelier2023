@@ -73,6 +73,7 @@ fetch(`${apiNRVEvent}soirees/${idSoiree}/spectacles/${idSpectacle}`)
             <h3>Artistes : </h3>
             <div class="artistes">
             </div>
+            <h3>Images du spectacle : </h3>
             <div class="images">
             </div>
         `;
