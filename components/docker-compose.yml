@@ -9,8 +9,8 @@ services:
   api.nrv:
     image: 'canals/php:latest'
     environment:
-      - http_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
-#      - https_proxy=http://www-cache.iutnc.univ-lorraine.fr:3128
+      - http_proxy=https://www-cache.iutnc.univ-lorraine.fr:3128
+      - https_proxy=https://www-cache.iutnc.univ-lorraine.fr:3128
     env_file: ./nrv.env
     ports:
       - '16584:80'

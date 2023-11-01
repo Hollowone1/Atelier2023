@@ -10,10 +10,13 @@ function retourSoiree(idSoiree) {
 }
 
 fetch(`${apiNRVEvent}/soirees/${idSoiree}/spectacles/${idSpectacle}`)
-    .then(response => response.json())
+    .then(response => {
+        if (response.ok) return response.json();})
     .then(data => {
-        let artistesFetch = fetch(`${apiNRVEvent}/spectacles/${idSpectacle}/artistes`).then(response => response.json());
-        let imagesFetch = fetch(`${apiNRVEvent}/spectacles/${idSpectacle}/images`).then(response => response.json());
+        let artistesFetch = fetch(`${apiNRVEvent}/spectacles/${idSpectacle}/artistes`).then(response => {
+            if (response.ok) return response.json();});
+        let imagesFetch = fetch(`${apiNRVEvent}/spectacles/${idSpectacle}/images`).then(response => {
+            if (response.ok) return response.json();});
 
         const main = document.getElementById("detail");
         const boutonRetour = document.createElement("button");

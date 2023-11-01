@@ -12,8 +12,14 @@ function allerSoiree(idSoiree) {
 
 //programmation.html, répéter les soirées:
 // 'https://cors-anywhere.herokuapp.com/
-fetch(`${apiNRVEvent}/soirees`)
-    .then(response => response.json())
+fetch(`${apiNRVEvent}/soirees`), {
+    referrerPolicy: "unsafe_url",
+    headers: {
+        "Content-Security-Policy": "upgrade-insecure-requests"
+    }
+}
+    .then(response => {
+        if (response.ok) return response.json();})
     .then(data => {
         //récup le conteneur avec la liste des soirées
         const container = document.getElementById('list');
@@ -25,8 +31,10 @@ fetch(`${apiNRVEvent}/soirees`)
             const sectionSoiree = document.createElement('section');
             sectionSoiree.classList.add('soiree', soiree.theme, soiree.lieu);
 
-            let lieuFetch = fetch(`${apiNRVEvent}/soirees/${soiree.idSoiree}/lieu`).then(response => response.json());
-            let imgFetch = fetch(`${apiNRVEvent}/soirees/${soiree.idSoiree}/image`).then(response => response.json());
+            let lieuFetch = fetch(`${apiNRVEvent}/soirees/${soiree.idSoiree}/lieu`).then(response => {
+                if (response.ok) return response.json();});
+            let imgFetch = fetch(`${apiNRVEvent}/soirees/${soiree.idSoiree}/image`).then(response => {
+                if (response.ok) return response.json();});
 
             Promise.all([lieuFetch, imgFetch])
                 .then(([lieu, imageUrl]) => {

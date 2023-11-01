@@ -9,11 +9,15 @@ function allerSpectacle(idSpectacle, idSoiree) {
 }
 
 fetch(`${apiNRVEvent}/soirees/${id}`)
-    .then(response => response.json())
+    .then(response => {
+        if (response.ok) return response.json();})
     .then(data => {
-        let lieuFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/lieu`).then(response => response.json());
-        let imgFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/image`).then(response => response.json());
-        let spectaclesFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/spectacles`).then(response => response.json());
+        let lieuFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/lieu`).then(response => {
+            if (response.ok) return response.json();});
+        let imgFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/image`).then(response => {
+            if (response.ok) return response.json();});
+        let spectaclesFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/spectacles`).then(response => {
+            if (response.ok) return response.json();});
         let idSoiree = data.idSoiree;
 
         Promise.all([lieuFetch, imgFetch, spectaclesFetch])
