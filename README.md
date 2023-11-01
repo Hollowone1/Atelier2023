@@ -13,12 +13,12 @@
 ### *Fonctionnalités développées :*
 | Fonctionnalités                                                                                                       | Auteur |     Status      |
 |-----------------------------------------------------------------------------------------------------------------------|:------:|:---------------:|
-| 1. Affichage de la liste des spectacles                                                                               |   -    |     Terminé     |
+| 1. Affichage de la liste des spectacles                                                                               | Agathe |     Terminé     |
 | 2. Affichage du détail d’une soirée                                                                                   |   -    |     Terminé     |
-| 3. En cliquant sur un spectacle dans la liste, le détail de la soirée correspondante est affiché                      |   -    |     Terminé     |
-| 4. Filtrage de la liste des spectacles par date                                                                       |   -    | Non fonctionnel |
-| 5. Filtrage de la liste des spectacles par style de musique                                                           |   -    | Non fonctionnel |
-| 6. Filtrage de la liste des spectacles par style de musique et par date                                               |   -    | Non fonctionnel |
+| 3. En cliquant sur un spectacle dans la liste, le détail de la soirée correspondante est affiché                      | Agathe |     Terminé     |
+| 4. Filtrage de la liste des spectacles par date                                                                       | Agathe | Non fonctionnel |
+| 5. Filtrage de la liste des spectacles par style de musique                                                           | Agathe | Non fonctionnel |
+| 6. Filtrage de la liste des spectacles par style de musique et par date                                               | Agathe | Non fonctionnel |
 | 7. Inscription sur la plateforme et création d’un compte utilisateur                                                  |   -    |    Non fait     |
 | 8. Accès aux billets achetés (« mes billets »)                                                                        |   -    |    Non fait     |
 | 9. Lors de la visualisation d’une soirée, possibilité d’ajouter des billets d’entrée pour cette soirée dans un panier |   -    |    Non fait     |
