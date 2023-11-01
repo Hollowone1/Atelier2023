@@ -12,7 +12,10 @@ function retourSoiree(idSoiree) {
 fetch(`${apiNRVEvent}soirees/${idSoiree}/spectacles/${idSpectacle}`)
     .then(response => response.json())
     .then(data => {
-        const main = document.getElementById("detail");
+            let artistesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/artistes`).then(response => response.json());
+            // let imagesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/images`).then(response => response.json());
+
+            const main = document.getElementById("detail");
         const boutonRetour = document.createElement("button");
         boutonRetour.className = "retour-bouton";
         boutonRetour.innerHTML = "Retourner à la soirée correspondante";
@@ -42,11 +45,24 @@ fetch(`${apiNRVEvent}soirees/${idSoiree}/spectacles/${idSpectacle}`)
 
         const section = document.createElement("section");
         section.className = "spec-details ";
+
+        Promise.all([artistesFetch])
+            .then(([artistes]) => {
+                artistes.forEach(artiste => {
+                    const artisteItem = document.createElement("div");
+                    artisteItem.className = "artistes-item";
+                    artisteItem.innerHTML = `
+                    <p class="artiste-nom">${artiste.nom}</p>
+                    `;
+                    section.querySelector(".artistes").appendChild(artisteItem);
+                })});
+
         let date = data.horairePrevionnel.split(' ');
         let date2 = date[1];
         section.innerHTML = `
             <h3 class="spec-duree"><strong>Horaire :</strong> ${date2}</h3>
             <p class="description">Description : ${data.description}</p>
+            <h3>Artistes : </h3>
             <div class="artistes">
 <!--                &lt;!&ndash; À répéter selon BDD &ndash;&gt;-->
 <!--                <div class="artistes-item">-->
