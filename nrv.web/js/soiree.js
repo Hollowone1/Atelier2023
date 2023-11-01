@@ -13,9 +13,10 @@ fetch(`${apiNRVEvent}soirees/${id}`)
     .then(data => {
         let lieuFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${data.idSoiree}/lieu`).then(response => response.json());
         let imgFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${data.idSoiree}/image`).then(response => response.json());
+        let spectaclesFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${data.idSoiree}/spectacles`).then(response => response.json());
 
-        Promise.all([lieuFetch, imgFetch])
-            .then(([lieu, imageUrl]) => {
+        Promise.all([lieuFetch, imgFetch, spectaclesFetch])
+            .then(([lieu, imageUrl, spectaclesData]) => {
                 const infos = document.getElementsByClassName('element')[0];
                 infos.innerHTML = `
                                     <h4>Date : ${data.date}</h4>
@@ -38,21 +39,21 @@ fetch(`${apiNRVEvent}soirees/${id}`)
                 normal.innerHTML = `
                                     <h3>Tarif réduit : ${tarifReduit}</h3>
                                     `;
+                const description = document.getElementsByClassName('description')[0];
+                description.innerHTML = 'Cette soirée a pour theme : ' + data.theme;
 
-            });
-        const description = document.getElementsByClassName('description')[0];
-        description.innerHTML = 'Cette soirée a pour theme : ' + data.theme;
-
-        // en partant du principe que y a les spectacles, ou au moins leur id
-        // const spectacles = document.getElementsByClassName('soiree-buttons')[0];
-        // data.spectacles.forEach (spectacle => {
-        //         const boutonSpec = document.createElement('button');
-        //         boutonSpec.className = 'soiree-buttons-2';
-        //         boutonSpec.innerHTML = spectacle.titre;
-        //         boutonSpec.addEventListener('click', () => {
-        //                 allerSpectacle(spectacle.idSpectacle);
-        //         })
-        //         spectacles.appendChild(boutonSpec);
+                // en partant du principe que y a les spectacles, ou au moins leur id
+                const spectacles = document.getElementsByClassName('soiree-buttons')[0];
+                spectaclesData.forEach(spectacle => {
+                    const boutonSpec = document.createElement('button');
+                    boutonSpec.className = 'soiree-buttons-2';
+                    boutonSpec.innerHTML = spectacle.titre;
+                    boutonSpec.addEventListener('click', () => {
+                        allerSpectacle(spectacle.idSpectacle);
+                    })
+                    spectacles.appendChild(boutonSpec);
+                });
+            })
 
 
 

@@ -3,6 +3,7 @@
 namespace nrv\event\api\domain\service\classes;
 
 use Exception;
+use http\Params;
 use nrv\event\api\domain\DTO\event\SpectacleDTO;
 use nrv\event\api\domain\entities\event\Spectacle;
 use nrv\event\api\domain\service\interfaces\ISpectacle;
@@ -61,6 +62,25 @@ class SpectacleService implements ISpectacle
             //$spectacle->idImg = $spectacleEntity->idImg;
             $spectacleDTOs[] = $spectacle->toDTO();
 
+        }
+        return $spectacleDTOs;
+    }
+
+    // créer une fonction qui permet de récupérer tous les spectacles d'une soirée
+    public function recupSpectaclesBySoiree(string $idSoiree) : array {
+        // $spectacles = Spectacle::whereIn('idSoiree', $idSoiree)->get();
+
+        $spectaclesEntities = Spectacle::where('idSoiree', $idSoiree)->get();
+        $spectacleDTOs = [];
+        foreach ($spectaclesEntities as $spectacleEntity) {
+            $spectacle = new Spectacle();
+            $spectacle->idSpectacle = $spectacleEntity->idSpectacle;
+            $spectacle->titre = $spectacleEntity->titre;
+            $spectacle->description = $spectacleEntity->description;
+            $spectacle->urlVideo = $spectacleEntity->urlVideo;
+            $spectacle->horairePrevionnel = $spectacleEntity->horairePrevionnel;
+            $spectacle->idSoiree = $spectacleEntity->idSoiree;
+            $spectacleDTOs[] = $spectacle->toDTO();
         }
         return $spectacleDTOs;
     }

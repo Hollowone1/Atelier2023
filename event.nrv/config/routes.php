@@ -8,6 +8,7 @@ use nrv\event\api\actions\get\AccederSoireeAction;
 use nrv\event\api\actions\get\AccederSoireesAction;
 use nrv\event\api\actions\get\AccederSpectacleAction;
 use nrv\event\api\actions\get\AccederSpectaclesAction;
+use nrv\event\api\actions\get\AccederSpectaclesSoireeAction;
 use nrv\event\api\actions\get\HomeAction;
 use nrv\event\api\actions\post\CreerSpectacleAction;
 
@@ -42,10 +43,9 @@ return function (App $app):void {
     $app->get('/soirees/{idSoiree}/image[/]', AccederImageSoireeAction::class)
         ->setName('soiree_image');
 
-    $app->get('/soirees/{idSoiree}/spectacles[/]', AccederSpectaclesAction::class)
-        ->setName('soiree_spectacles');
-
     $app->get('/soirees/{idSoiree}/lieu[/]', AccederLieuSoireeAction::class)
         ->setName('soiree_lieu');
 
+    $app->get('/soirees/{idSoiree}/spectacles[/]', AccederSpectaclesSoireeAction::class)
+        ->setName('soiree_spectacles');
 };
