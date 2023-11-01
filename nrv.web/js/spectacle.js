@@ -9,11 +9,11 @@ function retourSoiree(idSoiree) {
     window.location.href = "soiree.html" + "?id=" + idSoiree;
 }
 
-fetch(`${apiNRVEvent}soirees/${idSoiree}/spectacles/${idSpectacle}`)
+fetch(`${apiNRVEvent}/soirees/${idSoiree}/spectacles/${idSpectacle}`)
     .then(response => response.json())
     .then(data => {
-        let artistesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/artistes`).then(response => response.json());
-        let imagesFetch = fetch(`${apiNRVEvent}spectacles/${idSpectacle}/images`).then(response => response.json());
+        let artistesFetch = fetch(`${apiNRVEvent}/spectacles/${idSpectacle}/artistes`).then(response => response.json());
+        let imagesFetch = fetch(`${apiNRVEvent}/spectacles/${idSpectacle}/images`).then(response => response.json());
 
         const main = document.getElementById("detail");
         const boutonRetour = document.createElement("button");

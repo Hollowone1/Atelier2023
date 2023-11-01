@@ -12,7 +12,7 @@ function allerSoiree(idSoiree) {
 
 //programmation.html, répéter les soirées:
 // 'https://cors-anywhere.herokuapp.com/
-fetch('http://docketu.iutnc.univ-lorraine.fr:16584/soirees')
+fetch(`${apiNRVEvent}/soirees`)
     .then(response => response.json())
     .then(data => {
         //récup le conteneur avec la liste des soirées
@@ -25,8 +25,8 @@ fetch('http://docketu.iutnc.univ-lorraine.fr:16584/soirees')
             const sectionSoiree = document.createElement('section');
             sectionSoiree.classList.add('soiree', soiree.theme, soiree.lieu);
 
-            let lieuFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${soiree.idSoiree}/lieu`).then(response => response.json());
-            let imgFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${soiree.idSoiree}/image`).then(response => response.json());
+            let lieuFetch = fetch(`${apiNRVEvent}/soirees/${soiree.idSoiree}/lieu`).then(response => response.json());
+            let imgFetch = fetch(`${apiNRVEvent}/soirees/${soiree.idSoiree}/image`).then(response => response.json());
 
             Promise.all([lieuFetch, imgFetch])
                 .then(([lieu, imageUrl]) => {

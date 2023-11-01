@@ -8,12 +8,12 @@ function allerSpectacle(idSpectacle, idSoiree) {
     window.location.href = "spectacle.html" + "?idSpectacle=" + idSpectacle + "&idSoiree=" + idSoiree;
 }
 
-fetch(`${apiNRVEvent}soirees/${id}`)
+fetch(`${apiNRVEvent}/soirees/${id}`)
     .then(response => response.json())
     .then(data => {
-        let lieuFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${data.idSoiree}/lieu`).then(response => response.json());
-        let imgFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${data.idSoiree}/image`).then(response => response.json());
-        let spectaclesFetch = fetch(`http://docketu.iutnc.univ-lorraine.fr:16584/soirees/${data.idSoiree}/spectacles`).then(response => response.json());
+        let lieuFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/lieu`).then(response => response.json());
+        let imgFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/image`).then(response => response.json());
+        let spectaclesFetch = fetch(`${apiNRVEvent}/soirees/${data.idSoiree}/spectacles`).then(response => response.json());
         let idSoiree = data.idSoiree;
 
         Promise.all([lieuFetch, imgFetch, spectaclesFetch])
