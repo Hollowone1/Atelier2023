@@ -1,9 +1,9 @@
 <?php
 
-namespace nrv\event\api\domain\DTO\event;
+namespace nrv\event\api\domain\entities\event;
 
 use Illuminate\Database\Eloquent\Model;
-use nrv\event\api\domain\dto\event\ArtisteDTO;
+use nrv\event\api\domain\DTO\event\ArtisteDTO;
 use nrv\event\api\domain\entities\event\Spectacle;
 
 class Artiste extends Model
@@ -17,7 +17,7 @@ class Artiste extends Model
     protected $fillable = [
         'idArtiste',
         'nom',
-        'idImg'
+        'idSpectacle'
     ];
 
     public function spectacles()
@@ -30,7 +30,7 @@ class Artiste extends Model
         return new ArtisteDTO(
             $this->idArtiste,
             $this->nom,
-            $this->idImg
+            $this->idSpectacle
         );
     }
 }

@@ -63,26 +63,6 @@ fetch('http://docketu.iutnc.univ-lorraine.fr:16584/soirees')
         });
 
 
-            //   sectionSoiree.innerHTML = `
-        //     <div class="soiree-container">
-        //         <img class="soiree-image" src="${imgUrl}" alt="image de la soirée">
-        //             <div class="soiree-infos">
-        //               <p class="soiree-infos-date">${soiree.date}</p>
-        //               <h2 class="soiree-infos-titre">${soiree.nom}</h2>
-        //               <p class="soiree-infos-lieu">${soiree.lieu}</p>
-        //             </div>
-        //     </div>
-        //     <div class="soiree-buttons">
-        //       <button class="soiree-buttons-1" onclick='${soiree.id}'>En savoir +</button>
-        //       <button class="soiree-buttons-2">Réserver</button>
-        //     </div>
-        //
-        // `
-        //   container.appendChild(sectionSoiree);
-        //   genres.push(soiree.theme);
-        //   lieux.push(soiree.lieu);
-        // });
-
         //récup les genres et lieux uniques
         genres.filter(isUnique);
         lieux.filter(isUnique);
